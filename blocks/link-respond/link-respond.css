@@ -1,0 +1,7 @@
+.link-respond {
+  transition: opacity 0.5s ease-out;
+}
+
+.link-respond:hover {
+  opacity: .7;
+}
