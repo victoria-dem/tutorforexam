@@ -26,11 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0bb8174-5e97-4aa6-890b-2e6f7955c3cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/script/analogies.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/math.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.nojekyll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +65,8 @@
       <updated>1600272877069</updated>
       <workItem from="1600272878155" duration="233000" />
       <workItem from="1600273580800" duration="8663000" />
-      <workItem from="1600303978568" duration="7494000" />
+      <workItem from="1600303978568" duration="8366000" />
+      <workItem from="1600352765102" duration="173000" />
     </task>
     <servers />
   </component>
