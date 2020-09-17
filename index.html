@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Everything you need to practice SSAT and ISEE effectively">
   <meta name="keywords" content="SSAT, ISEE, test, preparation, prep, math, analogy">
-  <link rel="stylesheet" href="./pages/main.css">
+  <link rel="stylesheet" type="text/css" href="./pages/main.css">
   <title>SSAT and ISEE Test Preparation | tutor4exam</title>
 </head>
 
@@ -25,17 +25,37 @@
     <div class="header__square-pic rotation"></div>
   </header>
   <main class="content">
-    <section class="quizes"></section>
-<!--    TO DO разработать блок >-->
-<!--  Block description  -->
+    <section class="quizes">
+      <button class="start-quiz">Analogies</button>
+      <button class="start-quiz">Math</button>
+
+      <form class="answers">
+        <p class="question"></p>
+        <input type="radio" class="answer" id="a" name="answer" value="">
+        <label for="a"></label>
+        <input type="radio" class="answer" id="b" name="answer" value="">
+        <label for="b"></label>
+        <input type="radio" class="answer" id="c" name="answer" value="">
+        <label for="c"></label>
+        <input type="radio" class="answer" id="d" name="answer" value="">
+        <label for="d"></label>
+        <input type="radio" class="answer" id="e" name="answer" value="">
+        <label for="e"></label>
+        <input type="submit" class="submit-answer" value="Submit">
+      </form>
+
+    </section>
+    <!--    TO DO разработать блок >-->
+    <!--  Block description  -->
     <section class="description">
       <div class="two-columns">
         <h2 class="two-columns__brief">Let us help you</h2>
         <div class="two-columns__main-text">
           <p class="two-columns__paragraph">
-<!--            TO DO  придумать как лучше сделать форматирование текста, чтобы не использовать <br> -->
+            <!--            TO DO  придумать как лучше сделать форматирование текста, чтобы не использовать <br> -->
             The SSAT &ISEE online course has been designed and launched for those who want to:
-            - generate proper not only math but also test taking skills to be able to handle real problems commonly found in real tests with ease;
+            - generate proper not only math but also test taking skills to be able to handle real problems commonly
+            found in real tests with ease;
             - be taught how to eliminate the wrong answers and how to find the right ones fast;
             - develop the strategy of how to save time on the exam and get the better options faster and more precisely;
             - to enjoy flexibility of their own study schedule;
@@ -43,7 +63,8 @@
             - revise and organize their basic math knowledge;
           </p>
           <p class="two-columns__paragraph">
-            <span class="two-columns__span-accent">Important:</span> A key component of your private school applications is your score.</p>
+            <span class="two-columns__span-accent">Important:</span> A key component of your private school applications
+            is your score.</p>
           <p class="two-columns__paragraph">Prep online with us, you get a higher score in SSAT & ISEE tests.</p>
         </div>
       </div>
@@ -57,7 +78,8 @@
           <img class="cards__image" src="./images/cards-attention.png"
                alt="Обложка книги '101 эссе, которые  изменят способ вашего мышления'">
           <p class="cards__title">Math and Analogies</p>
-          <p class="cards__description">More then 500 SSAT & ISEE test questions and problems with tutorials based on 10 levels of difficulty</p>
+          <p class="cards__description">More then 500 SSAT & ISEE test questions and problems with tutorials based on 10
+            levels of difficulty</p>
         </div>
         <div class="cards__item">
           <img class="cards__image" src="./images/cards-recall.png" alt="Скульптура думающего мальчика">
@@ -70,31 +92,31 @@
           <p class="cards__description">More then 100 clues to guide you to a better way in solving a problem</p>
         </div>
 
-<!--        временно закоментировал остальные карточки - нет материала чтобы добавлять-->
-<!--        <div class="cards__item">-->
-<!--          <img class="cards__image" src="./images/cards-question.png" alt="Человек в пустой комнате">-->
-<!--          <p class="cards__title">Вопросы</p>-->
-<!--          <p class="cards__description">Слушая преподавателя, придумывайте хороший вопрос, который вас действительно-->
-<!--            волнует.-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="cards__item">-->
-<!--          <img class="cards__image" src="./images/cards-competence.png" alt="Стопка книг на руке">-->
-<!--          <p class="cards__title">Иллюзия компетентности</p>-->
-<!--          <p class="cards__description">Повторите про себя, запишите, расскажите другу: вам только кажется, что вы-->
-<!--            владеете новой темой.</p>-->
-        </div>
-<!--      </div>-->
+        <!--        временно закоментировал остальные карточки - нет материала чтобы добавлять-->
+        <!--        <div class="cards__item">-->
+        <!--          <img class="cards__image" src="./images/cards-question.png" alt="Человек в пустой комнате">-->
+        <!--          <p class="cards__title">Вопросы</p>-->
+        <!--          <p class="cards__description">Слушая преподавателя, придумывайте хороший вопрос, который вас действительно-->
+        <!--            волнует.-->
+        <!--          </p>-->
+        <!--        </div>-->
+        <!--        <div class="cards__item">-->
+        <!--          <img class="cards__image" src="./images/cards-competence.png" alt="Стопка книг на руке">-->
+        <!--          <p class="cards__title">Иллюзия компетентности</p>-->
+        <!--          <p class="cards__description">Повторите про себя, запишите, расскажите другу: вам только кажется, что вы-->
+        <!--            владеете новой темой.</p>-->
+      </div>
+      <!--      </div>-->
     </section>
     <!--                Block video -->
-<!--    TODO надо проверить грамотность-->
+    <!--    TODO надо проверить грамотность-->
     <section class="video">
       <h3 class="section-title">Video that we like</h3>
       <p class="section-subtitle">Taking tests is cool. Don't wait a minute - start preparation.</p>
       <div class="video__iframes">
-        <iframe  class="video__iframe" src="https://www.youtube.com/embed/zXiL2ql0bSs"
-                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                 allowfullscreen></iframe>
+        <iframe class="video__iframe" src="https://www.youtube.com/embed/zXiL2ql0bSs"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         <iframe class="video__iframe" src="https://www.youtube.com/embed/arj7oStGLkU"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -126,7 +148,7 @@
     <section class="feynman">
       <h3 class="feynman__title">Good luck</h3>
       <p class="feynman__subtitle">Have a nice trip to the world of knowledge</p>
-<!--      <a class="feynman__link link-respond" href="#">Подробнее &rarr;</a>-->
+      <!--      <a class="feynman__link link-respond" href="#">Подробнее &rarr;</a>-->
     </section>
     <!--                Block digits                -->
     <section class="digits">
@@ -140,7 +162,7 @@
         <li class="table__cell">
           <p class="table__heading">1 Flex test per year</p>
           <p class="table__text">You may only take one Flex test in a testing year.</p>
-<!--          <p class="table__text"><a href="ssat.org">SSAT</a></p>-->
+          <!--          <p class="table__text"><a href="ssat.org">SSAT</a></p>-->
         </li>
         <li class="table__cell">
           <p class="table__heading">3 levels</p>
@@ -154,11 +176,12 @@
         <li class="table__cell">
           <p class="table__heading">2 hours, 5minutes</p>
           <p class="table__text">This is how long the SSAT Elementary Level test takes</p>
-<!--          <p class="table__text">Всемирный Банк, 2017</p>-->
+          <!--          <p class="table__text">Всемирный Банк, 2017</p>-->
         </li>
         <li class="table__cell">
           <p class="table__heading">3 attempts</p>
-          <p class="table__text">Students may register to take the ISEE one time in any or all of three testing seasons. </p>
+          <p class="table__text">Students may register to take the ISEE one time in any or all of three testing
+            seasons. </p>
         </li>
         <li class="table__cell">
           <p class="table__heading">2 hours, 40 minutes</p>
@@ -171,22 +194,22 @@
       </ul>
     </section>
     <!--           Block Khan    -->
-<!--    <section class="khan">-->
-<!--      <div class="khan__container">-->
-<!--        <p class="khan__author">Салман Хан</p>-->
-<!--        <h2 class="khan__title">Весь мир — школа</h2>-->
-<!--        <p class="khan__quote">Страсть и новаторство Сала Хана меняют процесс обучения миллионов студентов по всему-->
-<!--          миру. Книгу «Весь мир — школа» нужно прочитать всем, кто занимается образованием — так учащиеся повсюду-->
-<!--          смогут получить навыки и знания, которые приносят успех в школе, карьере и жизни.</p>-->
-<!--        <p class="khan__quote-author">Джордж Лукас</p>-->
-<!--        <p class="khan__quote-author-subline">Кинорежиссер, продюсер</p>-->
-<!--        <div class="khan__book-container">-->
-<!--          <img class="khan__book-pic" src="./images/khan-book.jpg" alt="Обложка книги 'Весь мир - школа'">-->
-<!--          <a class="khan__buy-link link-respond" href="https://www.ozon.ru/context/detail/id/31700837/">Купить книгу-->
-<!--            &rarr;</a>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </section>-->
+    <!--    <section class="khan">-->
+    <!--      <div class="khan__container">-->
+    <!--        <p class="khan__author">Салман Хан</p>-->
+    <!--        <h2 class="khan__title">Весь мир — школа</h2>-->
+    <!--        <p class="khan__quote">Страсть и новаторство Сала Хана меняют процесс обучения миллионов студентов по всему-->
+    <!--          миру. Книгу «Весь мир — школа» нужно прочитать всем, кто занимается образованием — так учащиеся повсюду-->
+    <!--          смогут получить навыки и знания, которые приносят успех в школе, карьере и жизни.</p>-->
+    <!--        <p class="khan__quote-author">Джордж Лукас</p>-->
+    <!--        <p class="khan__quote-author-subline">Кинорежиссер, продюсер</p>-->
+    <!--        <div class="khan__book-container">-->
+    <!--          <img class="khan__book-pic" src="./images/khan-book.jpg" alt="Обложка книги 'Весь мир - школа'">-->
+    <!--          <a class="khan__buy-link link-respond" href="https://www.ozon.ru/context/detail/id/31700837/">Купить книгу-->
+    <!--            &rarr;</a>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </section>-->
     <!--          Block Kaufman  -->
     <section class="kaufman">
       <h2 class="section-title section-title_theme_dark">Be engaged</h2>
@@ -210,7 +233,8 @@
         </li>
         <li class="table__cell table__cell_theme_dark">
           <p class="table__heading table__heading_theme_dark">4</p>
-          <p class="table__text table__text_theme_dark">Find out what makes you happy.Then do that. As much as you want or can.</p>
+          <p class="table__text table__text_theme_dark">Find out what makes you happy.Then do that. As much as you want
+            or can.</p>
         </li>
         <li class="table__cell table__cell_theme_dark">
           <p class="table__heading table__heading_theme_dark">5</p>
@@ -232,8 +256,10 @@
         </li>
         <li class="table__cell table__cell_theme_dark">
           <p class="table__heading table__heading_theme_dark">8</p>
-          <p class="table__text table__text_theme_dark">Compare yourself with yourself. Not with others. Comparing what you have and your results
-            to what other people have and have accomplished can really kill your motivation as it ups your self-doubts.</p>
+          <p class="table__text table__text_theme_dark">Compare yourself with yourself. Not with others. Comparing what
+            you have and your results
+            to what other people have and have accomplished can really kill your motivation as it ups your
+            self-doubts.</p>
         </li>
         <li class="table__cell table__cell_theme_dark">
           <p class="table__heading table__heading_theme_dark">9</p>
@@ -254,21 +280,28 @@
       <h4 class="section-title">Useful links</h4>
       <p class="section-subtitle">Official resources and wiki information</p>
       <div class="resources__logo-zone">
-        <a class="link-respond" href="https://www.erblearn.org/parents/isee-overview" target="_blank"><img class="resources__logo"
-                                                                                     src="./images/logo/resources-arzamas.svg"
-                                                                                     alt="ISEE"></a>
+        <a class="link-respond" href="https://www.erblearn.org/parents/isee-overview" target="_blank"><img
+            class="resources__logo"
+            src="./images/logo/resources-arzamas.svg"
+            alt="ISEE"></a>
         <a class="link-respond" href="https://www.ssat.org/" target="_blank"><img class="resources__logo"
-                                                                               src="./images/logo/resources-n1.svg"
-                                                                               alt="SSAT"></a>
-        <a class="link-respond" href="https://en.wikipedia.org/wiki/Secondary_School_Admission_Test" target="_blank"><img class="resources__logo"
-                                                                                 src="./images/logo/resources-strelka.svg"
-                                                                                 alt="SSAT WIKI"></a>
-        <a class="link-respond" href="https://en.wikipedia.org/wiki/Independent_School_Entrance_Examination" target="_blank"><img class="resources__logo"
-                                                                                   src="./images/logo/resources-polka.svg"
-                                                                                   alt="ISEE wiki"></a>
+                                                                                  src="./images/logo/resources-n1.svg"
+                                                                                  alt="SSAT"></a>
+        <a class="link-respond" href="https://en.wikipedia.org/wiki/Secondary_School_Admission_Test"
+           target="_blank"><img class="resources__logo"
+                                src="./images/logo/resources-strelka.svg"
+                                alt="SSAT WIKI"></a>
+        <a class="link-respond" href="https://en.wikipedia.org/wiki/Independent_School_Entrance_Examination"
+           target="_blank"><img class="resources__logo"
+                                src="./images/logo/resources-polka.svg"
+                                alt="ISEE wiki"></a>
       </div>
     </section>
+
+
   </main>
+
+
   <!--            Footer section           -->
   <footer class="footer">
     <div class="footer__columns">
@@ -298,13 +331,12 @@
                                                                                      src="./images/facebook_color_white.svg"
                                                                                      alt="Иконка Фейсбук">Facebook</a>
             </li>
-            <li class="footer__column-item"><a class="footer__column-link link-respond" href="https://vk.com/"><img
-                class="footer__social-icon" src="./images/vk_color_white.svg" alt="Иконка ВКонтакте">ВКонтакте</a>
+            <li class="footer__column-item"><a class="footer__column-link link-respond" href="https://vk.com/">
+              <img class="footer__social-icon" src="./images/vk_color_white.svg" alt="Иконка ВКонтакте">ВКонтакте</a>
             </li>
             <li class="footer__column-item"><a class="footer__column-link link-respond"
-                                               href="https://www.instagram.com/"><img class="footer__social-icon"
-                                                                                      src="./images/instagram_color_white.svg"
-                                                                                      alt="Иконка Инстаграм">Instagram</a>
+                                               href="https://www.instagram.com/">
+              <img class="footer__social-icon" src="./images/vk_color_white.svg" alt="Иконка Инстаграм">Instagram</a>
             </li>
           </ul>
         </nav>
@@ -312,6 +344,9 @@
     </div>
   </footer>
 </div>
+<script src="script/analogies.js"></script>
+<script src="script/math.js"></script>
+<script src="script/index.js"></script>
 </body>
 
 </html>

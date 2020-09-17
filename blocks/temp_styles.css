@@ -1,0 +1,25 @@
+.quizes {
+  height: 400px;
+}
+
+.start-quiz {
+  width: 100px;
+  height: 40px;
+}
+
+.answers{
+  display: flex;
+  flex-direction: column;
+}
+
+.answer {
+
+}
+
+.answer::before {
+  content: 'a';
+}
+
+.submit-answer {
+  width: 80px;
+}
