@@ -35,6 +35,7 @@ color: red;
   width: 80px;
 }
 
+
 .quiz__submit-answer_active {
   background-color: coral;
 }
@@ -53,4 +54,29 @@ color: red;
 
 .quiz__hint-content_hidden {
   display: none;
+}
+
+.section-subtitle__link {
+  color: #17e9e0;
+  text-decoration: none;
+}
+
+.description__list {
+  list-style: none;
+}
+.description__list-item {
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.resources__link {
+  text-decoration: none;
+}
+
+.resources__item {
+  color: #bdbdbd;
+  font-size : 45px;
+  font-weight: 900;
+  margin: 0 40px 0 40px;
 }
