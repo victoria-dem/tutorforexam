@@ -48,6 +48,11 @@ color: red;
   background-color: coral;
 }
 
+.quizes__start_active {
+  background-color: coral;
+}
+
+
 .quiz__hints {
   list-style-type: none;
 }
