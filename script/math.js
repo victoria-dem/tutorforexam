@@ -101,8 +101,3 @@ const math = [
         topic: 'Probability'
     }
 ]
-
-
-
-
-

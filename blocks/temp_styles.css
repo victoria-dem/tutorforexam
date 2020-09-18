@@ -15,7 +15,6 @@
   border: 1px solid red;
   width: 500px;
   margin: 20px auto;
-
 }
 
 .quiz__answers {
@@ -30,11 +29,9 @@ color: red;
   margin: 10px 0 10px 40px;
 }
 
-
 .quiz__submit-answer {
   width: 80px;
 }
-
 
 .quiz__submit-answer_active {
   background-color: coral;
@@ -51,7 +48,6 @@ color: red;
 .quizes__start_active {
   background-color: coral;
 }
-
 
 .quiz__hints {
   list-style-type: none;
