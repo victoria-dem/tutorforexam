@@ -2,4 +2,7 @@
   width: 183px;
   height: 32px;
   z-index: 4;
+  background-image: url(../../../images/logo7.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
