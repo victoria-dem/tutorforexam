@@ -23,24 +23,29 @@
   </header>
   <main class="content">
     <section class="quizes">
-      <button class="start-quiz">Analogies</button>
-      <button class="start-quiz">Math</button>
-
-      <form class="answers">
-        <p class="question"></p>
-        <input type="radio" class="answer" id="a" name="answer" value="">
-        <label for="a"></label>
-        <input type="radio" class="answer" id="b" name="answer" value="">
-        <label for="b"></label>
-        <input type="radio" class="answer" id="c" name="answer" value="">
-        <label for="c"></label>
-        <input type="radio" class="answer" id="d" name="answer" value="">
-        <label for="d"></label>
-        <input type="radio" class="answer" id="e" name="answer" value="">
-        <label for="e"></label>
-        <input type="submit" class="submit-answer" value="Submit">
+      <button class="quizes__start quizes__start-analogies">Analogies</button>
+      <button class="quizes__start quizes__start-math">Math</button>
+      <form class="quiz">
+        <p class="quiz__question"></p>
+        <ul class="quiz__answers"></ul>
+        <input type="submit" class="quiz__submit-answer" value="Submit">
       </form>
-
+      <button class="quiz__next-question">Next Question</button>
+      <ul class="quiz__hints"></ul>
+      <p class="quiz__result"></p>
+      <p class="quiz__solution"></p>
+      <template id="quiz__hint">
+        <li class="quiz__hint">
+          <p class="quiz__hint-title"></p>
+          <p class="quiz__hint-content quiz__hint-content_hidden"></p>
+        </li>
+      </template>
+      <template id="quiz__answer">
+        <li>
+          <input type="radio" class="quiz__answer-input" id="" name="answer" value="">
+          <label for="" class="quiz__answer-label"></label>
+        </li>
+      </template>
     </section>
     <!--    TO DO разработать блок >-->
     <!--  Block description  -->
@@ -351,28 +356,3 @@
 </html>
 
 
-<section class="quizes">
-  <button class="quizes__start quizes__start-analogies">Analogies</button>
-  <button class="quizes__start quizes__start-math">Math</button>
-  <form class="quiz">
-    <p class="quiz__question"></p>
-    <ul class="quiz__answers"></ul>
-    <input type="submit" class="quiz__submit-answer" value="Submit">
-  </form>
-  <button class="quiz__next-question">Next Question</button>
-  <ul class="quiz__hints"></ul>
-  <p class="quiz__result"></p>
-  <p class="quiz__solution"></p>
-  <template id="quiz__hint">
-    <li class="quiz__hint">
-      <p class="quiz__hint-title"></p>
-      <p class="quiz__hint-content quiz__hint-content_hidden"></p>
-    </li>
-  </template>
-  <template id="quiz__answer">
-    <li>
-      <input type="radio" class="quiz__answer-input" id="" name="answer" value="">
-      <label for="" class="quiz__answer-label"></label>
-    </li>
-  </template>
-</section>
