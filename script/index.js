@@ -13,20 +13,25 @@ startAnalogies = () => {
     const numQuestion = Math.floor(Math.random() * analogies.length)
     renderQuiz(analogies[numQuestion])
     currentQuestionType = 'analogies'
+    startAnalogiesButton.classList.add('quizes__start_active')
+    startMathButton.classList.remove('quizes__start_active')
 }
 
 startMath = () => {
     const numQuestion = Math.floor(Math.random() * math.length)
     renderQuiz(math[numQuestion])
     currentQuestionType = 'math'
+    startMathButton.classList.add('quizes__start_active')
+    startAnalogiesButton.classList.remove('quizes__start_active')
 }
 
 getNextQuestion = () => {
-    if (currentQuestionType==='analogies') {
+    if (currentQuestionType === 'analogies') {
         startAnalogies()
-    } else {startMath()}
+    } else {
+        startMath()
+    }
 }
-
 
 clearPreviousAnswers = () => {
     form.querySelectorAll('.quiz__answer-label').forEach(answer => answer.parentNode.remove())
@@ -102,6 +107,8 @@ submitHandler = (evt) => {
     nextQuestion.disabled = false;
     
 }
+
+startMath()
 
 startAnalogiesButton.addEventListener('click', startAnalogies)
 startMathButton.addEventListener('click', startMath)
