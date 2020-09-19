@@ -60,11 +60,11 @@ const math = [
             'Statement 2: The sum of all the interior angles of a regular octagon is 1080.',
         answers: {
             0: 'Only Statement 1 is true',
-            2: 'Only Statement 2 is true',
-            3: 'Both Statement 1 and Statement 2 are true',
-            4: 'Neither Statement 1 nor Statement 2 is correct'
+            1: 'Only Statement 2 is true',
+            2: 'Both Statement 1 and Statement 2 are true',
+            3: 'Neither Statement 1 nor Statement 2 is correct'
         },
-        correctAnswer: 3,
+        correctAnswer: 2,
         solution: 'The measure of an exterior angle of a polygon is equal to 360/number of sides. ' +
             'As a regular octagon has 8 sides, the measure of an exterior angle will be 360/8 or 45. ' +
             'This result makes statement 1 as true. The exterior and interior angles of a polygon are ' +

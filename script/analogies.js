@@ -296,3 +296,8 @@ const analogies = [
         level: 1
     },
 ];
+
+const resultMessages = {
+    passed: ['ok1', 'ok2', 'ok3', 'ok4', 'ok5', 'ok6', 'ok7', 'ok8', 'ok9', 'ok10', 'ok11', 'ok12'],
+    failed: ['not ok1', 'not ok2', 'not ok3', 'not ok4', 'not ok5', 'not ok6', 'not ok7', 'not ok8', 'not ok9', 'not ok10', 'not ok11', 'not ok12']
+}
