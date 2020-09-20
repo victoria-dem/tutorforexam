@@ -1,10 +1,45 @@
 .quizes {
-  height: 800px;
+  /*min-height: 800px;*/
+  padding: 100px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  max-width:80%;
+  margin: 0 auto;
+}
+.quizes__menu {
+  display: flex;
+  margin: 0 0 0 30px;
 }
 
-.quizes__start {
-  width: 100px;
-  height: 40px;
+
+
+.quizes__start-analogies {
+  margin: 0 30px 0 0;
+}
+.quizes__button {
+  /*display: inline-block;*/
+  text-align: center;
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
+  background-color: transparent;
+  color: #a64ac9;
+  border-color: #f2f2f2;
+  border-radius: 3px;
+}
+
+
+.quizes__button:hover {
+  cursor: pointer;
+}
+
+
+.quiz__menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 0 0 30px;
 }
 
 .quiz {
@@ -12,17 +47,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
-  width: 500px;
-  margin: 20px auto;
-
+  /*margin: 20px auto;*/
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
+  width: 100%;
+  margin: 0;
+}
+.quiz__question {
+  padding: 20px 30px 20px 30px;
+  align-self: flex-start;
+}
+.quiz__answer-item {
+  margin: 0 0 10px 0;
+}
+.quiz__answer-input{
+  cursor: pointer;
 }
 
 .quiz__answers {
   list-style-type: none;
+  padding: 0 50px 20px 50px;
+  line-height: 25px;
+  font-size: 18px;
+  font-weight: normal;
   margin: 0;
-  padding: 0;
   align-self: flex-start;
+}
+
+.quizes__quiz-content {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .quiz__answer {
@@ -31,25 +85,35 @@ color: red;
 }
 
 
+.quizes__button-pressed {
+  background-color: #ffb48f;
+}
+
+
+.quizes__button_state_disable{
+ color: #bdbdbd;
+}
+
+.quizes__button_state_choosed{
+  background-color: #ffb48f;
+}
+
 .quiz__submit-answer {
-  width: 80px;
+  margin: 0 30px 0 0;
+}
+
+.quiz__submit-answer_active {   /* это будет класс quizes__button_state_choosed */
+  background-color: #ffb48f;
 }
 
 
-.quiz__submit-answer_active {
-  background-color: coral;
+
+.quiz__next-question_active {   /* это будет класс quizes__button_state_choosed */
+  background-color: #ffb48f;
 }
 
-.quiz__next-question {
-  width: 150px;
-}
-
-.quiz__next-question_active {
-  background-color: coral;
-}
-
-.quizes__start_active {
-  background-color: coral;
+.quizes__start_active {        /* это будет класс quizes__button_state_choosed */
+  background-color: #ffb48f;
 }
 
 
