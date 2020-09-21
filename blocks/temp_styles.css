@@ -85,11 +85,9 @@ color: red;
   margin: 10px 0 10px 40px;
 }
 
-
 .quizes__button-pressed {
   background-color: #ffb48f;
 }
-
 
 .quizes__button_state_disable{
  color: #bdbdbd;
@@ -106,8 +104,6 @@ color: red;
 .quiz__submit-answer_active {   /* это будет класс quizes__button_state_choosed */
   background-color: #ffb48f;
 }
-
-
 
 .quiz__next-question_active {   /* это будет класс quizes__button_state_choosed */
   background-color: #ffb48f;
