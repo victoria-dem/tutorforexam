@@ -32,7 +32,6 @@
   cursor: pointer;
 }
 
-
 .quiz__menu {
   display: flex;
   align-items: center;
@@ -112,7 +111,6 @@ color: red;
 .quizes__start_active {        /* это будет класс quizes__button_state_choosed */
   background-color: #ffb48f;
 }
-
 
 .quiz__hints {
   list-style-type: none;
