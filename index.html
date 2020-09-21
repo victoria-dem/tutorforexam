@@ -23,17 +23,24 @@
   </header>
   <main class="content">
     <section class="quizes">
-      <button class="quizes__start quizes__start-analogies">Analogies</button>
-      <button class="quizes__start quizes__start-math">Math</button>
+      <div class="quizes__menu">
+      <button class="quizes__button quizes__start quizes__start-analogies">Analogies</button>
+      <button class="quizes__button quizes__start quizes__start-math quizes__button_state_choosed">Math</button>
+    </div>
+      <div class="quizes__quiz-content">
       <form class="quiz">
         <p class="quiz__question"></p>
         <ul class="quiz__answers"></ul>
-        <input type="submit" class="quiz__submit-answer" value="Submit">
+        <div class="quiz__menu">
+        <input type="submit" class="quizes__button quiz__submit-answer quizes__button_state_disable" value="Choose your answer" >
+        <button class="quizes__button quiz__next-question">Next Question</button>
+      </div>
       </form>
-      <button class="quiz__next-question">Next Question</button>
+<!--      <button class="quizes__button quiz__next-question">Next Question</button>-->
       <ul class="quiz__hints"></ul>
       <p class="quiz__result"></p>
       <p class="quiz__solution"></p>
+      </div>
       <template id="quiz__hint">
         <li class="quiz__hint">
           <p class="quiz__hint-title"></p>
@@ -41,7 +48,7 @@
         </li>
       </template>
       <template id="quiz__answer">
-        <li>
+        <li class="quiz__answer-item">
           <input type="radio" class="quiz__answer-input" id="" name="answer" value="">
           <label for="" class="quiz__answer-label"></label>
         </li>
@@ -191,9 +198,7 @@
     <!--          Block Kaufman  -->
     <section class="kaufman">
       <h2 class="section-title section-title_theme_dark">Be engaged</h2>
-      <p class="section-subtitle section-subtitle_theme_dark"><a class="section-subtitle__link link-respond"
-                                                                 href="https://www.positivityblog.com/25-simple-ways-to-motivate-yourself/"
-                                                                 target="_blank" rel="noopener">Henrik Edberg`s</a>
+      <p class="section-subtitle section-subtitle_theme_dark">Henrik Edberg`s
         simple ways
         to motivate yourself</p>
       <ul class="table table_theme_dark">
