@@ -43,6 +43,7 @@ startMath = () => {
     if (mathQuestionsSet.length===0) {
         questionSetPreparation(math.length)
         mathQuestionsSet = questionsSet.slice(0, questionsSet.length)
+        console.log(mathQuestionsSet);
     }
     const numQuestion=mathQuestionsSet.shift()
     renderQuiz(math[numQuestion])
