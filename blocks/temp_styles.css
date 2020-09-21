@@ -80,7 +80,7 @@
 }
 
 .quiz__answer {
-color: red;
+  color: red;
   margin: 10px 0 10px 40px;
 }
 
@@ -128,6 +128,7 @@ color: red;
 .description__list {
   list-style: none;
 }
+
 .description__list-item {
   line-height: 34px;
   font-size: 24px;

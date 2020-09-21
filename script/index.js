@@ -1,16 +1,38 @@
+// DOM elements constants
 const startAnalogiesButton = document.querySelector('.quizes__start-analogies')
 const startMathButton = document.querySelector('.quizes__start-math')
 const submitAnswer = document.querySelector('.quiz__submit-answer')
 const form = document.querySelector('.quiz')
 const fullQuiz = document.querySelector('.quizes')
 const nextQuestion = document.querySelector('.quiz__next-question')
+const quizResultElement = fullQuiz.querySelector('.quiz__result')
+const quizSolutionElement = fullQuiz.querySelector('.quiz__solution')
+// Variables
+const questionsSet =[]
+let analogiesQuestionsSet =[]
+let mathQuestionsSet =[]
+let correctAnswer
+let quizSolution
+let currentQuestionType
 
-let correctAnswer;
-let quizSolution;
-let currentQuestionType;
+questionSetPreparation= (arrLength) => {
+    questionsSet.splice(0, arrLength)
+    let randomNumber
+    while (questionsSet.length < arrLength) {
+        randomNumber = Math.floor(Math.random() * arrLength)
+        if (questionsSet.indexOf(randomNumber) === -1) {
+            questionsSet[questionsSet.length] = randomNumber
+        }
+    }
+    return questionsSet
+}
 
 startAnalogies = () => {
-    const numQuestion = Math.floor(Math.random() * analogies.length)
+    if (analogiesQuestionsSet.length===0) {
+        questionSetPreparation(analogies.length)
+        analogiesQuestionsSet = questionsSet.slice(0, questionsSet.length)
+    }
+    const numQuestion=analogiesQuestionsSet.shift()
     renderQuiz(analogies[numQuestion])
     currentQuestionType = 'analogies'
     startAnalogiesButton.classList.add('quizes__start_active')
@@ -18,7 +40,12 @@ startAnalogies = () => {
 }
 
 startMath = () => {
-    const numQuestion = Math.floor(Math.random() * math.length)
+    if (mathQuestionsSet.length===0) {
+        questionSetPreparation(math.length)
+        mathQuestionsSet = questionsSet.slice(0, questionsSet.length)
+        console.log(mathQuestionsSet);
+    }
+    const numQuestion=mathQuestionsSet.shift()
     renderQuiz(math[numQuestion])
     currentQuestionType = 'math'
     startMathButton.classList.add('quizes__start_active')
@@ -38,12 +65,11 @@ clearPreviousAnswers = () => {
     form.querySelectorAll('.quiz__answer-input').forEach(answer => answer.parentNode.remove())
     document.querySelectorAll('.quiz__hint-content').forEach(hintContent => hintContent.remove())
     document.querySelectorAll('.quiz__hint-title').forEach(hintTitle => hintTitle.remove())
-    fullQuiz.querySelector('.quiz__solution').innerHTML = ''
-    fullQuiz.querySelector('.quiz__result').innerHTML = ''
-    submitAnswer.classList.remove('quiz__submit-answer_active')
-    submitAnswer.disabled = true;
+    quizSolutionElement.innerHTML = ''
+    quizResultElement.innerHTML = ''
     nextQuestion.classList.remove('quiz__next-question_active')
     nextQuestion.disabled = true;
+    disableSubmitAnswerBtn()
 }
 
 toggleHint = (evt) => {
@@ -61,6 +87,11 @@ renderHints = (quiz) => {
         hintElementTitle.addEventListener('click', toggleHint)
         document.querySelector('.quiz__hints').append(hintElement)
     }
+}
+
+disableSubmitAnswerBtn = () => {
+    submitAnswer.classList.remove('quiz__submit-answer_active')
+    submitAnswer.disabled = true;
 }
 
 renderQuiz = (quiz) => {
@@ -93,21 +124,18 @@ renderAnswers = (quiz) => {
 submitHandler = (evt) => {
     evt.preventDefault()
     if (form.elements['answer'][correctAnswer].checked) {
-        fullQuiz.querySelector('.quiz__result').innerHTML = 'OK OK OK OK OK OK OK OK OK OK '
+        quizResultElement.innerHTML = resultMessages['passed'][Math.floor(Math.random() * resultMessages['passed'].length)]
     } else {
-        fullQuiz.querySelector('.quiz__result').innerHTML = 'NOT OK NOT OK NOT OK NOT OK NOT OK '
+        quizResultElement.innerHTML = resultMessages['failed'][Math.floor(Math.random() * resultMessages['failed'].length)]
     }
-    submitAnswer.classList.remove('quiz__submit-answer_active')
-    submitAnswer.disabled = true;
     form.elements['answer'].forEach(answerElement => {
         answerElement.disabled = true
     })
-    fullQuiz.querySelector('.quiz__solution').innerHTML = quizSolution
+    disableSubmitAnswerBtn()
+    quizSolutionElement.innerHTML = quizSolution
     nextQuestion.classList.add('quiz__next-question_active')
     nextQuestion.disabled = false;
-    
 }
-
 startMath()
 
 startAnalogiesButton.addEventListener('click', startAnalogies)
