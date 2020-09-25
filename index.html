@@ -24,26 +24,26 @@
   <main class="content">
     <section class="quizes">
       <div class="quizes__menu">
-      <button class="quizes__button quizes__button-section quizes__start quizes__start-analogies">Analogies</button>
-      <button class="quizes__button quizes__button-section quizes__start quizes__start-math">Math</button>
-    </div>
-      <div class="quizes__quiz-content">
-      <form class="quiz">
-        <p class="quiz__question"></p>
-        <ul class="quiz__answers"></ul>
-        <div class="quiz__menu">
-        <input type="submit" class="quizes__button quiz__submit-answer quizes__button_state_disable" value="Choose your answer" >
-        <button class="quizes__button quiz__next-question">Next Question</button>
+        <button class="quizes__button quizes__button-section quizes__start quizes__start-analogies">Analogies</button>
+        <button class="quizes__button quizes__button-section quizes__start quizes__start-math">Math</button>
       </div>
-      </form>
-      <ul class="quiz__hints"></ul>
-      <p class="quiz__result"></p>
-      <p class="quiz__solution"></p>
+      <div class="quizes__quiz-content">
+        <form class="quiz">
+          <p class="quiz__question"></p>
+          <ul class="quiz__answers"></ul>
+          <div class="quiz__menu">
+            <input type="submit" class="quizes__button quiz__submit-answer quizes__button_state_disable" value="Choose your answer" >
+            <button class="quizes__button quiz__next-question">Next Question</button>
+          </div>
+        </form>
+        <ul class="quiz__hints"></ul>
+        <p class="quiz__result"></p>
+        <p class="quiz__solution"></p>
       </div>
       <template id="quiz__hint">
         <li class="quiz__hint">
           <button class="quiz__hint-title"></button>
-          <p class="quiz__hint-content_hidden"></p>
+          <p class="quiz__hint-content quiz__hint-content_hidden"></p>
         </li>
       </template>
       <template id="quiz__answer">
@@ -270,9 +270,9 @@
       <div class="resources__logo-zone">
         <a class="resources__link link-respond" href="https://www.erblearn.org/parents/isee-overview" target="_blank"
            rel="noopener"><p
-            class="resources__item">ISEE</p></a>
+                class="resources__item">ISEE</p></a>
         <a class="resources__link link-respond" href="https://www.ssat.org/" target="_blank" rel="noopener"><p
-            class="resources__item">SSAT</p></a>
+                class="resources__item">SSAT</p></a>
         <a class="resources__link link-respond" href="https://en.wikipedia.org/wiki/Secondary_School_Admission_Test"
            target="_blank" rel="noopener"><p class="resources__item">SSAT wiki</p></a>
         <a class="resources__link link-respond"
