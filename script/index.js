@@ -6,16 +6,17 @@ const form = document.querySelector('.quiz')
 const fullQuiz = document.querySelector('.quizes')
 const nextQuestion = document.querySelector('.quiz__next-question')
 const quizResultElement = fullQuiz.querySelector('.quiz__result')
+const quizResultCheckmarkElement = fullQuiz.querySelector('.quiz__img')
 const quizSolutionElement = fullQuiz.querySelector('.quiz__solution')
 // Variables
-const questionsSet =[]
-let analogiesQuestionsSet =[]
-let mathQuestionsSet =[]
+const questionsSet = []
+let analogiesQuestionsSet = []
+let mathQuestionsSet = []
 let correctAnswer
 let quizSolution
 let currentQuestionType
 
-questionSetPreparation= (arrLength) => {
+questionSetPreparation = (arrLength) => {
     questionsSet.splice(0, arrLength)
     let randomNumber
     while (questionsSet.length < arrLength) {
@@ -28,11 +29,11 @@ questionSetPreparation= (arrLength) => {
 }
 
 startAnalogies = () => {
-    if (analogiesQuestionsSet.length===0) {
+    if (analogiesQuestionsSet.length === 0) {
         questionSetPreparation(analogies.length)
         analogiesQuestionsSet = questionsSet.slice(0, questionsSet.length)
     }
-    const numQuestion=analogiesQuestionsSet.shift()
+    const numQuestion = analogiesQuestionsSet.shift()
     renderQuiz(analogies[numQuestion])
     currentQuestionType = 'analogies'
     startAnalogiesButton.classList.add('quizes__start_active')
@@ -40,12 +41,11 @@ startAnalogies = () => {
 }
 
 startMath = () => {
-    if (mathQuestionsSet.length===0) {
+    if (mathQuestionsSet.length === 0) {
         questionSetPreparation(math.length)
         mathQuestionsSet = questionsSet.slice(0, questionsSet.length)
-        console.log(mathQuestionsSet);
     }
-    const numQuestion=mathQuestionsSet.shift()
+    const numQuestion = mathQuestionsSet.shift()
     renderQuiz(math[numQuestion])
     currentQuestionType = 'math'
     startMathButton.classList.add('quizes__start_active')
@@ -70,6 +70,14 @@ clearPreviousAnswers = () => {
     nextQuestion.classList.remove('quiz__next-question_active')
     nextQuestion.disabled = true;
     disableSubmitAnswerBtn()
+    quizResultElement.classList.remove('quiz__result_active');
+    quizSolutionElement.classList.remove('quiz__solution_active');
+    if (quizResultCheckmarkElement.classList.contains('quiz__img-right')) {
+        quizResultCheckmarkElement.classList.remove('quiz__img-right');
+    } else {
+        quizResultCheckmarkElement.classList.remove('quiz__img-wrong');
+    }
+    quizResultCheckmarkElement.classList.remove('quiz__img_active');
 }
 
 toggleHint = (evt) => {
@@ -78,14 +86,16 @@ toggleHint = (evt) => {
 
 renderHints = (quiz) => {
     for (let key in quiz.hints) {
-        const hintElementTemplate = document.querySelector('#quiz__hint').content.cloneNode(true)
-        const hintElement = hintElementTemplate.querySelector('.quiz__hint')
-        const hintElementContent = hintElementTemplate.querySelector('.quiz__hint-content')
-        const hintElementTitle = hintElementTemplate.querySelector('.quiz__hint-title')
-        hintElementContent.innerHTML = quiz.hints[key]
-        hintElementTitle.innerHTML = `Hint #${+key + 1}`
-        hintElementTitle.addEventListener('click', toggleHint)
-        document.querySelector('.quiz__hints').append(hintElement)
+        if (quiz.hints.hasOwnProperty(key)) {
+            const hintElementTemplate = document.querySelector('#quiz__hint').content.cloneNode(true)
+            const hintElement = hintElementTemplate.querySelector('.quiz__hint')
+            const hintElementContent = hintElementTemplate.querySelector('.quiz__hint-content')
+            const hintElementTitle = hintElementTemplate.querySelector('.quiz__hint-title')
+            hintElementContent.innerHTML = quiz.hints[key]
+            hintElementTitle.innerHTML = `Hint #${+key + 1}`
+            hintElementTitle.addEventListener('click', toggleHint)
+            document.querySelector('.quiz__hints').append(hintElement)
+        }
     }
 }
 
@@ -110,24 +120,32 @@ submitButtonActivation = () => {
 
 renderAnswers = (quiz) => {
     for (let key in quiz.answers) {
-        const answerElement = document.querySelector('#quiz__answer').content.cloneNode(true)
-        const answerLabel = answerElement.querySelector('.quiz__answer-label')
-        const answerInput = answerElement.querySelector('.quiz__answer-input')
-        answerLabel.innerHTML = quiz.answers[key]
-        answerLabel.htmlFor = key
-        answerInput.id = key
-        answerInput.addEventListener('click', submitButtonActivation)
-        document.querySelector('.quiz__answers').append(answerElement)
+        if (quiz.answers.hasOwnProperty(key)) {
+            const answerElement = document.querySelector('#quiz__answer').content.cloneNode(true)
+            const answerLabel = answerElement.querySelector('.quiz__answer-label')
+            const answerInput = answerElement.querySelector('.quiz__answer-input')
+            answerLabel.innerHTML = quiz.answers[key]
+            answerLabel.htmlFor = key
+            answerInput.id = key
+            answerInput.addEventListener('click', submitButtonActivation)
+            document.querySelector('.quiz__answers').append(answerElement)
+        }
     }
 }
+
 
 submitHandler = (evt) => {
     evt.preventDefault()
     if (form.elements['answer'][correctAnswer].checked) {
+        quizResultCheckmarkElement.classList.add('quiz__img-right');
         quizResultElement.innerHTML = resultMessages['passed'][Math.floor(Math.random() * resultMessages['passed'].length)]
     } else {
+        quizResultCheckmarkElement.classList.add('quiz__img-wrong');
         quizResultElement.innerHTML = resultMessages['failed'][Math.floor(Math.random() * resultMessages['failed'].length)]
     }
+    quizResultElement.classList.add('quiz__result_active')
+    quizSolutionElement.classList.add('quiz__solution_active')
+    quizResultCheckmarkElement.classList.add('quiz__img_active')
     form.elements['answer'].forEach(answerElement => {
         answerElement.disabled = true
     })
