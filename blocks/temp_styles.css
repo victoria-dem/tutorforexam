@@ -95,12 +95,59 @@
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     margin: 0;
     padding: 30px 30px 30px 30px;
+    border-radius: 7px;
 }
 
 .quiz__answer {
     color: red;
     margin: 10px 0 10px 40px;
 }
+
+.quiz__result {
+    margin: 0;
+    padding:0 0 15px 0;
+    line-height: 34px;
+    font-size: 24px;
+    font-weight: normal;
+    vertical-align:middle;
+    display: none;
+}
+.quiz__result_active {
+    display: inline-block;
+}
+
+.quiz__img-right {
+    background: url("../images/checkmark.png") bottom center no-repeat;
+}
+
+.quiz__img-wrong {
+    background: url("../images/incorrect.png")  bottom center no-repeat;
+}
+
+.quiz__solution {
+    line-height: 25px;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 0 10px 20px;
+    display: none;
+}
+
+.quiz__solution_active {
+    display:block;
+}
+
+
+.quiz__img {
+    width: 25px;
+    height: 30px;
+    background-size: contain;
+    display: none;
+}
+
+.quiz__img_active {
+    display: inline-block;
+}
+
 
 .quizes__button-active {
     background-color: #ffb48f;
@@ -141,7 +188,7 @@
 }
 
 .quizes__start_active {
-    background-color: #ffb48f;
+    background-color: #17e9e045;
 }
 
 

@@ -50,7 +50,7 @@ const analogies = [
             3: 'cart',
             4: 'stable'
         },
-        correctAnswer: 1,
+        correctAnswer: 3,
         solution: `A locomotive is to railroad cars so as a horse is to a cart
         because a locomotive pulls railroad cars just the same as a horse pulls a cart.`,
         level: 1
@@ -300,6 +300,6 @@ const analogies = [
 ];
 
 const resultMessages = {
-    passed: ['ok1', 'ok2', 'ok3', 'ok4', 'ok5', 'ok6', 'ok7', 'ok8', 'ok9', 'ok10', 'ok11', 'ok12'],
-    failed: ['not ok1', 'not ok2', 'not ok3', 'not ok4', 'not ok5', 'not ok6', 'not ok7', 'not ok8', 'not ok9', 'not ok10', 'not ok11', 'not ok12']
+    passed: ['Good job.', 'You did it!', 'Exellent work!', 'Wondeful! This is correct.', 'This is correct! Hard work pays off.'],
+    failed: ["You're almost here.", "You're close!", "Try again, you're on the right track!", "Don't give up, keep going!", "Try harder, you can do it!"]
 }
