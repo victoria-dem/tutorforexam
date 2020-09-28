@@ -12,73 +12,45 @@
 
 <body>
 <div class="page">
+
+
   <header class="header">
     <div class="logo logo_place_header"></div>
+    <img class="header__main-illustration" src="./images/stick_children.png" alt="Happy children. Learn math is fun">
+    <div class="header__square-pic rotation"></div>
     <h1 class="header__title">Free SSAT & ISEE Test Prep</h1>
     <p class="header__subtitle">This program has been designed to help students boost their
       test scores and to build up confidence and motivation.
     </p>
-    <img class="header__main-illustration" src="./images/stick_children.png" alt="Happy children. Learn math is fun">
-    <div class="header__square-pic rotation"></div>
   </header>
+
+
   <main class="content">
-    <section class="quizes">
-      <div class="quizes__menu">
-        <button class="quizes__button quizes__button-section quizes__start quizes__start-analogies">Analogies</button>
-        <button class="quizes__button quizes__button-section quizes__start quizes__start-math">Math</button>
-      </div>
-      <div class="quizes__quiz-content">
-        <form class="quiz">
-          <p class="quiz__question"></p>
-          <ul class="quiz__answers"></ul>
-          <div class="quiz__menu">
-            <input type="submit" class="quizes__button quiz__submit-answer quizes__button_state_disable" value="Choose your answer" >
-            <button class="quizes__button quiz__next-question">Next Question</button>
-          </div>
-        </form>
-        <ul class="quiz__hints"></ul>
-        <p class="quiz__result"></p>
-        <p class="quiz__solution"></p>
-      </div>
-      <template id="quiz__hint">
-        <li class="quiz__hint">
-          <button class="quiz__hint-title"></button>
-          <p class="quiz__hint-content quiz__hint-content_hidden"></p>
-        </li>
-      </template>
-      <template id="quiz__answer">
-        <li class="quiz__answer-item">
-          <input type="radio" class="quiz__answer-input" id="" name="answer" value="">
-          <label for="" class="quiz__answer-label"></label>
-        </li>
-      </template>
-    </section>
-    <!--  Block description  -->
-    <section class="description">
+    <section class="description section-position">
       <div class="two-columns">
         <h2 class="two-columns__brief">Let us help you</h2>
         <div class="two-columns__main-text">
           <p class="two-columns__paragraph">
             <!--            TO DO  придумать как лучше сделать форматирование текста, чтобы не использовать <br> -->
             The SSAT &ISEE online course has been designed and launched for those who want to:
-          <ul class="description__list">
-            <li class="description__list-item">- generate proper not only math but also test taking skills to be able to
+          <ul class="two-columns__list">
+            <li class="two-columns__list-item">- generate proper not only math but also test taking skills to be able to
               handle real problems
               commonly
               found in real tests with ease;
             </li>
-            <li class="description__list-item">- be taught how to eliminate the wrong answers and how to find the right
+            <li class="two-columns__list-item">- be taught how to eliminate the wrong answers and how to find the right
               ones fast;
             </li>
-            <li class="description__list-item">- develop the strategy of how to save time on the exam and get the better
+            <li class="two-columns__list-item">- develop the strategy of how to save time on the exam and get the better
               options faster and more
               precisely;
             </li>
-            <li class="description__list-item">- to enjoy flexibility of their own study schedule;</li>
-            <li class="description__list-item">- be given a clear and comprehensive explanation of every step to take in
+            <li class="two-columns__list-item">- to enjoy flexibility of their own study schedule;</li>
+            <li class="two-columns__list-item">- be given a clear and comprehensive explanation of every step to take in
               problem solving;
             </li>
-            <li class="description__list-item">- revise and organize their basic math knowledge;</li>
+            <li class="two-columns__list-item">- revise and organize their basic math knowledge;</li>
           </ul>
           <p class="two-columns__paragraph">
             <span class="two-columns__span-accent">Important:</span> A key component of your private school
@@ -88,10 +60,9 @@
         </div>
       </div>
     </section>
-    <!--                Block techniques -->
-    <section class="techniques">
+
+    <section class="glance section-position">
       <h2 class="section-title">A lot to choose from</h2>
-      <!-- <p class="section-subtitle">Пять практик от Барбары Оакли</p> -->
       <div class="cards">
         <div class="cards__item">
           <img class="cards__image" src="./images/choose1.png"
@@ -113,8 +84,8 @@
         </div>
       </div>
     </section>
-    <!--                Block video -->
-    <section class="video">
+
+    <section class="video section-position">
       <h3 class="section-title">Videos that we like</h3>
       <p class="section-subtitle">Taking tests is cool. So don't wait any longer and start preparing today!</p>
       <div class="video__iframes">
@@ -126,8 +97,8 @@
                 allowfullscreen></iframe>
       </div>
     </section>
-    <!--                Block oakley -->
-    <section class="oakley">
+
+    <section class="finance section-position section-position_overlap section-position_bottom">
       <div class="two-columns">
         <h3 class="two-columns__brief">Parents our partners</h3>
         <div class="two-columns__main-text">
@@ -148,13 +119,15 @@
         </div>
       </div>
     </section>
-    <!--       Block Feynman     -->
+
     <section class="feynman">
       <h3 class="feynman__title">Good luck</h3>
       <p class="feynman__subtitle">Start now! Your quest for knowledge will yield results.</p>
     </section>
+
+
     <!--                Block digits                -->
-    <section class="digits">
+    <section class="digits section-position section-position_bottom">
       <h2 class="section-title">Inetersting Facts</h2>
       <p class="section-subtitle">Some info about SSAT and ISEE</p>
       <ul class="table">
@@ -194,8 +167,9 @@
         </li>
       </ul>
     </section>
+
     <!--          Block Kaufman  -->
-    <section class="kaufman">
+    <section class="motivation section-position section-position_bottom">
       <h2 class="section-title section-title_theme_dark">Be engaged</h2>
       <p class="section-subtitle section-subtitle_theme_dark">Henrik Edberg`s
         simple ways
@@ -203,76 +177,57 @@
       <ul class="table table_theme_dark">
         <li class="table__cell table__cell_theme_dark">
           <p class="table__heading table__heading_theme_dark">1</p>
-          <p class="table__text table__text_theme_dark">Remember your successes. And let them flow through your mind
-            instead of your failures. Write down your successes.</p>
-        </li>
-        <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">2</p>
-          <p class="table__text table__text_theme_dark">Make each day count. We don’t have all the time in the world.
-            So focus on today and do the things you really want to do.</p>
-        </li>
-        <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">3</p>
           <p class="table__text table__text_theme_dark">Think outside your box. Don’t imagine the future from
             the box of what you have now.
             Just because your mind is in box of previous experiences doesn’t mean that’s the limits of the world.</p>
         </li>
         <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">4</p>
-          <p class="table__text table__text_theme_dark">Find out what makes you happy.Then do that. As much as you
-            want
-            or can.</p>
-        </li>
-        <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">5</p>
+          <p class="table__heading table__heading_theme_dark">2</p>
           <p class="table__text table__text_theme_dark">Make use of your creativity. Take out a piece of paper.
             Write at the top of the page what area in your life you would like to have more ideas about.
             Perhaps you want ideas to earn more money or become a healthier person.</p>
         </li>
         <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">6</p>
-          <p class="table__text table__text_theme_dark">Cut down on TV. Do you watch it too much? Watch
-            less of what they are doing
-            in TV-land and do more of what you want to do in life.</p>
-        </li>
-        <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">7</p>
+          <p class="table__heading table__heading_theme_dark">3</p>
           <p class="table__text table__text_theme_dark">Focus on the positive. Learn to think more positively most
             of the time. Learn to let to go of
             negative threads of thought before they have a chance to take hold of you.</p>
         </li>
         <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">8</p>
+          <p class="table__heading table__heading_theme_dark">4</p>
           <p class="table__text table__text_theme_dark">Compare yourself with yourself. Not with others. Comparing
-            what
-            you have and your results
-            to what other people have and have accomplished can really kill your motivation as it ups your
+            what you have and your results to what other people have and have accomplished can really kill your
+            motivation as it ups your
             self-doubts.</p>
         </li>
         <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">9</p>
-          <p class="table__text table__text_theme_dark">Remember to have fun. Or create fun in a task.
-            Then you’ll stay motivated to do and finish it.</p>
+          <p class="table__heading table__heading_theme_dark">5</p>
+          <p class="table__text table__text_theme_dark">Remember your successes.
+            And let them flow through your mind instead of your failures. Write down your successes.
+            Consider using a journal of some kind since it’s easy to forget your successes.</p>
         </li>
         <li class="table__cell table__cell_theme_dark">
-          <p class="table__heading table__heading_theme_dark">10</p>
+          <p class="table__heading table__heading_theme_dark">6</p>
           <p class="table__text table__text_theme_dark">Act like your heroes. Read about them, watch them,
             listen to them. Discover what they did that was special and what made them tick.
+            But remember that they are people just like us. So let them inspire you instead of looking up at them
+            admiringly.
           </p>
         </li>
       </ul>
-      <div class="kaufman__triangle rotation"></div>
+      <div class="motivation__triangle rotation"></div>
     </section>
+
     <!--      Block resources -->
-    <section class="resources">
+    <section class="resources section-position">
       <h4 class="section-title">Useful links</h4>
       <p class="section-subtitle">Official resources and wiki information</p>
       <div class="resources__logo-zone">
+        <a class="resources__link link-respond" href="https://www.ssat.org/" target="_blank" rel="noopener"><p
+            class="resources__item">SSAT</p></a>
         <a class="resources__link link-respond" href="https://www.erblearn.org/parents/isee-overview" target="_blank"
            rel="noopener"><p
-                class="resources__item">ISEE</p></a>
-        <a class="resources__link link-respond" href="https://www.ssat.org/" target="_blank" rel="noopener"><p
-                class="resources__item">SSAT</p></a>
+            class="resources__item">ISEE</p></a>
         <a class="resources__link link-respond" href="https://en.wikipedia.org/wiki/Secondary_School_Admission_Test"
            target="_blank" rel="noopener"><p class="resources__item">SSAT wiki</p></a>
         <a class="resources__link link-respond"
@@ -280,8 +235,9 @@
            target="_blank" rel="noopener"><p class="resources__item">ISEE wiki</p></a>
       </div>
     </section>
+
   </main>
-  <!--            Footer section           -->
+
   <footer class="footer">
     <!-- <div class="footer__columns"> -->
     <div class="footer__column">

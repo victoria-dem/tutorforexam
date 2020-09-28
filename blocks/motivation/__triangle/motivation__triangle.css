@@ -1,0 +1,52 @@
+.motivation__triangle {
+  position: absolute;
+  top: 120px;
+  right: -110px;
+  z-index: 0;
+    width: 0;
+    height: 0;
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 600px solid #afb5ef;
+}
+
+
+@media screen and (max-width: 1440px) {
+  .motivation__triangle {
+    top: 120px;
+    right: -110px;
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 600px solid #afb5ef;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .motivation__triangle {
+    top: 120px;
+    right: -110px;
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 600px solid #afb5ef;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .motivation__triangle {
+    top: 100px;
+    right: -110px;
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-bottom: 500px solid #afb5ef;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .motivation__triangle {
+    top: 70px;
+    right: -160px;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 400px solid #afb5ef;
+  }
+}
