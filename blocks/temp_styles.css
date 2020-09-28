@@ -237,23 +237,13 @@
     text-decoration: none;
 }
 
-.description__list {
-    list-style: none;
-}
+/*.resources__link {*/
+/*    text-decoration: none;*/
+/*}*/
 
-.description__list-item {
-    line-height: 34px;
-    font-size: 24px;
-    font-weight: normal;
-}
-
-.resources__link {
-    text-decoration: none;
-}
-
-.resources__item {
-    color: #bdbdbd;
-    font-size: 45px;
-    font-weight: 900;
-    margin: 0 40px 0 40px;
-}
+/*.resources__item {*/
+/*    color: #bdbdbd;*/
+/*    font-size: 45px;*/
+/*    font-weight: 900;*/
+/*    margin: 0 40px 0 40px;*/
+/*}*/
