@@ -26,7 +26,45 @@
 
 
   <main class="content">
-    <section class="description section-position">
+
+    
+
+    <section class="quizes">
+      <div class="quizes__menu">
+        <button class="quizes__button quizes__button-section quizes__start quizes__start-analogies">Analogies</button>
+        <button class="quizes__button quizes__button-section quizes__start quizes__start-math">Math</button>
+      </div>
+      <div class="quizes__quiz-content">
+        <form class="quiz">
+          <p class="quiz__question"></p>
+          <ul class="quiz__answers"></ul>
+          <div class="quiz__menu">
+            <input type="submit" class="quizes__button quiz__submit-answer quizes__button_state_disable" value="Choose your answer" >
+            <button class="quizes__button quiz__next-question">Next Question</button>
+          </div>
+        </form>
+        <ul class="quiz__hints"></ul>
+        <div class="quiz__img"></div>
+        <p class="quiz__result"></p>
+        <p class="quiz__solution"></p>
+      </div>
+      <template id="quiz__hint">
+        <li class="quiz__hint">
+          <button class="quiz__hint-title"></button>
+          <p class="quiz__hint-content quiz__hint-content_hidden"></p>
+        </li>
+      </template>
+      <template id="quiz__answer">
+        <li class="quiz__answer-item">
+          <input type="radio" class="quiz__answer-input" id="" name="answer" value="">
+          <label for="" class="quiz__answer-label"></label>
+        </li>
+      </template>
+    </section>
+    <!--  Block description  -->
+    
+
+      <section class="description section-position">
       <div class="two-columns">
         <h2 class="two-columns__brief">Let us help you</h2>
         <div class="two-columns__main-text">
@@ -127,6 +165,7 @@
 
 
     <!--                Block digits                -->
+
     <section class="digits section-position section-position_bottom">
       <h2 class="section-title">Inetersting Facts</h2>
       <p class="section-subtitle">Some info about SSAT and ISEE</p>
