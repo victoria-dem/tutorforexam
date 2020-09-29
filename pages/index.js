@@ -8,10 +8,8 @@ import {
     quizResultCheckmarkElement,
     quizSolutionElement
 } from '../utils/constants.js';
-
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
-
 
 let correctAnswer;
 let quizSolution;

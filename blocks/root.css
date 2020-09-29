@@ -71,4 +71,8 @@
   --top-padding-section-1024: 70px;
   --top-padding-section-768: 50px;
   --top-padding-section-425: 30px;
+  /*colours*/
+  --background-orange: #c9a64a30;
+  --text-violet: #a64ac9;
+  --text-orange: #c9a64a80;
 }

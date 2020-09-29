@@ -1,7 +1,7 @@
 .wishes {
     min-height: 75vh;
     position: relative;
-    background-color: #f2f2f2;
+    background-color: var(--background-orange);
     background-image: url(../../images/pixel.png);
     background-size: 857px 607px;
     background-repeat: no-repeat;

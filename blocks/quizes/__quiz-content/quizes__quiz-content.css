@@ -1,6 +1,9 @@
 .quizes__quiz-content {
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    /*box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);*/
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     margin: 0;
     padding: 30px 30px 30px 30px;
     border-radius: 7px;
+  border: 0;
+  background: var(--background-orange);
 }
