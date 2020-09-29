@@ -1,0 +1,6 @@
+.quiz__img {
+  width: 25px;
+  height: 30px;
+  background-size: contain;
+  display: none;
+}

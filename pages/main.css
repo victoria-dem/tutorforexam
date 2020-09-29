@@ -55,6 +55,9 @@
 @import url(../blocks/section-position/section-position_bottom.css);
 @import url(../blocks/section-subtitle/section-subtitle.css);
 @import url(../blocks/section-subtitle/_theme/section-subtitle_theme_dark.css);
+@import url(../blocks/section-subtitle/__link/section-subtitle__link.css);
+
+
 @import url(../blocks/section-title/section-title.css);
 @import url(../blocks/section-title/_theme/section-title_theme_dark.css);
 @import url(../blocks/table/table.css);
@@ -76,6 +79,64 @@
 @import url(../blocks/video/video.css);
 @import url(../blocks/video/__iframe/video__iframe.css);
 @import url(../blocks/video/__iframes/video__iframes.css);
+
+@import url(../blocks/quizes/quizes.css);
+@import url(../blocks/quizes/__button/quizes__button.css);
+@import url(../blocks/quizes/__menu/quizes__menu.css);
+@import url(../blocks/quizes/__button-section/quizes__button-section.css);
+@import url(../blocks/quizes/__quiz-content/quizes__quiz-content.css);
+@import url(../blocks/quizes/__start/quizes__start.css);
+@import url(../blocks/quizes/__start/_active/quizes__start_active.css);
+
+
+@import url(../blocks/quizes/__start-analogies/quizes__start-analogies.css);
+@import url(../blocks/quizes/__start-math/quizes__start-math.css);
+
+
+
+
+
+
+@import url(../blocks/quiz/quiz.css);
+@import url(../blocks/quiz/__answer-input/quiz__answer-input.css);
+@import url(../blocks/quiz/__answer-item/quiz__answer-item.css);
+@import url(../blocks/quiz/__answer-label/quiz__answer-label.css);
+@import url(../blocks/quiz/__answers/quiz__answers.css);
+@import url(../blocks/quiz/__hint/quiz__hint.css);
+@import url(../blocks/quiz/__hint-content/quiz__hint-content.css);
+@import url(../blocks/quiz/__hint-content/_hidden/quiz__hint-content_hidden.css);
+@import url(../blocks/quiz/__hint-title/quiz__hint-title.css);
+@import url(../blocks/quiz/__hints/quiz__hints.css);
+
+
+
+@import url(../blocks/quiz/__img/_answer/quiz__img_answer_right.css);
+@import url(../blocks/quiz/__img/_answer/quiz__img_answer_wrong.css);
+@import url(../blocks/quiz/__img/quiz__img.css);
+@import url(../blocks/quiz/__img/_active/quiz__img_active.css);
+
+
+
+@import url(../blocks/quiz/__menu/quiz__menu.css);
+@import url(../blocks/quiz/__next-question/quiz__next-question.css);
+@import url(../blocks/quiz/__next-question/_active/quiz__next-question_active.css);
+@import url(../blocks/quiz/__question/quiz__question.css);
+@import url(../blocks/quiz/__result/quiz__result.css);
+@import url(../blocks/quiz/__result/_active/quiz__result_active.css);
+@import url(../blocks/quiz/__solution/quiz__solution.css);
+@import url(../blocks/quiz/__solution/_active/quiz__solution_active.css);
+@import url(../blocks/quiz/__button/quiz__button.css);
+@import url(../blocks/quiz/__button/_state/quiz__button_state_disable.css);
+@import url(../blocks/quiz/__submit-answer/quiz__submit-answer.css);
+@import url(../blocks/quiz/__submit-answer/_active/quiz__submit-answer_active.css);
+@import url(../blocks/quiz/__paragraph/quiz__paragraph.css);
+@import url(../blocks/quiz/__paragraph/_type/quiz__paragraph_type.css);
+
+
+
+
+
+
 @import url(../blocks/temp_styles.css);
 @import url(../blocks/root.css);
 

@@ -1,7 +1,7 @@
-const parOpen='<p class="quiz__paragraph" style="margin: 0; padding: 0">'
+const parOpen='<p class="quiz__paragraph">'
 const parClose='</p>'
 
-const strongOpen='<span class="quiz__paragraph_type" style="font-weight: bold;">'
+const strongOpen='<span class="quiz__paragraph_type">'
 const strongClose='</span>'
 
 
