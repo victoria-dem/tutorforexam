@@ -68,10 +68,10 @@ function disableSubmitAnswerBtn() {
 }
 
 function renderQuiz(quiz) {
-    document.querySelector('.quiz__question').innerHTML = quiz.question
+    clearPreviousAnswers()
+    form.querySelector('.quiz__question').innerHTML = quiz.question
     correctAnswer = quiz.correctAnswer
     quizSolution = quiz.solution
-    clearPreviousAnswers()
     renderAnswers(quiz)
     renderHints(quiz)
 }
