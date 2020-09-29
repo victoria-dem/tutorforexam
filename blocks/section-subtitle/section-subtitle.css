@@ -1,46 +1,46 @@
 .section-subtitle {
-  width: 60%;
-  text-align: center;
-  margin: 20px 0 0;
-  line-height: var(--line-height-paragraph-1600);
-  font-size: var(--size-paragraph-1600);
-  font-weight: normal;
-  color: #000;
+    width: 60%;
+    text-align: center;
+    margin: 20px 0 0;
+    line-height: var(--line-height-paragraph-1600);
+    font-size: var(--size-paragraph-1600);
+    font-weight: normal;
+    color: #000;
 }
 
 
 @media screen and (max-width: 1440px) {
-  .section-subtitle {
-    line-height: var(--line-height-paragraph-1440);
-    font-size: var(--size-paragraph-1440);
-  }
+    .section-subtitle {
+        line-height: var(--line-height-paragraph-1440);
+        font-size: var(--size-paragraph-1440);
+    }
 }
 
 @media screen and (max-width: 1280px) {
-  .section-subtitle {
-    line-height: var(--line-height-paragraph-1280);
-    font-size: var(--size-paragraph-1280);
-  }
+    .section-subtitle {
+        line-height: var(--line-height-paragraph-1280);
+        font-size: var(--size-paragraph-1280);
+    }
 }
 
 @media screen and (max-width: 1024px) {
-  .section-subtitle {
-    line-height: var(--line-height-paragraph-1024);
-    font-size: var(--size-paragraph-1024);
-  }
+    .section-subtitle {
+        line-height: var(--line-height-paragraph-1024);
+        font-size: var(--size-paragraph-1024);
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .section-subtitle {
-    line-height: var(--line-height-paragraph-768);
-    font-size: var(--size-paragraph-768);
-  }
+    .section-subtitle {
+        line-height: var(--line-height-paragraph-768);
+        font-size: var(--size-paragraph-768);
+    }
 }
 
 @media screen and (max-width: 425px) {
-  .section-subtitle {
-    line-height: var(--line-height-paragraph-425);
-    font-size: var(--size-paragraph-425);
-  }
+    .section-subtitle {
+        line-height: var(--line-height-paragraph-425);
+        font-size: var(--size-paragraph-425);
+    }
 }
 

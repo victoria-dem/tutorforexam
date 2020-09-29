@@ -1,33 +1,33 @@
 .section-position_bottom {
-  padding-bottom: var(--top-padding-section-1600);
+    padding-bottom: var(--top-padding-section-1600);
 }
 
 @media screen and (max-width: 1440px) {
-  .section-position_bottom {
-    padding-bottom: var(--top-padding-section-1440);
-  }
+    .section-position_bottom {
+        padding-bottom: var(--top-padding-section-1440);
+    }
 }
 
 @media screen and (max-width: 1280px) {
-  .section-position_bottom {
-    padding-bottom: var(--top-padding-section-1280);
-  }
+    .section-position_bottom {
+        padding-bottom: var(--top-padding-section-1280);
+    }
 }
 
 @media screen and (max-width: 1024px) {
-  .section-position_bottom {
-    padding-bottom: var(--top-padding-section-1024);
-  }
+    .section-position_bottom {
+        padding-bottom: var(--top-padding-section-1024);
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .section-position_bottom {
-    padding-bottom: var(--top-padding-section-768);
-  }
+    .section-position_bottom {
+        padding-bottom: var(--top-padding-section-768);
+    }
 }
 
 @media screen and (max-width: 425px) {
-  .section-position_bottom {
-    padding-bottom: var(--top-padding-section-425);
-  }
+    .section-position_bottom {
+        padding-bottom: var(--top-padding-section-425);
+    }
 }

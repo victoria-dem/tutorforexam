@@ -1,4 +1,4 @@
-const analogies = [
+export const analogies = [
     {
         question: `Foot is to boot so as hand is to...?`,
         answers: {
@@ -299,7 +299,7 @@ const analogies = [
     },
 ];
 
-const resultMessages = {
+export const resultMessages = {
     passed: ['Good job.', 'You did it!', 'Exellent work!', 'Wondeful! This is correct.', 'This is correct! Hard work pays off.'],
     failed: ["You're almost here.", "You're close!", "Try again, you're on the right track!", "Don't give up, keep going!", "Try harder, you can do it!"]
-}
+};
