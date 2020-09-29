@@ -1,0 +1,10 @@
+.quiz__img_answer_wrong {
+  background: url("../../../../images/incorrect.png")  bottom center no-repeat;
+}
+
+
+@media screen and (max-width: 600px) {
+  .quiz__img_answer_wrong + .quiz__result {
+    color:red;
+  }
+}

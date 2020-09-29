@@ -1,0 +1,7 @@
+.quizes {
+  padding: 100px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin: 0 auto;
+}

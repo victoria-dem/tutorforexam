@@ -72,10 +72,10 @@ clearPreviousAnswers = () => {
     disableSubmitAnswerBtn()
     quizResultElement.classList.remove('quiz__result_active');
     quizSolutionElement.classList.remove('quiz__solution_active');
-    if (quizResultCheckmarkElement.classList.contains('quiz__img-right')) {
-        quizResultCheckmarkElement.classList.remove('quiz__img-right');
+    if (quizResultCheckmarkElement.classList.contains('quiz__img_answer_right')) {
+        quizResultCheckmarkElement.classList.remove('quiz__img_answer_right');
     } else {
-        quizResultCheckmarkElement.classList.remove('quiz__img-wrong');
+        quizResultCheckmarkElement.classList.remove('quiz__img_answer_wrong');
     }
     quizResultCheckmarkElement.classList.remove('quiz__img_active');
 }
@@ -137,10 +137,10 @@ renderAnswers = (quiz) => {
 submitHandler = (evt) => {
     evt.preventDefault()
     if (form.elements['answer'][correctAnswer].checked) {
-        quizResultCheckmarkElement.classList.add('quiz__img-right');
+        quizResultCheckmarkElement.classList.add('quiz__img_answer_right');
         quizResultElement.innerHTML = resultMessages['passed'][Math.floor(Math.random() * resultMessages['passed'].length)]
     } else {
-        quizResultCheckmarkElement.classList.add('quiz__img-wrong');
+        quizResultCheckmarkElement.classList.add('quiz__img_answer_wrong');
         quizResultElement.innerHTML = resultMessages['failed'][Math.floor(Math.random() * resultMessages['failed'].length)]
     }
     quizResultElement.classList.add('quiz__result_active')

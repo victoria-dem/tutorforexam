@@ -1,0 +1,12 @@
+.quiz__submit-answer_active {
+  background-color: transparent;
+  color: #a64ac9;
+  border-color: #f2f2f2;
+  border-radius: 3px;
+}
+
+.quiz__submit-answer_active:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-out;
+}
