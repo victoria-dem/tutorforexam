@@ -1,0 +1,50 @@
+.wishes__title {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  margin-top: 0;
+  text-align: center;
+  line-height: var(--line-height-large-title-1600);
+  font-size: var(--size-large-title-1600);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1440px) {
+  .wishes__title {
+    line-height: var(--line-height-large-title-1440);
+    font-size: var(--size-large-title-1440);
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .wishes__title {
+    line-height: var(--line-height-large-title-1280);
+    font-size: var(--size-large-title-1280);
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wishes__title {
+    line-height: var(--line-height-large-title-1024);
+    font-size: var(--size-large-title-1024);
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wishes__title {
+    line-height: var(--line-height-large-title-768);
+    font-size: var(--size-large-title-768);
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .wishes__title {
+    line-height: var(--line-height-large-title-425);
+    font-size: var(--size-large-title-425);
+    margin-bottom: 20px;
+  }
+}

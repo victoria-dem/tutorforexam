@@ -13,7 +13,7 @@
 
 .quizes__button-questions {
     background-color: transparent;
-    color: #a64ac9;
+    color: #a749c9;
     border-color: #f2f2f2;
     border-radius: 3px;
 }
@@ -34,7 +34,7 @@
 
 .quizes__button-section {
     background-color: #fff;
-    color: #a64ac9;
+    color: #a749c9;
     border-style: none;
     border-top: 2px solid #f2f2f2;
     border-right: 2px solid #f2f2f2;
@@ -150,7 +150,7 @@
 
 
 .quizes__button-active {
-    background-color: #ffb48f;
+    background-color: #c9a64a59;
 }
 
 
@@ -159,9 +159,9 @@
     color: #bdbdbd;
 }
 
-.quizes__button_state_choosed {
-    background-color: #ffb48f;
-}
+/*.quizes__button_state_choosed {*/
+/*    background-color: #ffb48f;*/
+/*}*/
 
 .quiz__submit-answer {
     margin: 0 30px 0 0;
@@ -169,7 +169,7 @@
 
 .quiz__submit-answer_active {
     background-color: transparent;
-    color: #a64ac9;
+    color: #a749c9;
     border-color: #f2f2f2;
     border-radius: 3px;
 }
@@ -182,19 +182,19 @@
 
 .quiz__next-question_active {
     background-color: transparent;
-    color: #a64ac9;
+    color: #a749c9;
     border-color: #f2f2f2;
     border-radius: 3px;
 }
 
 .quizes__start_active {
-    background-color: #17e9e045;
+    background-color: #c9a64a59;
 }
 
 
 .quiz__hint-title {
     background-color: transparent;
-    color: #a64ac9;
+    color: #a749c9;
     line-height: 34px;
     font-size: 24px;
     font-style: normal;

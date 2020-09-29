@@ -5,62 +5,6 @@
 }
 
 
-/**************** two columns list ***************/
-
-.two-columns__list {
-  list-style: none;
-  margin: 0 0 30px;
-  padding: 0 0 0 40px;
-}
-
-
-@media screen and (max-width: 1024px) {
-  .two-columns__list {
-    padding: 0 0 0 30px;
-  }
-}
-
-.two-columns__list-item {
-  line-height: var(--line-height-paragraph-1600);
-  font-size: var(--size-paragraph-1600);
-  font-weight: normal;
-}
-
-@media screen and (max-width: 1440px) {
-  .two-columns__list-item {
-    font-size: var(--size-paragraph-1440);
-    line-height: var(--line-height-paragraph-1440);
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .two-columns__list-item {
-    font-size: var(--size-paragraph-1280);
-    line-height: var(--line-height-paragraph-1280);
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .two-columns__list-item {
-    font-size: var(--size-paragraph-1024);
-    line-height: var(--line-height-paragraph-1024);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .two-columns__list-item {
-    font-size: var(--size-paragraph-768);
-    line-height: var(--line-height-paragraph-768);
-
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .two-columns__list-item {
-    font-size: var(--size-paragraph-425);
-    line-height: var(--line-height-paragraph-425);
-  }
-}
 
 
 
