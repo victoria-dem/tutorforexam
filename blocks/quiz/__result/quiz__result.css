@@ -36,10 +36,19 @@
   }
 }
 
+
+@media screen and (max-width: 768px) {
+  .quiz__result {
+    padding:0 0 15px 23px;
+  }
+}
+
+
 @media screen and (max-width: 425px) {
   .quiz__result {
     font-size: var(--size-paragraph-425);
     line-height: var(--line-height-paragraph-425);
+    padding:0 0 15px 0;
   }
 }
 

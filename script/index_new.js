@@ -27,35 +27,50 @@ questionSetPreparation = (arrLength) => {
     return questionsSet
 }
 
-startAnalogies = () => {
-    if (analogiesQuestionsSet.length === 0) {
+startQuiz = (currentQuestionType) => {
+    if (currentQuestionType === 'Math') {
+       mathQuiz()
+    } else {
+        analogiesQuiz()
+    }
+}
+
+
+
+analogiesQuiz = () => {
+    const numQuestion = analogiesQuestionsSet.shift()
+    if (numQuestion === 'undefined') {
         questionSetPreparation(analogies.length)
         analogiesQuestionsSet = questionsSet.slice(0, questionsSet.length)
     }
-    const numQuestion = analogiesQuestionsSet.shift()
     renderQuiz(analogies[numQuestion])
+    
     startAnalogiesButton.classList.add('quizes__start_active')
     startMathButton.classList.remove('quizes__start_active')
 }
 
-startMath = () => {
-    if (mathQuestionsSet.length === 0) {
+mathQuiz = () => {
+    const numQuestion = mathQuestionsSet.shift()
+    console.log({numQuestion});
+    if (numQuestion === undefined) {
+        console.log({numQuestion});
         questionSetPreparation(math.length)
         mathQuestionsSet = questionsSet.slice(0, questionsSet.length)
+        
+        console.log({
+            mathQuestionsSet
+        })
     }
-    const numQuestion = mathQuestionsSet.shift()
+    console.log(math[numQuestion])
     renderQuiz(math[numQuestion])
+    
     startMathButton.classList.add('quizes__start_active')
     startAnalogiesButton.classList.remove('quizes__start_active')
 }
 
 getNextQuestion = () => {
     const currentQuestionType = document.querySelector('.quizes__start_active').innerHTML
-    if (currentQuestionType === 'Math') {
-        startMath()
-    } else {
-        startAnalogies()
-    }
+    startQuiz(currentQuestionType)
 }
 
 clearPreviousAnswers = () => {
@@ -163,7 +178,7 @@ submitHandler = (evt) => {
     enableNextQuestionBtn()
 }
 
-startMath()
+mathQuiz()
 
 startAnalogiesButton.addEventListener('click', startAnalogies)
 startMathButton.addEventListener('click', startMath)

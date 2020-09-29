@@ -106,10 +106,16 @@
 @import url(../blocks/quiz/__hint-content/_hidden/quiz__hint-content_hidden.css);
 @import url(../blocks/quiz/__hint-title/quiz__hint-title.css);
 @import url(../blocks/quiz/__hints/quiz__hints.css);
+
+
+
 @import url(../blocks/quiz/__img/_answer/quiz__img_answer_right.css);
 @import url(../blocks/quiz/__img/_answer/quiz__img_answer_wrong.css);
 @import url(../blocks/quiz/__img/quiz__img.css);
 @import url(../blocks/quiz/__img/_active/quiz__img_active.css);
+
+
+
 @import url(../blocks/quiz/__menu/quiz__menu.css);
 @import url(../blocks/quiz/__next-question/quiz__next-question.css);
 @import url(../blocks/quiz/__next-question/_active/quiz__next-question_active.css);
