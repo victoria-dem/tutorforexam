@@ -1,45 +1,43 @@
 .table__text {
-  margin: 20px 0 0 0;
-  line-height: var(--line-height-small-text-1600);
-  font-size: var(--size-small-text-1600);
-  /*line-height: 1.2;*/
-  /*font-size: 18px;*/
-  font-weight: normal;
+    margin: 20px 0 0 0;
+    line-height: var(--line-height-small-text-1600);
+    font-size: var(--size-small-text-1600);
+    font-weight: normal;
 }
 
 
 @media screen and (max-width: 1440px) {
-  .table__text {
-    line-height: var(--line-height-small-text-1440);
-    font-size: var(--size-small-text-1440);
-  }
+    .table__text {
+        line-height: var(--line-height-small-text-1440);
+        font-size: var(--size-small-text-1440);
+    }
 }
 
 @media screen and (max-width: 1280px) {
-  .table__text {
-    line-height: var(--line-height-small-text-1280);
-    font-size: var(--size-small-text-1280);
-  }
+    .table__text {
+        line-height: var(--line-height-small-text-1280);
+        font-size: var(--size-small-text-1280);
+    }
 }
 
 @media screen and (max-width: 1024px) {
-  .table__text {
-    line-height: var(--line-height-small-text-1024);
-    font-size: var(--size-small-text-1024);
-  }
+    .table__text {
+        line-height: var(--line-height-small-text-1024);
+        font-size: var(--size-small-text-1024);
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .table__text {
-    line-height: var(--line-height-small-text-768);
-    font-size: var(--size-small-text-768);
-  }
+    .table__text {
+        line-height: var(--line-height-small-text-768);
+        font-size: var(--size-small-text-768);
+    }
 }
 
 @media screen and (max-width: 425px) {
-  .table__text {
-    line-height: var(--line-height-small-text-425);
-    font-size: var(--size-small-text-425);
-  }
+    .table__text {
+        line-height: var(--line-height-small-text-425);
+        font-size: var(--size-small-text-425);
+    }
 }
 

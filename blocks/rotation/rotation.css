@@ -1,9 +1,9 @@
 @keyframes spin {
-  100% {
-    transform: rotate(1turn);
-  }
+    100% {
+        transform: rotate(1turn);
+    }
 }
 
 .rotation {
-  animation: spin 20s linear infinite;
+    animation: spin 20s linear infinite;
 }

@@ -1,11 +1,11 @@
 .description {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 
 @media screen and (max-width: 425px) {
-  .description {
-    display: none;
-  }
+    .description {
+        display: none;
+    }
 }

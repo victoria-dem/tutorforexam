@@ -1,12 +1,12 @@
-const parOpen='<p class="quiz__paragraph">'
-const parClose='</p>'
+export const parOpen='<p class="quiz__paragraph">'
+export const parClose='</p>'
 
-const strongOpen='<span class="quiz__paragraph_type">'
-const strongClose='</span>'
+export const strongOpen='<span class="quiz__paragraph_type">'
+export const strongClose='</span>'
 
 
 
-const math = [
+export const math = [
     {
         question: `Calculate the sum of the exterior angles of a regular decagon.`,
         answers: {
@@ -301,7 +301,7 @@ const math = [
         },
         correctAnswer: 1,
         solution:
-        `
+            `
         ${parOpen}Principal amount = $ 450${parClose}
         ${parOpen}Received amount = $ 675${parClose}
         ${parOpen}Time = 2 years${parClose}

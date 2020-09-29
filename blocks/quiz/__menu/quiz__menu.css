@@ -1,26 +1,26 @@
 .quiz__menu {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  margin: 0 0 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 0 15px 20px;
 }
 
 @media screen and (max-width: 600px) {
-  .quiz__menu {
-    align-self: start;
-    flex-direction: column;
-    align-items: start;
-    width: auto;
-    justify-content: start;
-    margin: 0 0 15px 20px;
-    padding: 0;
-  }
+    .quiz__menu {
+        align-self: start;
+        flex-direction: column;
+        align-items: start;
+        width: auto;
+        justify-content: start;
+        margin: 0 0 15px 20px;
+        padding: 0;
+    }
 }
 
 
 @media screen and (max-width: 425px) {
-  .quiz__menu {
-    margin: 0 0 15px 0;
-  }
+    .quiz__menu {
+        margin: 0 0 15px 0;
+    }
 }
