@@ -9,13 +9,9 @@ import {
     quizSolutionElement
 } from '../utils/constants.js';
 
-<<<<<<< HEAD:pages/index.js
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
-=======
-import {math} from '../utils/math.js';
-import {resultMessages, analogies} from "../utils/analogies.js";
->>>>>>> b6abdb2047c9be7a74a83a7fd50639297892ad8b:script/index.js
+
 
 let correctAnswer;
 let quizSolution;
@@ -73,12 +69,8 @@ function disableSubmitAnswerBtn() {
 }
 
 function renderQuiz(quiz) {
-<<<<<<< HEAD:pages/index.js
     clearPreviousAnswers()
     form.querySelector('.quiz__question').innerHTML = quiz.question
-=======
-    document.querySelector('.quiz__question').innerHTML = quiz.question
->>>>>>> b6abdb2047c9be7a74a83a7fd50639297892ad8b:script/index.js
     correctAnswer = quiz.correctAnswer
     quizSolution = quiz.solution
     renderAnswers(quiz)
