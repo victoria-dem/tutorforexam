@@ -5,7 +5,6 @@
     font-weight: normal;
 }
 
-
 @media screen and (max-width: 1440px) {
     .table__text {
         line-height: var(--line-height-small-text-1440);

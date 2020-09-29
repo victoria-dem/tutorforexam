@@ -4,7 +4,6 @@
     align-items: center;
 }
 
-
 .resources__link {
     text-decoration: none;
 }
@@ -15,7 +14,6 @@
     font-weight: 900;
     margin: 0 40px 0 40px;
 }
-
 
 @media screen and (max-width: 768px) {
     .resources__item {

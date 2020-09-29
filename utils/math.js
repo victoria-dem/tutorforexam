@@ -1,11 +1,7 @@
 export const parOpen='<p class="quiz__paragraph">'
 export const parClose='</p>'
-
 export const strongOpen='<span class="quiz__paragraph_type">'
 export const strongClose='</span>'
-
-
-
 export const math = [
     {
         question: `Calculate the sum of the exterior angles of a regular decagon.`,

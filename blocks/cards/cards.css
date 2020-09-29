@@ -5,13 +5,11 @@
     column-gap: 100px;
 }
 
-
 @media screen and (max-width: 1280px) {
     .cards {
         grid-template-columns: repeat(3, 240px);
     }
 }
-
 
 @media screen and (max-width: 1024px) {
     .cards {
@@ -19,14 +17,12 @@
     }
 }
 
-
 @media screen and (max-width: 768px) {
     .cards {
         grid-template-columns: repeat(1, 320px);
         grid-template-rows: repeat(3, auto);
     }
 }
-
 
 @media screen and (max-width: 425px) {
     .cards {

@@ -2,7 +2,6 @@
     background: url("../../../../images/checkmark.png") bottom center no-repeat;
 }
 
-
 @media screen and (max-width: 600px) {
     .quiz__img_answer_right + .quiz__result {
         color: green;

@@ -20,13 +20,11 @@
     }
 }
 
-
 @media screen and (max-width: 768px) {
     .table {
         width: 420px;
     }
 }
-
 
 @media screen and (max-width: 425px) {
     .table {

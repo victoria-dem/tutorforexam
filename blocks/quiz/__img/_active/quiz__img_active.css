@@ -2,7 +2,6 @@
     display: inline-block;
 }
 
-
 @media screen and (max-width: 600px) {
     .quiz__img_active {
         display: none;

@@ -8,7 +8,6 @@
     z-index: 3;
 }
 
-
 @media screen and (max-width: 1440px) {
     .header__title {
         width: 45vw;

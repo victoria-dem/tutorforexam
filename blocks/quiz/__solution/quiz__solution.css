@@ -6,7 +6,6 @@
     display: none;
 }
 
-
 @media screen and (max-width: 1440px) {
     .quiz__solution {
         line-height: var(--line-height-paragraph-1440);
@@ -34,7 +33,6 @@
         font-size: var(--size-paragraph-768);
     }
 }
-
 
 @media screen and (max-width: 600px) {
     .quiz__solution {

@@ -8,7 +8,6 @@
     color: #000;
 }
 
-
 @media screen and (max-width: 1440px) {
     .section-title {
         line-height: var(--line-height-large-title-1440);

@@ -5,14 +5,12 @@
     margin: 0 0 10px 20px;
 }
 
-
 @media screen and (max-width: 1440px) {
     .quiz__hint-content {
         font-size: var(--size-small-title-1440);
         line-height: var(--line-height-small-title-1440);
     }
 }
-
 
 @media screen and (max-width: 1280px) {
     .quiz__hint-content {
