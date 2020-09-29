@@ -2,7 +2,7 @@
     line-height: var(--line-height-paragraph-1600);
     font-size: var(--size-paragraph-1600);
     font-weight: normal;
-    list-style-type: '\2014\a0';
+    list-style-type: '- ';
 }
 
 @media screen and (max-width: 1440px) {
