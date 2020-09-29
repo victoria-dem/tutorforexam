@@ -301,7 +301,7 @@ export const math = [
         },
         correctAnswer: 1,
         solution:
-        `
+            `
         ${parOpen}Principal amount = $ 450${parClose}
         ${parOpen}Received amount = $ 675${parClose}
         ${parOpen}Time = 2 years${parClose}
