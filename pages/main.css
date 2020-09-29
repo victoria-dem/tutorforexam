@@ -8,10 +8,9 @@
 @import url(../blocks/content/content.css);
 @import url(../blocks/description/description.css);
 @import url(../blocks/digits/digits.css);
-@import url(../blocks/feynman/feynman.css);
-@import url(../blocks/feynman/__link/feynman__link.css);
-@import url(../blocks/feynman/__subtitle/feynman__subtitle.css);
-@import url(../blocks/feynman/__title/feynman__title.css);
+@import url(../blocks/wishes/wishes.css);
+@import url(../blocks/wishes/__subtitle/wishes__subtitle.css);
+@import url(../blocks/wishes/__title/wishes__title.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
 @import url(../blocks/footer/__column/footer__column.css);
@@ -72,6 +71,8 @@
 @import url(../blocks/glance/glance.css);
 @import url(../blocks/two-columns/two-columns.css);
 @import url(../blocks/two-columns/__brief/two-columns__brief.css);
+@import url(../blocks/two-columns/__list/two-columns__list.css);
+@import url(../blocks/two-columns/__list-item/two-columns__list-item.css);
 @import url(../blocks/two-columns/__main-text/two-columns__main-text.css);
 @import url(../blocks/two-columns/__paragraph/two-columns__paragraph.css);
 @import url(../blocks/two-columns/__span-accent/two-columns__span-accent.css);
