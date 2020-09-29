@@ -1,4 +1,6 @@
 .page {
   margin: 0 auto;
   font-family: 'Inter', 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
