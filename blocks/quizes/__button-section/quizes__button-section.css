@@ -1,14 +1,14 @@
 .quizes__button-section {
-  background-color: #fff;
-  color: #a64ac9;
-  border-style: none;
-  border-top: 2px solid #f2f2f2;
-  border-right: 2px solid #f2f2f2;
-  z-index: 2;
+    background-color: var(--text-theme-dark);
+    color: var(--text-btn-color);
+    border: 0;
+    border-top: 2px solid var(--background-color);
+    border-right: 2px solid var(--background-color);
+    z-index: 2;
 }
 
 .quizes__button-section:hover {
-  cursor: pointer;
-  opacity: 0.8;
-  transition: opacity 0.3s ease-out;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-out;
 }

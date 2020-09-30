@@ -1,12 +1,8 @@
-const parOpen='<p class="quiz__paragraph">'
-const parClose='</p>'
-
-const strongOpen='<span class="quiz__paragraph_type">'
-const strongClose='</span>'
-
-
-
-const math = [
+export const parOpen='<p class="quiz__paragraph">'
+export const parClose='</p>'
+export const strongOpen='<span class="quiz__paragraph_type">'
+export const strongClose='</span>'
+export const math = [
     {
         question: `Calculate the sum of the exterior angles of a regular decagon.`,
         answers: {
@@ -228,8 +224,8 @@ const math = [
     {
         question: `
         ${parOpen}Which among the following is true for the statements given below?${parOpen}
-        ${parOpen}Statement 1: All odd numbers in the first ten natural numbers are prime.${parOpen}
-        ${parOpen}Statement 2: The smallest prime number is 2.${parOpen}
+        ${parOpen}${strongOpen}Statement 1:${strongClose}All odd numbers in the first ten natural numbers are prime.${parOpen}
+        ${parOpen}${strongOpen}Statement 2:${strongClose} The smallest prime number is 2.${parOpen}
         `,
         answers: {
             0:	'Only statement 1 is correct',
@@ -301,7 +297,7 @@ const math = [
         },
         correctAnswer: 1,
         solution:
-        `
+            `
         ${parOpen}Principal amount = $ 450${parClose}
         ${parOpen}Received amount = $ 675${parClose}
         ${parOpen}Time = 2 years${parClose}

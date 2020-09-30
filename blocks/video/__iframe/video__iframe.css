@@ -1,45 +1,41 @@
 .video__iframe {
-  border: 0;
-  margin-right: 20px;
-  width: 515px;
-  height: 316px;
+    border: 0;
+    margin-right: 20px;
+    width: 515px;
+    height: 316px;
 }
+
 .video__iframe:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
-
-
 
 @media screen and (max-width: 1280px) {
-  .video__iframe {
-    width: 456px;
-    height: 280px;
-  }
+    .video__iframe {
+        width: 456px;
+        height: 280px;
+    }
 }
-
 
 @media screen and (max-width: 1024px) {
-  .video__iframe {
-    width: 375px;
-    height: 230px;
-    margin-right: 10px;
-  }
+    .video__iframe {
+        width: 375px;
+        height: 230px;
+        margin-right: 10px;
+    }
 }
-
 
 @media screen and (max-width: 768px) {
-  .video__iframe {
-    width: 375px;
-    height: 230px;
-    margin: 0 0 20px 0;
-  }
+    .video__iframe {
+        width: 375px;
+        height: 230px;
+        margin: 0 0 20px 0;
+    }
 }
 
-
 @media screen and (max-width: 425px) {
-  .video__iframe {
-    width: 300px;
-    height: 184px;
-    margin: 0 0 20px 0;
-  }
+    .video__iframe {
+        width: 300px;
+        height: 184px;
+        margin: 0 0 20px 0;
+    }
 }

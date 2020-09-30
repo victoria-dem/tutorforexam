@@ -1,15 +1,13 @@
 .header__square-pic {
   height: 565px;
   width: 565px;
-  background-color: #a749c954;
+  background-color: var(--text-btn-color);
+  opacity: .54;
   position: absolute;
   top: 64px;
   right: 0;
   z-index: 1;
 }
-
-/*565 / 1440 = .4*/
-/*64 / 1440 = .044*/
 
 @media screen and (max-width: 1440px) {
   .header__square-pic {

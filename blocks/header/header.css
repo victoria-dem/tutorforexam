@@ -1,40 +1,33 @@
 .header {
-  height: 100vh;
-  /*width: 100vw;*/
-  max-width: 100%;
-  min-height: 768px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #f2f2f2;
-  overflow: hidden;
+    height: 100vh;
+    max-width: 100%;
+    min-height: 768px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--background-color);
+    overflow: hidden;
 }
 
 @media screen and (max-width: 1440px) {
-  .header {
-    height: auto;
-    min-height: calc(632px + (100vw - 1024px) * 0.54);
-  }
+    .header {
+        height: auto;
+        min-height: calc(632px + (100vw - 1024px) * 0.54);
+    }
 }
 
 @media screen and (max-width: 1024px) {
-  .header {
-    height: auto;
-    min-height: calc(632px + (100vw - 1024px) * 0.54);
-  }
+    .header {
+        height: auto;
+        min-height: calc(632px + (100vw - 1024px) * 0.54);
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .header {
-    height: auto;
-    justify-content: start;
-  }
+    .header {
+        height: auto;
+        justify-content: start;
+    }
 }
 
-
-/*1440 by 900 laptop */
-/*1280 by 800 laptop */
-/*1024 by 768 laptop */
-/*768 by 1024 tablet*/
-/*425 mobile Large*/

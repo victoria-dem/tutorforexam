@@ -1,34 +1,34 @@
 .section-position_overlap {
-  padding-top: calc( var(--top-padding-section-1600) + 60px);
-  margin-top: -50px;
+    padding-top: calc(var(--top-padding-section-1600) + 60px);
+    margin-top: -50px;
 }
 
 @media screen and (max-width: 1440px) {
-  .section-position_overlap {
-    padding-top: calc( var(--top-padding-section-1440) + 60px);
-  }
+    .section-position_overlap {
+        padding-top: calc(var(--top-padding-section-1440) + 60px);
+    }
 }
 
 @media screen and (max-width: 1280px) {
-  .section-position_overlap {
-    padding-top: calc( var(--top-padding-section-1280) + 60px);
-  }
+    .section-position_overlap {
+        padding-top: calc(var(--top-padding-section-1280) + 60px);
+    }
 }
 
 @media screen and (max-width: 1024px) {
-  .section-position_overlap {
-    padding-top: calc( var(--top-padding-section-1024) + 60px);
-  }
+    .section-position_overlap {
+        padding-top: calc(var(--top-padding-section-1024) + 60px);
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .section-position_overlap {
-    padding-top: calc( var(--top-padding-section-768) + 60px);
-  }
+    .section-position_overlap {
+        padding-top: calc(var(--top-padding-section-768) + 60px);
+    }
 }
 
 @media screen and (max-width: 425px) {
-  .section-position_overlap {
-    padding-top: calc( var(--top-padding-section-425) + 60px);
-  }
+    .section-position_overlap {
+        padding-top: calc(var(--top-padding-section-425) + 60px);
+    }
 }

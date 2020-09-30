@@ -1,56 +1,56 @@
 .header__subtitle {
-  margin: 0;
-  padding: 0;
-  width: 400px;
-  position: absolute;
-  bottom: 40px;
-  left: 64px;
-  line-height: var(--line-height-small-title-1600);
-  font-size: var(--size-small-title-1600);
-  font-weight: normal;
-  z-index: 3;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    position: absolute;
+    bottom: 40px;
+    left: 64px;
+    line-height: var(--line-height-small-title-1600);
+    font-size: var(--size-small-title-1600);
+    font-weight: normal;
+    z-index: 3;
 }
 
 @media screen and (max-width: 1440px) {
-  .header__subtitle {
-    font-size: var(--size-small-title-1440);
-    line-height: var(--line-height-small-title-1440);
-  }
+    .header__subtitle {
+        font-size: var(--size-small-title-1440);
+        line-height: var(--line-height-small-title-1440);
+    }
 }
 
 
 @media screen and (max-width: 1280px) {
-  .header__subtitle {
-    font-size: var(--size-small-title-1280);
-    line-height: var(--line-height-small-title-1280);
-  }
+    .header__subtitle {
+        font-size: var(--size-small-title-1280);
+        line-height: var(--line-height-small-title-1280);
+    }
 }
 
 @media screen and (max-width: 1024px) {
-  .header__subtitle {
-    font-size: var(--size-small-title-1024);
-    line-height: var(--line-height-small-title-1024);
-    width: 280px;
-    bottom: calc(40px - (100vw - 1024px) * (40 - 28)/(1440 - 1024));
-  }
+    .header__subtitle {
+        font-size: var(--size-small-title-1024);
+        line-height: var(--line-height-small-title-1024);
+        width: 280px;
+        bottom: calc(40px - (100vw - 1024px) * (40 - 28) / (1440 - 1024));
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .header__subtitle {
-    position: unset;
-    width: 75vw;
-    margin: 18px auto;
-    font-size: var(--size-small-title-768);
-    line-height: var(--line-height-small-title-768);
+    .header__subtitle {
+        position: unset;
+        width: 75vw;
+        margin: 18px auto;
+        font-size: var(--size-small-title-768);
+        line-height: var(--line-height-small-title-768);
 
-    text-align: center;
-  }
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 425px) {
-  .header__subtitle {
-    margin: 14px auto;
-    font-size: var(--size-small-title-425);
-    line-height: var(--line-height-small-title-425);
-  }
+    .header__subtitle {
+        margin: 14px auto;
+        font-size: var(--size-small-title-425);
+        line-height: var(--line-height-small-title-425);
+    }
 }
