@@ -25,13 +25,16 @@ function clearPreviousAnswers() {
 }
 
 function disableNextQuestionBtn() {
-    nextQuestion.classList.remove('quiz__button_active')
+    nextQuestion.classList.remove('quiz__button_state_active')
     nextQuestion.disabled = true;
+    nextQuestion.classList.add('quiz__button_state_disable')
 }
 
 function enableNextQuestionBtn() {
-    nextQuestion.classList.add('quiz__button_active')
+    nextQuestion.classList.add('quiz__button_state_active')
     nextQuestion.disabled = false;
+    nextQuestion.classList.remove('quiz__button_state_disable')
+    
 }
 
 function clearQuizResult() {
@@ -62,8 +65,15 @@ function renderHints(quiz) {
 }
 
 function disableSubmitAnswerBtn() {
-    submitAnswer.classList.remove('quiz__button_active')
+    submitAnswer.classList.remove('quiz__button_state_active')
     submitAnswer.disabled = true;
+    submitAnswer.classList.add('quiz__button_state_disable')
+}
+
+function enableSubmitButton () {
+    submitAnswer.classList.add('quiz__button_state_active')
+    submitAnswer.disabled = false;
+    submitAnswer.classList.remove('quiz__button_state_disable')
 }
 
 function renderQuiz(quiz) {
@@ -73,11 +83,6 @@ function renderQuiz(quiz) {
     quizSolution = quiz.solution
     renderAnswers(quiz)
     renderHints(quiz)
-}
-
-function submitButtonActivation () {
-    submitAnswer.classList.add('quiz__button_active')
-    submitAnswer.disabled = false;
 }
 
 function displayQuizResult() {
@@ -96,7 +101,7 @@ function renderAnswers(quiz) {
             answerLabel.innerHTML = quiz.answers[key]
             answerLabel.htmlFor = key
             answerInput.id = key
-            answerInput.addEventListener('click', submitButtonActivation)
+            answerInput.addEventListener('click', enableSubmitButton)
             document.querySelector('.quiz__answers').append(answerElement)
         }
     }

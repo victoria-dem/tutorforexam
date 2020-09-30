@@ -1,11 +1,11 @@
-.quiz__button_active {
+.quiz__button_state_active {
   background-color: transparent;
   color: var(--text-btn-color);
   border-color: #dfdada;
   border-radius: 3px;
 }
 
-.quiz__button_active:hover {
+.quiz__button_state_active:hover {
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.3s ease-out;

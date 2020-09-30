@@ -84,7 +84,8 @@
 @import url(../blocks/quiz/__solution/quiz__solution.css);
 @import url(../blocks/quiz/__solution/_active/quiz__solution_active.css);
 @import url(../blocks/quiz/__button/quiz__button.css);
-@import url(../blocks/quiz/__button/_active/quiz__button_active.css);
+@import url(../blocks/quiz/__button/_state/_active/quiz__button_state_active.css);
+@import url(../blocks/quiz/__button/_state/_disable/quiz__button_state_disable.css);
 @import url(../blocks/quiz/__submit-answer/quiz__submit-answer.css);
 @import url(../blocks/quiz/__paragraph/quiz__paragraph.css);
 @import url(../blocks/quiz/__paragraph/_type/quiz__paragraph_type.css);
