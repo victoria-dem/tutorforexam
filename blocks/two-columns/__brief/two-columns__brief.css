@@ -4,7 +4,7 @@
     line-height: var(--line-height-small-title-1600);
     font-size: var(--size-small-title-1600);
     font-weight: normal;
-    color: var(--text-violet);
+    color: #c9a64a;
 }
 
 @media screen and (max-width: 1440px) {

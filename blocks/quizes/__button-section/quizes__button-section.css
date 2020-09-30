@@ -2,8 +2,8 @@
     background-color: #fff;
     color: #a64ac9;
     border: 0;
-    border-top: 2px solid #f2f2f2;
-    border-right: 2px solid #f2f2f2;
+    border-top: 2px solid var(--background-color);
+    border-right: 2px solid var(--background-color);
     z-index: 2;
 }
 

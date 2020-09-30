@@ -25,12 +25,12 @@ function clearPreviousAnswers() {
 }
 
 function disableNextQuestionBtn() {
-    nextQuestion.classList.remove('quiz__next-question_active')
+    nextQuestion.classList.remove('quiz__button_active')
     nextQuestion.disabled = true;
 }
 
 function enableNextQuestionBtn() {
-    nextQuestion.classList.add('quiz__next-question_active')
+    nextQuestion.classList.add('quiz__button_active')
     nextQuestion.disabled = false;
 }
 
@@ -62,7 +62,7 @@ function renderHints(quiz) {
 }
 
 function disableSubmitAnswerBtn() {
-    submitAnswer.classList.remove('quiz__submit-answer_active')
+    submitAnswer.classList.remove('quiz__button_active')
     submitAnswer.disabled = true;
 }
 
@@ -76,7 +76,7 @@ function renderQuiz(quiz) {
 }
 
 function submitButtonActivation () {
-    submitAnswer.classList.add('quiz__submit-answer_active')
+    submitAnswer.classList.add('quiz__button_active')
     submitAnswer.disabled = false;
 }
 
