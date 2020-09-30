@@ -9,7 +9,7 @@
 }
 
 .resources__item {
-    color: #c9a64a;
+    color: var(--text-color);
     font-size: 45px;
     font-weight: 900;
     margin: 0 40px 0 40px;

@@ -1,6 +1,6 @@
 .quiz__button_active {
   background-color: transparent;
-  color: #a64ac9;
+  color: var(--text-btn-color);
   border-color: #dfdada;
   border-radius: 3px;
 }

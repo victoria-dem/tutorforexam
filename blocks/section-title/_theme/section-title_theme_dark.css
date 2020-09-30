@@ -1,4 +1,4 @@
 .section-title_theme_dark {
-    color: #fff;
+    color: var(--text-theme-dark);
     z-index: 1;
 }

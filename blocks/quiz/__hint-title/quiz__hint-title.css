@@ -1,6 +1,6 @@
 .quiz__hint-title {
     background-color: transparent;
-    color: #a64ac9;
+    color: var(--text-btn-color);
     font-size: var(--size-paragraph-1600);
     line-height: var(--line-height-paragraph-1600);
     font-style: italic;

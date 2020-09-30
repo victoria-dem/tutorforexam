@@ -4,6 +4,6 @@
 
 @media screen and (max-width: 600px) {
     .quiz__img_answer_wrong + .quiz__result {
-        color: red;
+        color: var(--wrong-answer);
     }
 }

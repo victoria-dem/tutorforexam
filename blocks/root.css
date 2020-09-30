@@ -71,6 +71,13 @@
   --top-padding-section-1024: 70px;
   --top-padding-section-768: 50px;
   --top-padding-section-425: 30px;
+  /*colors*/
   --background-color: #f2f2f2;
   --text-color: #c9a64a;
+  --text-btn-color: #a64ac9;
+  --background-section: #1f1f1f;
+  --text-theme-dark: #ffffff;
+  --decor-theme-dark: #afb5ef;
+  --correct-answer: green;
+  --wrong-answer: red;
 }

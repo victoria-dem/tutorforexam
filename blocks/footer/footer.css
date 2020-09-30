@@ -1,6 +1,6 @@
 .footer {
-    color: #fff;
-    background-color: #1f1f1f;
+    color: var(--text-theme-dark);
+    background-color: var(--background-section);
     padding: 60px 0 40px;
     box-sizing: border-box;
 }
