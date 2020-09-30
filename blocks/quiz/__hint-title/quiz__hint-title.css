@@ -15,11 +15,9 @@
     transition: opacity 0.3s ease-out;
 }
 
-
 .quiz__hint-title:focus {
     outline-style: none;
 }
-
 
 @media screen and (max-width: 1440px) {
     .quiz__hint-title {
@@ -27,7 +25,6 @@
         line-height: var(--line-height-paragraph-1440);
     }
 }
-
 
 @media screen and (max-width: 1280px) {
     .quiz__hint-title {

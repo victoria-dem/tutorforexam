@@ -25,7 +25,6 @@
     }
 }
 
-
 @media screen and (max-width: 425px) {
     .resources__logo-zone {
         grid-template-columns: repeat(2, 100px);

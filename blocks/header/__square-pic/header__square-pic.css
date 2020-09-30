@@ -8,7 +8,6 @@
     z-index: 1;
 }
 
-
 @media screen and (max-width: 1440px) {
     .header__square-pic {
         --dimension: 40vw;

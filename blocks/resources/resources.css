@@ -4,18 +4,16 @@
     align-items: center;
 }
 
-
 .resources__link {
     text-decoration: none;
 }
 
 .resources__item {
-    color: #bdbdbd;
+    color: #c9a64a;
     font-size: 45px;
     font-weight: 900;
     margin: 0 40px 0 40px;
 }
-
 
 @media screen and (max-width: 768px) {
     .resources__item {

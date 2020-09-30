@@ -1,3 +1,4 @@
 .quizes__start_active {
-    background-color: #c9a64a59;
+    background-color: var(--background-color);
+  border: none;
 }

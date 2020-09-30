@@ -3,13 +3,11 @@
     width: 250px;
 }
 
-
 @media screen and (max-width: 1280px) {
     .table__cell {
         width: 200px
     }
 }
-
 
 @media screen and (max-width: 1024px) {
     .table__cell {
@@ -17,13 +15,11 @@
     }
 }
 
-
 @media screen and (max-width: 768px) {
     .table__cell {
         width: 200px
     }
 }
-
 
 @media screen and (max-width: 425px) {
     .table__cell {

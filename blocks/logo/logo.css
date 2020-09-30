@@ -6,7 +6,6 @@
     height: 50px;
 }
 
-
 @media screen and (max-width: 768px) {
     .logo {
         width: 180px;
@@ -19,4 +18,9 @@
         width: 130px;
         height: 26px;
     }
+}
+
+
+.logo_footer_opacity {
+  opacity: 0.9;
 }

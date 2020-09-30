@@ -4,7 +4,6 @@
     font-weight: bold;
 }
 
-
 @media screen and (max-width: 1440px) {
     .two-columns__span-accent {
         font-size: var(--size-paragraph-1440);
@@ -39,6 +38,3 @@
         line-height: var(--line-height-paragraph-425);
     }
 }
-
-
-

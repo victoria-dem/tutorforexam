@@ -8,9 +8,8 @@ import {
     quizResultCheckmarkElement,
     quizSolutionElement
 } from '../utils/constants.js';
-
-import {math} from '../utils/math.js';
-import {resultMessages, analogies} from "../utils/analogies.js";
+import {math} from "../utils/math.js"
+import {resultMessages, analogies} from "../utils/analogies.js"
 
 let correctAnswer;
 let quizSolution;
@@ -26,12 +25,12 @@ function clearPreviousAnswers() {
 }
 
 function disableNextQuestionBtn() {
-    nextQuestion.classList.remove('quiz__next-question_active')
+    nextQuestion.classList.remove('quiz__button_active')
     nextQuestion.disabled = true;
 }
 
 function enableNextQuestionBtn() {
-    nextQuestion.classList.add('quiz__next-question_active')
+    nextQuestion.classList.add('quiz__button_active')
     nextQuestion.disabled = false;
 }
 
@@ -63,21 +62,21 @@ function renderHints(quiz) {
 }
 
 function disableSubmitAnswerBtn() {
-    submitAnswer.classList.remove('quiz__submit-answer_active')
+    submitAnswer.classList.remove('quiz__button_active')
     submitAnswer.disabled = true;
 }
 
 function renderQuiz(quiz) {
-    document.querySelector('.quiz__question').innerHTML = quiz.question
+    clearPreviousAnswers()
+    form.querySelector('.quiz__question').innerHTML = quiz.question
     correctAnswer = quiz.correctAnswer
     quizSolution = quiz.solution
-    clearPreviousAnswers()
     renderAnswers(quiz)
     renderHints(quiz)
 }
 
 function submitButtonActivation () {
-    submitAnswer.classList.add('quiz__submit-answer_active')
+    submitAnswer.classList.add('quiz__button_active')
     submitAnswer.disabled = false;
 }
 
