@@ -34,7 +34,18 @@ function enableNextQuestionBtn() {
     nextQuestion.classList.add('quiz__button_state_active')
     nextQuestion.disabled = false;
     nextQuestion.classList.remove('quiz__button_state_disable')
-    
+}
+
+function disableSubmitAnswerBtn() {
+    submitAnswer.classList.remove('quiz__button_state_active')
+    submitAnswer.disabled = true;
+    submitAnswer.classList.add('quiz__button_state_disable')
+}
+
+function enableSubmitAnswerBtn() {
+    submitAnswer.classList.add('quiz__button_state_active')
+    submitAnswer.disabled = false;
+    submitAnswer.classList.remove('quiz__button_state_disable')
 }
 
 function clearQuizResult() {
@@ -64,18 +75,6 @@ function renderHints(quiz) {
     }
 }
 
-function disableSubmitAnswerBtn() {
-    submitAnswer.classList.remove('quiz__button_state_active')
-    submitAnswer.disabled = true;
-    submitAnswer.classList.add('quiz__button_state_disable')
-}
-
-function enableSubmitButton () {
-    submitAnswer.classList.add('quiz__button_state_active')
-    submitAnswer.disabled = false;
-    submitAnswer.classList.remove('quiz__button_state_disable')
-}
-
 function renderQuiz(quiz) {
     clearPreviousAnswers()
     form.querySelector('.quiz__question').innerHTML = quiz.question
@@ -101,7 +100,7 @@ function renderAnswers(quiz) {
             answerLabel.innerHTML = quiz.answers[key]
             answerLabel.htmlFor = key
             answerInput.id = key
-            answerInput.addEventListener('click', enableSubmitButton)
+            answerInput.addEventListener('click', enableSubmitAnswerBtn)
             document.querySelector('.quiz__answers').append(answerElement)
         }
     }
