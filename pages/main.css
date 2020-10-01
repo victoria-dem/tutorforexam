@@ -18,7 +18,6 @@
 @import url(../blocks/header/__title/header__title.css);
 @import url(../blocks/motivation/motivation.css);
 @import url(../blocks/motivation/__triangle/motivation__triangle.css);
-@import url(../blocks/link-respond/link-respond.css);
 @import url(../blocks/logo/logo.css);
 @import url(../blocks/logo/_place/logo_place_footer.css);
 @import url(../blocks/logo/_place/logo_place_header.css);
@@ -89,6 +88,7 @@
 @import url(../blocks/quiz/__submit-answer/quiz__submit-answer.css);
 @import url(../blocks/quiz/__paragraph/quiz__paragraph.css);
 @import url(../blocks/quiz/__paragraph/_type/quiz__paragraph_type.css);
+@import url(../blocks/hover/hover.css);
 @import url(../blocks/root.css);
 
 

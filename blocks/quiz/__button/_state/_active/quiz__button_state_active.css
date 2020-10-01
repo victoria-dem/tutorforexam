@@ -1,12 +1,19 @@
 .quiz__button_state_active {
+  appearance: none;
   background-color: transparent;
   color: var(--text-btn-color);
   border-color: #dfdada;
   border-radius: 3px;
+  cursor: pointer;
+  padding: 0 20px;
+  border-style: outset;
 }
 
-.quiz__button_state_active:hover {
+ .quiz__button_state_active:hover {
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.3s ease-out;
 }
+
+
+
