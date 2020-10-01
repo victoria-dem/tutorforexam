@@ -1,0 +1,10 @@
+.quizes__button-section {
+    background-color: var(--text-theme-dark);
+    color: var(--text-btn-color);
+    border: 0;
+    border-top: 2px solid var(--background-color);
+    border-right: 2px solid var(--background-color);
+    z-index: 2;
+}
+
+

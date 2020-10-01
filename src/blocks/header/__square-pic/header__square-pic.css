@@ -1,0 +1,25 @@
+.header__square-pic {
+  height: 565px;
+  width: 565px;
+  background-color: var(--text-btn-color);
+  opacity: .54;
+  position: absolute;
+  top: 64px;
+  right: 0;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1440px) {
+  .header__square-pic {
+    --dimension: 40vw;
+    height: var(--dimension);
+    width: var(--dimension);
+    top: 5vw
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header__square-pic {
+    display: none;
+  }
+}

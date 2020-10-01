@@ -1,0 +1,8 @@
+.quiz__button_state_disable {
+  appearance: none;
+  color: rgba(16, 16, 16, 0.3);
+  background-color: #e7e7e7;
+  border: 1px solid #c9c9c9;
+  cursor: not-allowed;
+  pointer-events: none;
+}

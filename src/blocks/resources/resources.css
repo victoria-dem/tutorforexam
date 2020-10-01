@@ -1,0 +1,33 @@
+.resources {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resources__link {
+    text-decoration: none;
+}
+
+.resources__item {
+    color: var(--text-color);
+    font-size: 45px;
+    font-weight: 900;
+    margin: 0 40px 0 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .resources__item {
+        display: grid;
+        font-size: 30px;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .resources__item {
+        display: grid;
+        font-size: 18px;
+        text-align: center;
+    }
+}

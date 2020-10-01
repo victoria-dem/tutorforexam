@@ -1,0 +1,30 @@
+.table__cell_theme_dark {
+    width: 300px;
+    color: var(--text-theme-dark);
+    margin-right: 0;
+    margin-top: 80px;
+}
+
+@media screen and (max-width: 1280px) {
+    .table__cell_theme_dark {
+        width: 270px
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .table__cell_theme_dark {
+        width: 340px
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table__cell_theme_dark {
+        width: 200px
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .table__cell_theme_dark {
+        width: 250px
+    }
+}
