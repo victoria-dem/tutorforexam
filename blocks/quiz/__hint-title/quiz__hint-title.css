@@ -9,11 +9,6 @@
     margin: 0 0 10px 20px;
 }
 
-.quiz__hint-title:hover {
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s ease-out;
-}
 
 .quiz__hint-title:focus {
     outline-style: none;
