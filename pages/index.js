@@ -26,25 +26,21 @@ function clearPreviousAnswers() {
 
 function disableNextQuestionBtn() {
     nextQuestion.classList.remove('quiz__button_state_active')
-    nextQuestion.disabled = true;
     nextQuestion.classList.add('quiz__button_state_disable')
 }
 
 function enableNextQuestionBtn() {
     nextQuestion.classList.add('quiz__button_state_active')
-    nextQuestion.disabled = false;
     nextQuestion.classList.remove('quiz__button_state_disable')
 }
 
 function disableSubmitAnswerBtn() {
     submitAnswer.classList.remove('quiz__button_state_active')
-    submitAnswer.disabled = true;
     submitAnswer.classList.add('quiz__button_state_disable')
 }
 
 function enableSubmitAnswerBtn() {
     submitAnswer.classList.add('quiz__button_state_active')
-    submitAnswer.disabled = false;
     submitAnswer.classList.remove('quiz__button_state_disable')
 }
 
