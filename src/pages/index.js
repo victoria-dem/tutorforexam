@@ -123,7 +123,7 @@ function submitHandler(evt) {
 }
 
 function getNextQuestion() {
-    const currentQuestionType = document.querySelector('.quizes__start_active').innerHTML
+    const currentQuestionType = document.querySelector('.quizzes__start_active').innerHTML
     if (currentQuestionType === 'Math') {
         const questionNum = Math.floor(Math.random() * math.length)
         renderQuiz(math[questionNum])
@@ -134,14 +134,14 @@ function getNextQuestion() {
 }
 
 function startMath() {
-    startMathButton.classList.add('quizes__start_active')
-    startAnalogiesButton.classList.remove('quizes__start_active')
+    startMathButton.classList.add('quizzes__start_active')
+    startAnalogiesButton.classList.remove('quizzes__start_active')
     getNextQuestion()
 }
 
 function startAnalogies() {
-    startMathButton.classList.remove('quizes__start_active')
-    startAnalogiesButton.classList.add('quizes__start_active')
+    startMathButton.classList.remove('quizzes__start_active')
+    startAnalogiesButton.classList.add('quizzes__start_active')
     getNextQuestion()
 }
 
@@ -152,10 +152,10 @@ const api = new Api({
 
 function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
     console.log(numberToDisplay, isRandomNumber, fact.text.length, fact.text)
-    if (fact.text.length > 100 && isRandomNumber) {
+    if ((fact.text.length > 150 && isRandomNumber) || (fact.text.length <70 && isRandomNumber)){
         console.log('math')
         getRandomNumberInfo(Math.floor(Math.random()*100), numberToDisplay, true)
-    } else if (fact.text.length > 100 && !isRandomNumber) {
+    } else if ((fact.text.length > 150 && !isRandomNumber) || (fact.text.length <70 && !isRandomNumber)) {
         console.log('fact')
         getRandomFactInfo(Math.floor(Math.random()*200), numberToDisplay, false)
     }
