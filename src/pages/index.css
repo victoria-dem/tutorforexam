@@ -86,6 +86,7 @@
 @import url(../blocks/quiz/__button/_state/_disable/quiz__button_state_disable.css);
 @import url(../blocks/quiz/__paragraph/quiz__paragraph.css);
 @import url(../blocks/quiz/__paragraph/_type/quiz__paragraph_type.css);
+@import url(../blocks/fun-corner.css);
 @import url(../blocks/hover/hover.css);
 @import url(../blocks/root.css);
 

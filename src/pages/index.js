@@ -145,6 +145,53 @@ function startAnalogies() {
     getNextQuestion()
 }
 
+
+const api = new Api({
+    baseUrl: "http://numbersapi.com/",
+});
+
+function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
+    console.log(numberToDisplay, isRandomNumber, fact.text.length, fact.text)
+    if (fact.text.length > 100 && isRandomNumber) {
+        console.log('math')
+        getRandomNumberInfo(Math.floor(Math.random()*100), numberToDisplay, true)
+    } else if (fact.text.length > 100 && !isRandomNumber) {
+        console.log('fact')
+        getRandomFactInfo(Math.floor(Math.random()*200), numberToDisplay, false)
+    }
+    {
+        document.querySelector(`.number-fact${numberToDisplay}`).innerHTML = fact.text
+    }
+}
+
+
+
+function getRandomNumberInfo(randomNumber, numberToDisplay) {
+    api
+        .getRandomNumberInfo(randomNumber)
+        .then((fact) => renderMathInfo(fact, numberToDisplay, true))
+        .catch((err) => console.log(`Ошибка: ${err}`));
+}
+
+
+function getRandomFactInfo(randomNumber, numberToDisplay) {
+    api
+        .getRandomFactInfo(randomNumber)
+        .then((fact) => renderMathInfo(fact, numberToDisplay, false))
+        .catch((err) => console.log(`Ошибка: ${err}`));
+}
+
+
+
+getRandomNumberInfo(Math.floor(Math.random()*100), '__first')
+getRandomNumberInfo(Math.floor(Math.random()*500), '__second')
+getRandomNumberInfo(Math.floor(Math.random()*1000), '__third')
+
+getRandomFactInfo(Math.floor(Math.random()*200), '__forth')
+getRandomFactInfo(Math.floor(Math.random()*200), '__fifth')
+getRandomFactInfo(Math.floor(Math.random()*200), '__sixth')
+
+
 startMath()
 
 startAnalogiesButton.addEventListener('click', startAnalogies)

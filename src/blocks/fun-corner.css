@@ -1,0 +1,11 @@
+.fun-corner {
+  background-color: var(--background-color);
+}
+
+.number-facts {
+  min-height: 300px;
+}
+
+.number-fact {
+  font-size: var(--size-paragraph-1600);
+}
