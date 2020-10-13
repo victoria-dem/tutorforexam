@@ -151,19 +151,15 @@ const api = new Api({
 });
 
 function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
-    console.log(numberToDisplay, isRandomNumber, fact.text.length, fact.text)
     if ((fact.text.length > 150 && isRandomNumber) || (fact.text.length <70 && isRandomNumber)){
-        console.log('math')
         getRandomNumberInfo(Math.floor(Math.random()*100), numberToDisplay, true)
     } else if ((fact.text.length > 150 && !isRandomNumber) || (fact.text.length <70 && !isRandomNumber)) {
-        console.log('fact')
         getRandomFactInfo(Math.floor(Math.random()*200), numberToDisplay, false)
     }
     {
         const sentence = fact.text.split(' ');
         const firstWord = sentence[0];
         const restSentense = sentence.slice(1).join(' ');
-        console.log(restSentense);
         document.querySelector(`.number-fact${numberToDisplay}`).innerHTML = `<span class="first-word">${firstWord.toString()}</span> ${restSentense}`
 
     }
