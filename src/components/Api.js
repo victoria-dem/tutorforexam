@@ -4,7 +4,7 @@ export class Api {
     }
     
     getRandomNumberInfo(randomNumber) {
-        return fetch(`http://numbersapi.com/${randomNumber}/math?json`, {
+        return fetch(`${this._baseURL}/${randomNumber}/math?json`, {
         }).then((res) => {
             if (res.ok) {
                 return res.json();
@@ -16,7 +16,7 @@ export class Api {
     }
     
     getRandomFactInfo(randomNumber) {
-        return fetch(`http://numbersapi.com/${randomNumber}/trivia?json`, {
+        return fetch(`${this._baseURL}/${randomNumber}/trivia?json`, {
         }).then((res) => {
             if (res.ok) {
                 return res.json();

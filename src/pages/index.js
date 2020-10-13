@@ -147,7 +147,7 @@ function startAnalogies() {
 
 
 const api = new Api({
-    baseUrl: "http://numbersapi.com/",
+    baseUrl: "http://numbersapi.com",
 });
 
 function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
