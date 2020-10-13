@@ -15,6 +15,11 @@
   font-weight: normal;
 }
 
+.first-word {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
 @media screen and (max-width: 1440px) {
   .number-fact {
     line-height: var(--line-height-small-text-1440);

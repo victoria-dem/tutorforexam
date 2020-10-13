@@ -160,7 +160,12 @@ function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
         getRandomFactInfo(Math.floor(Math.random()*200), numberToDisplay, false)
     }
     {
-        document.querySelector(`.number-fact${numberToDisplay}`).innerHTML = fact.text
+        const sentence = fact.text.split(' ');
+        const firstWord = sentence[0];
+        const restSentense = sentence.slice(1).join(' ');
+        console.log(restSentense);
+        document.querySelector(`.number-fact${numberToDisplay}`).innerHTML = `<span class="first-word">${firstWord.toString()}</span> ${restSentense}`
+
     }
 }
 
