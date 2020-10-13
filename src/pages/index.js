@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -160,7 +160,6 @@ function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
         const firstWord = sentence[0];
         const restSentense = sentence.slice(1).join(' ');
         document.querySelector(`.number-fact${numberToDisplay}`).innerHTML = `<span class="first-word">${firstWord.toString()}</span> ${restSentense}`
-        
     }
 }
 
@@ -185,9 +184,6 @@ getRandomNumberInfo(Math.floor(Math.random()*1000), '__third')
 getRandomFactInfo(Math.floor(Math.random()*200), '__forth')
 getRandomFactInfo(Math.floor(Math.random()*200), '__fifth')
 getRandomFactInfo(Math.floor(Math.random()*200), '__sixth')
-
-
-
 
 startMath()
 
