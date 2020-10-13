@@ -32,6 +32,7 @@
 @import url(../blocks/section-position/section-position_bottom.css);
 @import url(../blocks/section-subtitle/section-subtitle.css);
 @import url(../blocks/section-subtitle/_theme/section-subtitle_theme_dark.css);
+@import url(../blocks/section-subtitle/_position/section-subtitle_position.css);
 @import url(../blocks/section-title/section-title.css);
 @import url(../blocks/section-title/_theme/section-title_theme_dark.css);
 @import url(../blocks/table/table.css);
@@ -53,15 +54,15 @@
 @import url(../blocks/video/video.css);
 @import url(../blocks/video/__iframe/video__iframe.css);
 @import url(../blocks/video/__iframes/video__iframes.css);
-@import url(../blocks/quizes/quizes.css);
-@import url(../blocks/quizes/__button/quizes__button.css);
-@import url(../blocks/quizes/__menu/quizes__menu.css);
-@import url(../blocks/quizes/__button-section/quizes__button-section.css);
-@import url(../blocks/quizes/__quiz-content/quizes__quiz-content.css);
-@import url(../blocks/quizes/__start/quizes__start.css);
-@import url(../blocks/quizes/__start/_active/quizes__start_active.css);
-@import url(../blocks/quizes/__start-analogies/quizes__start-analogies.css);
-@import url(../blocks/quizes/__start-math/quizes__start-math.css);
+@import url(../blocks/quizzes/quizzes.css);
+@import url(../blocks/quizzes/__button/quizzes__button.css);
+@import url(../blocks/quizzes/__menu/quizzes__menu.css);
+@import url(../blocks/quizzes/__button-section/quizzes__button-section.css);
+@import url(../blocks/quizzes/__quiz-content/quizzes__quiz-content.css);
+@import url(../blocks/quizzes/__start/quizzes__start.css);
+@import url(../blocks/quizzes/__start/_active/quizzes__start_active.css);
+@import url(../blocks/quizzes/__start-analogies/quizzes__start-analogies.css);
+@import url(../blocks/quizzes/__start-math/quizzes__start-math.css);
 @import url(../blocks/quiz/quiz.css);
 @import url(../blocks/quiz/__answer-input/quiz__answer-input.css);
 @import url(../blocks/quiz/__answer-item/quiz__answer-item.css);
@@ -86,6 +87,7 @@
 @import url(../blocks/quiz/__button/_state/_disable/quiz__button_state_disable.css);
 @import url(../blocks/quiz/__paragraph/quiz__paragraph.css);
 @import url(../blocks/quiz/__paragraph/_type/quiz__paragraph_type.css);
+@import url(../blocks/fun-corner.css);
 @import url(../blocks/hover/hover.css);
 @import url(../blocks/root.css);
 

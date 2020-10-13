@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -12,6 +12,7 @@ import {
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
+import {Api} from "../components/Api.js"
 
 let correctAnswer;
 let quizSolution;
@@ -122,7 +123,7 @@ function submitHandler(evt) {
 }
 
 function getNextQuestion() {
-    const currentQuestionType = document.querySelector('.quizes__start_active').innerHTML
+    const currentQuestionType = document.querySelector('.quizzes__start_active').innerHTML
     if (currentQuestionType === 'Math') {
         const questionNum = Math.floor(Math.random() * math.length)
         renderQuiz(math[questionNum])
@@ -133,16 +134,64 @@ function getNextQuestion() {
 }
 
 function startMath() {
-    startMathButton.classList.add('quizes__start_active')
-    startAnalogiesButton.classList.remove('quizes__start_active')
+    startMathButton.classList.add('quizzes__start_active')
+    startAnalogiesButton.classList.remove('quizzes__start_active')
     getNextQuestion()
 }
 
 function startAnalogies() {
-    startMathButton.classList.remove('quizes__start_active')
-    startAnalogiesButton.classList.add('quizes__start_active')
+    startMathButton.classList.remove('quizzes__start_active')
+    startAnalogiesButton.classList.add('quizzes__start_active')
     getNextQuestion()
 }
+
+
+const api = new Api({
+    baseUrl: "http://numbersapi.com",
+});
+
+function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
+    if ((fact.text.length > 150 && isRandomNumber) || (fact.text.length <70 && isRandomNumber)){
+        getRandomNumberInfo(Math.floor(Math.random()*100), numberToDisplay, true)
+    } else if ((fact.text.length > 150 && !isRandomNumber) || (fact.text.length <70 && !isRandomNumber)) {
+        getRandomFactInfo(Math.floor(Math.random()*200), numberToDisplay, false)
+    }
+    {
+        const sentence = fact.text.split(' ');
+        const firstWord = sentence[0];
+        const restSentense = sentence.slice(1).join(' ');
+        document.querySelector(`.number-fact${numberToDisplay}`).innerHTML = `<span class="first-word">${firstWord.toString()}</span> ${restSentense}`
+
+    }
+}
+
+
+
+function getRandomNumberInfo(randomNumber, numberToDisplay) {
+    api
+        .getRandomNumberInfo(randomNumber)
+        .then((fact) => renderMathInfo(fact, numberToDisplay, true))
+        .catch((err) => console.log(`Ошибка: ${err}`));
+}
+
+
+function getRandomFactInfo(randomNumber, numberToDisplay) {
+    api
+        .getRandomFactInfo(randomNumber)
+        .then((fact) => renderMathInfo(fact, numberToDisplay, false))
+        .catch((err) => console.log(`Ошибка: ${err}`));
+}
+
+
+
+getRandomNumberInfo(Math.floor(Math.random()*100), '__first')
+getRandomNumberInfo(Math.floor(Math.random()*500), '__second')
+getRandomNumberInfo(Math.floor(Math.random()*1000), '__third')
+
+getRandomFactInfo(Math.floor(Math.random()*200), '__forth')
+getRandomFactInfo(Math.floor(Math.random()*200), '__fifth')
+getRandomFactInfo(Math.floor(Math.random()*200), '__sixth')
+
 
 startMath()
 
