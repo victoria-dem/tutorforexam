@@ -1,0 +1,56 @@
+.fun-corner {
+  background-color: var(--background-color);
+}
+
+.number-facts {
+  margin: 60px 0 0 0;
+  padding: 0;
+}
+
+.number-fact {
+  margin: 0;
+  padding: 0;
+  line-height: var(--line-height-small-text-1600);
+  font-size: var(--size-small-text-1600);
+  font-weight: normal;
+}
+
+@media screen and (max-width: 1440px) {
+  .number-fact {
+    line-height: var(--line-height-small-text-1440);
+    font-size: var(--size-small-text-1440);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .number-fact {
+    line-height: var(--line-height-small-text-1280);
+    font-size: var(--size-small-text-1280);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .number-fact {
+    line-height: var(--line-height-small-text-1024);
+    font-size: var(--size-small-text-1024);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .number-fact {
+    line-height: var(--line-height-small-text-768);
+    font-size: var(--size-small-text-768);
+    margin-top: 20px;
+  }
+
+  .number-fact:first-child {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .number-fact {
+    line-height: var(--line-height-small-text-425);
+    font-size: var(--size-small-text-425);
+  }
+}
