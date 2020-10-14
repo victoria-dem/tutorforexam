@@ -1,0 +1,13 @@
+.form__handler {
+  border: 0;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  width: 358px;
+}
+
+@media screen and (max-width: 580px) {
+  .form__handler {
+    width: 200px;
+  }
+}

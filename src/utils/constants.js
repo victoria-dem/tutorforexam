@@ -7,3 +7,6 @@ export const nextQuestion = document.querySelector('.quiz__next-question');
 export const quizResultElement = fullQuiz.querySelector('.quiz__result');
 export const quizResultCheckmarkElement = fullQuiz.querySelector('.quiz__img');
 export const quizSolutionElement = fullQuiz.querySelector('.quiz__solution');
+
+export const signUpButton = document.querySelector('.navigation__item-sign-up')
+export const signUpPopupElement = document.querySelector('.popup-form-signup')

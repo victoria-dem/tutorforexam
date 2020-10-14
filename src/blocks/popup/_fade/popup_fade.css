@@ -1,0 +1,11 @@
+.popup_fade_in {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 800ms;
+}
+
+.popup_fade_out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 800ms, opacity 800ms;
+}

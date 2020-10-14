@@ -17,7 +17,6 @@
 @import url(../blocks/header/__subtitle/header__subtitle.css);
 @import url(../blocks/header/__title/header__title.css);
 @import url(../blocks/navigation.css);
-
 @import url(../blocks/motivation/motivation.css);
 @import url(../blocks/motivation/__triangle/motivation__triangle.css);
 @import url(../blocks/logo/logo.css);
@@ -90,5 +89,21 @@
 @import url(../blocks/quiz/__paragraph/quiz__paragraph.css);
 @import url(../blocks/quiz/__paragraph/_type/quiz__paragraph_type.css);
 @import url(../blocks/fun-corner.css);
+@import url("../blocks/popup/popup.css");
+@import url("../blocks/popup/__content/popup__content.css");
+@import url("../blocks/popup/__image/popup__image.css");
+@import url("../blocks/popup/__close/popup__close.css");
+@import url("../blocks/popup/_fade/popup_fade.css");
+@import url("../blocks/form/form.css");
+@import url("../blocks/form/__heading/form__heading.css");
+@import url("../blocks/form/__heading/_position/form__heading_position.css");
+@import url("../blocks/form/__fields/form__fields.css");
+@import url("../blocks/form/__field/form__field.css");
+@import url("../blocks/form/__field/_type/form__field_type_error.css");
+@import url("../blocks/form/__input/form__input.css");
+@import url("../blocks/form/__input/_position/form__input_position.css");
+@import url("../blocks/form/__handler/form__handler.css");
+@import url("../blocks/form/__submit-button/form__submit-button.css");
+@import url("../blocks/form/__submit-button/_disabled/form__submit-button_disabled.css");
 @import url(../blocks/hover/hover.css);
 @import url(../blocks/root.css);

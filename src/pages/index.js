@@ -1,4 +1,4 @@
-// import "./index.css";
+import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -8,11 +8,14 @@ import {
     nextQuestion,
     quizResultElement,
     quizResultCheckmarkElement,
-    quizSolutionElement
+    quizSolutionElement,
+    signUpButton,
+    signUpPopupElement
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
 import {Api} from "../components/Api.js"
+import {Popup} from "../components/Popup.js";
 
 let correctAnswer;
 let quizSolution;
@@ -145,6 +148,8 @@ function startAnalogies() {
     getNextQuestion()
 }
 
+
+//FUN CORNER
 const api = new Api({
     baseUrl: "http://numbersapi.com",
 });
@@ -185,9 +190,24 @@ getRandomFactInfo(Math.floor(Math.random()*200), '__forth')
 getRandomFactInfo(Math.floor(Math.random()*200), '__fifth')
 getRandomFactInfo(Math.floor(Math.random()*200), '__sixth')
 
+//SIGNUP
+const signUpPopup= new Popup({'popupContainer': signUpPopupElement})
+
+signUpPopup.setEventListeners()
+
+function signUpPopupHandler() {
+    signUpPopup.open()
+}
+
+
+
+
+
+//START
 startMath()
 
 startAnalogiesButton.addEventListener('click', startAnalogies)
 startMathButton.addEventListener('click', startMath)
 submitAnswer.addEventListener('click', submitHandler)
 nextQuestion.addEventListener('click', getNextQuestion)
+signUpButton.addEventListener('click', signUpPopupHandler)

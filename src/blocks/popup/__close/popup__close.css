@@ -1,0 +1,42 @@
+.popup__close {
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-color: unset;
+  border: none;
+  outline: none;
+  line-height: 0;
+  cursor: pointer;
+  position: absolute;
+  z-index: 11;
+  top:-40px;
+  right:-14px;
+}
+
+.popup__close:before, .popup__close:after {
+  content: "";
+  height: 43px;
+  transform: rotate(45deg);
+  position: absolute;
+  border-left: 4px solid #fff;
+}
+
+.popup__close:after {
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 580px) {
+  .popup__close {
+    top:-28px;
+    right:-10px;
+  }
+
+  .popup__close:before, .popup__close:after {
+    height: 30px;
+  }
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+  transition: 2s ease;
+}
