@@ -1,0 +1,19 @@
+.navigation {
+  position: absolute;
+  top: 20px;
+  right: 64px;
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__item {
+  margin-right: 20px;
+}
+
+.navigation__item:last-child {
+  margin-right: 0;
+}
+
+.navigation__item_hide {
+  display: none;
+}
