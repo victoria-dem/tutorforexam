@@ -316,7 +316,7 @@
 </template>
 
 <div class="popup-form-sign-up popup">
-  <form class="form" name="form-signup" novalidate>
+  <form class="form form-sign-up" name="form-signup" novalidate>
     <h2 class="form__heading">Sign UP</h2>
     <fieldset class="form__fields">
       <label class="form__field-input">
@@ -363,6 +363,32 @@
     </fieldset>
   </form>
 </div>
+
+<!--new start-->
+
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script>
+    console.log('in');
+    const firebaseConfig = {
+        apiKey: "AIzaSyBC6a-LxWSU80VBsSafj6PE0KeTAYnJmY8",
+        authDomain: "tutor4exam-7d689.firebaseapp.com",
+        databaseURL: "https://tutor4exam-7d689.firebaseio.com",
+        projectId: "tutor4exam-7d689",
+        storageBucket: "tutor4exam-7d689.appspot.com",
+        messagingSenderId: "239029785663",
+        appId: "1:239029785663:web:9d52ab164ae1465a31948a"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    db.settings({})
+</script>
+
+
+
+
 <script type="module" src="pages/index.js"></script>
 </body>
 </html>

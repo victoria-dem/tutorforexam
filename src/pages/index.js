@@ -194,6 +194,12 @@ getRandomFactInfo(Math.floor(Math.random()*200), '__fifth')
 getRandomFactInfo(Math.floor(Math.random()*200), '__sixth')
 
 //SIGNUP
+
+
+// signUpPopupElement - modal window sign up
+// form-sign-up
+
+
 const signUpPopup= new Popup({'popupContainer': signUpPopupElement})
 
 signUpPopup.setEventListeners()

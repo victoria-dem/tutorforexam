@@ -37,11 +37,14 @@ export class Popup {
     
     _signUpSubmitHandler(evt) {
         evt.preventDefault();
-    
-        console.log(this._popupContainer.querySelector("#first-field-place").value);
-        console.log(this._popupContainer.querySelector("#second-field-place").value);
-        console.log(this._popupContainer.querySelector("#third-field-place").value);
-    
+        //
+        // console.log(this._popupContainer.querySelector("#first-field-place").value);
+        // console.log(this._popupContainer.querySelector("#second-field-place").value);
+        // console.log(this._popupContainer.querySelector("#third-field-place").value);
+        
+        const email = this._popupContainer.querySelector("#first-field-place").value
+        const password = this._popupContainer.querySelector("#second-field-place").value
+        console.log({email, password});
         this.close()
         // this._addNewInfoHandler(this._getInputValues(), this._cardToDelete);
     }
