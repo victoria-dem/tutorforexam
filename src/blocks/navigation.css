@@ -1,13 +1,17 @@
 .navigation {
   position: absolute;
-  top: 20px;
+  top: 40px;
   right: 64px;
   display: flex;
   flex-direction: row;
+  z-index: 5;
 }
 
 .navigation__item {
   margin-right: 20px;
+  cursor: pointer;
+  border: unset;
+  background: unset;
 }
 
 .navigation__item:last-child {

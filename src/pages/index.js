@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -10,12 +10,15 @@ import {
     quizResultCheckmarkElement,
     quizSolutionElement,
     signUpButton,
-    signUpPopupElement
+    signUpPopupElement,
+    defaultFormConfig
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
 import {Api} from "../components/Api.js"
 import {Popup} from "../components/Popup.js";
+import { FormValidator } from "../components/FormValidator.js";
+
 
 let correctAnswer;
 let quizSolution;
@@ -199,8 +202,13 @@ function signUpPopupHandler() {
     signUpPopup.open()
 }
 
+//VALIDATION
 
-
+const signUpFormValidator = new FormValidator(
+    defaultFormConfig,
+    signUpPopupElement
+);
+signUpFormValidator.enableValidation();
 
 
 //START

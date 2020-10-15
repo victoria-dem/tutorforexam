@@ -9,4 +9,15 @@ export const quizResultCheckmarkElement = fullQuiz.querySelector('.quiz__img');
 export const quizSolutionElement = fullQuiz.querySelector('.quiz__solution');
 
 export const signUpButton = document.querySelector('.navigation__item-sign-up')
-export const signUpPopupElement = document.querySelector('.popup-form-signup')
+export const signUpPopupElement = document.querySelector('.popup-form-sign-up')
+
+export const defaultFormConfig = {
+    inputSelector: ".form__input",
+    submitButtonSelector: ".form__submit-button",
+    errorMessageSelector: ".form__field",
+    inactiveButtonClass: "form__submit-button_disabled",
+    inputErrorClass: "form__field_type_error",
+    signUpButton: signUpButton,
+    // signInButton: signInButton,
+    // signOutButton: signOutButton,
+};
