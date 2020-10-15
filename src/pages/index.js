@@ -146,7 +146,7 @@ function startAnalogies() {
 }
 
 const api = new Api({
-    baseUrl: "http://numbersapi.com",
+    baseUrl: "https://numbersapi.com",
 });
 
 function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
@@ -176,14 +176,14 @@ function getRandomFactInfo(randomNumber, numberToDisplay) {
         .then((fact) => renderMathInfo(fact, numberToDisplay, false))
         .catch((err) => console.log(`Ошибка: ${err}`));
 }
-
-getRandomNumberInfo(Math.floor(Math.random()*100), '__first')
-getRandomNumberInfo(Math.floor(Math.random()*500), '__second')
-getRandomNumberInfo(Math.floor(Math.random()*1000), '__third')
-
-getRandomFactInfo(Math.floor(Math.random()*200), '__forth')
-getRandomFactInfo(Math.floor(Math.random()*200), '__fifth')
-getRandomFactInfo(Math.floor(Math.random()*200), '__sixth')
+//
+// getRandomNumberInfo(Math.floor(Math.random()*100), '__first')
+// getRandomNumberInfo(Math.floor(Math.random()*500), '__second')
+// getRandomNumberInfo(Math.floor(Math.random()*1000), '__third')
+//
+// getRandomFactInfo(Math.floor(Math.random()*200), '__forth')
+// getRandomFactInfo(Math.floor(Math.random()*200), '__fifth')
+// getRandomFactInfo(Math.floor(Math.random()*200), '__sixth')
 
 startMath()
 
