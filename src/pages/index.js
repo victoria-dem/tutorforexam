@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -10,11 +10,18 @@ import {
     quizResultCheckmarkElement,
     quizSolutionElement
 } from '../utils/constants.js';
-import {math} from "../utils/math.js"
-import {resultMessages, analogies} from "../utils/analogies.js"
+import {math} from "../utils/math.js";
+import {resultMessages, analogies} from "../utils/analogies.js";
+import {facts} from "../utils/facts.js";
+import {motivations} from "../utils/motivations.js";
+import {TableCell} from "../components/table_cell.js";
+import {TableCellDark} from "../components/table_cell.js";
+
 
 let correctAnswer;
 let quizSolution;
+const tableFacts = document.querySelector(".facts");
+const tableMotivations = document.querySelector(".motivations");
 
 function clearPreviousAnswers() {
     form.querySelectorAll('.quiz__answer-item').forEach(answer => answer.remove())
@@ -145,6 +152,19 @@ function startAnalogies() {
 }
 
 startMath()
+
+const renderFacts = (item) => {
+    const tableCell = new TableCell(item);
+    tableFacts.append(tableCell.getTableElement());
+};
+
+const renderMotivations = (item) => {
+    const tableCellDark = new TableCellDark(item);
+    tableMotivations.append(tableCellDark.getTableElementDark());
+};
+
+facts.forEach(renderFacts);
+motivations.forEach(renderMotivations);
 
 startAnalogiesButton.addEventListener('click', startAnalogies)
 startMathButton.addEventListener('click', startMath)
