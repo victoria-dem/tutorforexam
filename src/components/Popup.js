@@ -37,7 +37,6 @@ export class Popup {
         evt.preventDefault();
         const email = this._popupContainer.querySelector(".form__input-first-field").value
         const password = this._popupContainer.querySelector(".form__input-second-field").value
-        console.log({email, password});
         this._authHandler(email, password)
     }
     

@@ -24,3 +24,13 @@ export const defaultFormConfig = {
     signUpButton: signUpButton,
     logInButton: logInButton,
 };
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyBC6a-LxWSU80VBsSafj6PE0KeTAYnJmY8",
+    authDomain: "tutor4exam-7d689.firebaseapp.com",
+    databaseURL: "https://tutor4exam-7d689.firebaseio.com",
+    projectId: "tutor4exam-7d689",
+    storageBucket: "tutor4exam-7d689.appspot.com",
+    messagingSenderId: "239029785663",
+    appId: "1:239029785663:web:9d52ab164ae1465a31948a"
+};

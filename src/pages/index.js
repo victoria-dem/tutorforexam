@@ -15,7 +15,8 @@ import {
     userNameButton,
     signUpPopupElement,
     defaultFormConfig,
-    logInPopupElement
+    logInPopupElement,
+    firebaseConfig
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
@@ -156,21 +157,10 @@ function startAnalogies() {
 
 
 //FIREBASE SETUP
-const firebaseConfig = {
-    apiKey: "AIzaSyBC6a-LxWSU80VBsSafj6PE0KeTAYnJmY8",
-    authDomain: "tutor4exam-7d689.firebaseapp.com",
-    databaseURL: "https://tutor4exam-7d689.firebaseio.com",
-    projectId: "tutor4exam-7d689",
-    storageBucket: "tutor4exam-7d689.appspot.com",
-    messagingSenderId: "239029785663",
-    appId: "1:239029785663:web:9d52ab164ae1465a31948a"
-};
 firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth();
 const db = firebase.firestore();
 db.settings({})
-console.log(firebase, auth);
-
 
 //SIGNUP
 const signUpPopup = new Popup({
@@ -187,7 +177,7 @@ function signUpPopupHandler() {
 function signUpNewUser(email, password) {
     auth.createUserWithEmailAndPassword(email, password)
         .then(cred => signUpPopup.close())
-        .catch(err => printErrorMessage(signUpFormValidator,"#first-field-place",err))
+        .catch(err => printErrorMessage(signUpFormValidator, "#first-field-place", err))
 }
 
 //LOGOUT
@@ -213,7 +203,7 @@ function logInPopupHandler() {
 function logInUser(email, password) {
     auth.signInWithEmailAndPassword(email, password)
         .then(credentials => logInPopup.close())
-        .catch(err => printErrorMessage(logInFormValidator,"#first-field-log-in",err))
+        .catch(err => printErrorMessage(logInFormValidator, "#first-field-log-in", err))
 }
 
 function printErrorMessage(formValidator, selector, err) {
@@ -225,9 +215,9 @@ function printErrorMessage(formValidator, selector, err) {
 
 function renderLogOutUser() {
     logInButton.classList.remove('navigation__item_hide')
-    logInButton.innerHTML='login'
+    logInButton.innerHTML = 'login'
     signUpButton.classList.remove('navigation__item_hide')
-    signUpButton.innerHTML='signup'
+    signUpButton.innerHTML = 'signup'
     logOutButton.classList.add('navigation__item_hide')
     userNameButton.classList.add('navigation__item_hide')
 }
@@ -236,13 +226,13 @@ function renderLogInUser(email) {
     logInButton.classList.add('navigation__item_hide')
     signUpButton.classList.add('navigation__item_hide')
     logOutButton.classList.remove('navigation__item_hide')
-    logOutButton.innerHTML='logout'
+    logOutButton.innerHTML = 'logout'
     userNameButton.classList.remove('navigation__item_hide')
     userNameButton.innerHTML = email
 }
 
 // LISTENER
-auth.onAuthStateChanged(user => (user===null) ? renderLogOutUser() : renderLogInUser(user.email))
+auth.onAuthStateChanged(user => (user === null) ? renderLogOutUser() : renderLogInUser(user.email))
 
 //VALIDATION
 const signUpFormValidator = new FormValidator(
