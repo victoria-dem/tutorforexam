@@ -21,9 +21,10 @@
       test scores and to build up confidence and motivation.
     </p>
     <nav class="navigation">
-      <button type="button" class="navigation__item navigation__item-sign-up">SignUp</button>
-      <button type="button" class="navigation__item navigation__item-sign-in">SignIn</button>
-      <button type="button" class="navigation__item navigation__item-sign-out navigation__item_hide">SignOut</button>
+      <button type="button" class="navigation__item navigation__item-user-name navigation__item_hide"></button>
+      <button type="button" class="navigation__item navigation__item-sign-up"></button>
+      <button type="button" class="navigation__item navigation__item-log-in"></button>
+      <button type="button" class="navigation__item navigation__item-log-out navigation__item_hide"></button>
     </nav>
   </header>
   <main class="content">
@@ -203,24 +204,6 @@
         </li>
       </ul>
     </section>
-    <section class="fun-corner section-position section-position_bottom">
-      <div class="glance">
-        <h2 class="section-title">Fan corner</h2>
-        <p class="section-subtitle">Don`t worry if you don`t understand this now. That`s why you should keep
-          studying.</p>
-        <div class="number-facts cards">
-          <p class="number-fact number-fact__first cards__item"></p>
-          <p class="number-fact number-fact__second cards__item"></p>
-          <p class="number-fact number-fact__third cards__item"></p>
-        </div>
-        <p class="section-subtitle section-subtitle_position">At least you wil learn something new</p>
-        <div class="number-facts cards">
-          <p class="number-fact number-fact__forth cards__item"></p>
-          <p class="number-fact number-fact__fifth cards__item"></p>
-          <p class="number-fact number-fact__sixth cards__item"></p>
-        </div>
-      </div>
-    </section>
     <section class="motivation section-position section-position_bottom">
       <h2 class="section-title section-title_theme_dark">Be engaged</h2>
       <p class="section-subtitle section-subtitle_theme_dark">
@@ -321,7 +304,7 @@
     <fieldset class="form__fields">
       <label class="form__field-input">
         <input
-            class="form__input"
+            class="form__input form__input-first-field"
             type="email"
             id="first-field-place"
             placeholder="e-mail"
@@ -329,32 +312,35 @@
             minlength="5"
             maxlength="130"
             required
+            autocomplete="username"
         />
         <span class="form__field"></span>
       </label>
       <label class="form__field-input">
         <input
-            class="form__input form__input_position"
+            class="form__input form__input_position form__input-second-field"
             type="password"
             id="second-field-place"
             placeholder="Password"
             name="link"
-            minlength="3"
+            minlength="6"
             maxlength="20"
             required
+            autocomplete="new-password"
         />
         <span class="form__field"></span>
       </label>
       <label class="form__field-input">
         <input
-            class="form__input form__input_position"
+            class="form__input form__input_position form__input-third-field"
             type="password"
             id="third-field-place"
             placeholder="Password again"
             name="link"
-            minlength="3"
+            minlength="6"
             maxlength="20"
             required
+            autocomplete="new-password"
         />
         <span class="form__field form__field_add-info"></span>
       </label>
@@ -364,31 +350,46 @@
   </form>
 </div>
 
-<!--new start-->
-
+<div class="popup-form-log-in popup">
+  <form class="form form-log-in" name="form-log-in" novalidate>
+    <h2 class="form__heading">Log In</h2>
+    <fieldset class="form__fields">
+      <label class="form__field-input">
+        <input
+            class="form__input form__input-first-field"
+            type="email"
+            id="first-field-log-in"
+            placeholder="e-mail"
+            name="name"
+            minlength="5"
+            maxlength="130"
+            required
+            autocomplete="username"
+        />
+        <span class="form__field"></span>
+      </label>
+      <label class="form__field-input">
+        <input
+            class="form__input form__input_position form__input-second-field"
+            type="password"
+            id="second-field-log-in"
+            placeholder="Password"
+            name="link"
+            minlength="6"
+            maxlength="20"
+            required
+            autocomplete="new-password"
+        />
+        <span class="form__field"></span>
+      </label>
+      <button type="submit" class="form__submit-button">Submit</button>
+      <button type="button" class="popup__close"></button>
+    </fieldset>
+  </form>
+</div>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
-<script>
-    console.log('in');
-    const firebaseConfig = {
-        apiKey: "AIzaSyBC6a-LxWSU80VBsSafj6PE0KeTAYnJmY8",
-        authDomain: "tutor4exam-7d689.firebaseapp.com",
-        databaseURL: "https://tutor4exam-7d689.firebaseio.com",
-        projectId: "tutor4exam-7d689",
-        storageBucket: "tutor4exam-7d689.appspot.com",
-        messagingSenderId: "239029785663",
-        appId: "1:239029785663:web:9d52ab164ae1465a31948a"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-    db.settings({})
-</script>
-
-
-
-
 <script type="module" src="pages/index.js"></script>
 </body>
 </html>

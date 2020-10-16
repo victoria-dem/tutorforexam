@@ -1,19 +1,17 @@
 export class Popup {
     constructor(popupSelector) {
         this._popupContainer = popupSelector['popupContainer'];
+        this._authHandler = popupSelector['authHandler'];
         this._handleClickClose = this._handleClickClose.bind(this);
         this._handleEscClose = this._handleEscClose.bind(this);
-        this._signUpSubmitHandler = this._signUpSubmitHandler.bind(this)
+        this._authSubmitHandler = this._authSubmitHandler.bind(this)
         // this._openEvt = "";
     }
     
     open() {
-        // console.log(this._popupsContainer)
-        // console.log("open-card", currentCardId, cardToDelete);
         this._popupContainer.classList.remove("popup_fade_out");
         this._popupContainer.classList.add("popup_fade_in");
         window.addEventListener("keyup", this._handleEscClose);
-        // this._cardToDelete = cardToDelete;
     }
     
     close() {
@@ -35,18 +33,12 @@ export class Popup {
         }
     }
     
-    _signUpSubmitHandler(evt) {
+    _authSubmitHandler(evt) {
         evt.preventDefault();
-        //
-        // console.log(this._popupContainer.querySelector("#first-field-place").value);
-        // console.log(this._popupContainer.querySelector("#second-field-place").value);
-        // console.log(this._popupContainer.querySelector("#third-field-place").value);
-        
-        const email = this._popupContainer.querySelector("#first-field-place").value
-        const password = this._popupContainer.querySelector("#second-field-place").value
+        const email = this._popupContainer.querySelector(".form__input-first-field").value
+        const password = this._popupContainer.querySelector(".form__input-second-field").value
         console.log({email, password});
-        this.close()
-        // this._addNewInfoHandler(this._getInputValues(), this._cardToDelete);
+        this._authHandler(email, password)
     }
     
     setEventListeners() {
@@ -56,6 +48,6 @@ export class Popup {
             .addEventListener("mousedown", this._handleClickClose);
         this._popupContainer
             .querySelector(".form")
-            .addEventListener("submit", this._signUpSubmitHandler);
+            .addEventListener("submit", this._authSubmitHandler);
     }
 }

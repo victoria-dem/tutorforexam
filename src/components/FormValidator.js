@@ -7,19 +7,18 @@ export class FormValidator {
         this._inactiveButtonClass = defaultFormConfig["inactiveButtonClass"];
         this._inputErrorClass = defaultFormConfig["inputErrorClass"];
         this._signUpButton = defaultFormConfig["signUpButton"];
-        // this._personEditButton = defaultFormConfig["personEditButton"];
-        // this._avatarEditButton = defaultFormConfig["avatarEditButton"];
+        this._logInButton = defaultFormConfig["logInButton"];
     }
     
     _checkInputValidity(inputElement) {
         if (!inputElement.validity.valid) {
-            this._showInputError(inputElement, inputElement.validationMessage);
+            this.showInputError(inputElement, inputElement.validationMessage);
         } else {
             this._hideInputError(inputElement);
         }
     }
     
-    _showInputError(inputElement, errorMessage) {
+    showInputError(inputElement, errorMessage) {
         const errorElement = inputElement.nextElementSibling;
         errorElement.textContent = errorMessage;
         errorElement.classList.add(this._inputErrorClass);
@@ -35,7 +34,7 @@ export class FormValidator {
         const isValid = inputList.some((inputElement, i) => {
             return !inputElement.validity.valid;
         });
-        
+        if (inputList[2]===undefined) return isValid
         if (isValid) {
             return true
         } else if (!isValid && ((inputList[1].value === inputList[2].value))) {
@@ -44,7 +43,7 @@ export class FormValidator {
         } else {
             const inputElement = document.querySelector("#third-field-place")
             const errorMessage = 'Passwords are not the same'
-            this._showInputError(inputElement, errorMessage)
+            this.showInputError(inputElement, errorMessage)
             return true
         }
     }
@@ -76,14 +75,10 @@ export class FormValidator {
             this._clearErrorMessages();
             this._toggleButtonState(inputList);
         });
-        // this._personEditButton.addEventListener("click", () => {
-        //     this._clearErrorMessages();
-        //     this._toggleButtonState(inputList);
-        // });
-        // this._avatarEditButton.addEventListener("click", () => {
-        //     this._clearErrorMessages();
-        //     this._toggleButtonState(inputList);
-        // });
+        this._logInButton.addEventListener("click", () => {
+            this._clearErrorMessages();
+            this._toggleButtonState(inputList);
+        });
     }
     
     enableValidation() {

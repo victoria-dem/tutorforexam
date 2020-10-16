@@ -8,10 +8,12 @@
 }
 
 .navigation__item {
-  margin-right: 20px;
+  margin: 0 20px 0 0;
+  padding: 0;
   cursor: pointer;
   border: unset;
   background: unset;
+  outline: none;
 }
 
 .navigation__item:last-child {
@@ -20,4 +22,10 @@
 
 .navigation__item_hide {
   display: none;
+}
+.navigation__item:hover {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  opacity: .5;
+  transition: opacity 1s ease .2s;
 }

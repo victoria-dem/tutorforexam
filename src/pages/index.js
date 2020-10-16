@@ -10,14 +10,17 @@ import {
     quizResultCheckmarkElement,
     quizSolutionElement,
     signUpButton,
+    logInButton,
+    logOutButton,
+    userNameButton,
     signUpPopupElement,
-    defaultFormConfig
+    defaultFormConfig,
+    logInPopupElement
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
-import {Api} from "../components/Api.js"
 import {Popup} from "../components/Popup.js";
-import { FormValidator } from "../components/FormValidator.js";
+import {FormValidator} from "../components/FormValidator.js";
 
 
 let correctAnswer;
@@ -152,55 +155,28 @@ function startAnalogies() {
 }
 
 
-//FUN CORNER
-const api = new Api({
-    baseUrl: "http://numbersapi.com",
-});
+//FIREBASE SETUP
+const firebaseConfig = {
+    apiKey: "AIzaSyBC6a-LxWSU80VBsSafj6PE0KeTAYnJmY8",
+    authDomain: "tutor4exam-7d689.firebaseapp.com",
+    databaseURL: "https://tutor4exam-7d689.firebaseio.com",
+    projectId: "tutor4exam-7d689",
+    storageBucket: "tutor4exam-7d689.appspot.com",
+    messagingSenderId: "239029785663",
+    appId: "1:239029785663:web:9d52ab164ae1465a31948a"
+};
+firebase.initializeApp(firebaseConfig)
+const auth = firebase.auth();
+const db = firebase.firestore();
+db.settings({})
+console.log(firebase, auth);
 
-function renderMathInfo(fact, numberToDisplay, isRandomNumber) {
-    if ((fact.text.length > 150 && isRandomNumber) || (fact.text.length <70 && isRandomNumber)){
-        getRandomNumberInfo(Math.floor(Math.random()*100), numberToDisplay, true)
-    } else if ((fact.text.length > 150 && !isRandomNumber) || (fact.text.length <70 && !isRandomNumber)) {
-        getRandomFactInfo(Math.floor(Math.random()*200), numberToDisplay, false)
-    }
-    {
-        const sentence = fact.text.split(' ');
-        const firstWord = sentence[0];
-        const restSentense = sentence.slice(1).join(' ');
-        document.querySelector(`.number-fact${numberToDisplay}`).innerHTML = `<span class="first-word">${firstWord.toString()}</span> ${restSentense}`
-    }
-}
-
-function getRandomNumberInfo(randomNumber, numberToDisplay) {
-    api
-        .getRandomNumberInfo(randomNumber)
-        .then((fact) => renderMathInfo(fact, numberToDisplay, true))
-        .catch((err) => console.log(`Ошибка: ${err}`));
-}
-
-function getRandomFactInfo(randomNumber, numberToDisplay) {
-    api
-        .getRandomFactInfo(randomNumber)
-        .then((fact) => renderMathInfo(fact, numberToDisplay, false))
-        .catch((err) => console.log(`Ошибка: ${err}`));
-}
-
-getRandomNumberInfo(Math.floor(Math.random()*100), '__first')
-getRandomNumberInfo(Math.floor(Math.random()*500), '__second')
-getRandomNumberInfo(Math.floor(Math.random()*1000), '__third')
-
-getRandomFactInfo(Math.floor(Math.random()*200), '__forth')
-getRandomFactInfo(Math.floor(Math.random()*200), '__fifth')
-getRandomFactInfo(Math.floor(Math.random()*200), '__sixth')
 
 //SIGNUP
-
-
-// signUpPopupElement - modal window sign up
-// form-sign-up
-
-
-const signUpPopup= new Popup({'popupContainer': signUpPopupElement})
+const signUpPopup = new Popup({
+    'popupContainer': signUpPopupElement,
+    'authHandler': signUpNewUser
+})
 
 signUpPopup.setEventListeners()
 
@@ -208,14 +184,78 @@ function signUpPopupHandler() {
     signUpPopup.open()
 }
 
-//VALIDATION
+function signUpNewUser(email, password) {
+    auth.createUserWithEmailAndPassword(email, password)
+        .then(cred => signUpPopup.close())
+        .catch(err => printErrorMessage(signUpFormValidator,"#first-field-place",err))
+}
 
+//LOGOUT
+function logOutHandler(evt) {
+    evt.preventDefault()
+    auth.signOut()
+        .then(() => console.log('user log out'))
+        .catch(err => console.log(err));
+}
+
+//LOG IN
+const logInPopup = new Popup({
+    'popupContainer': logInPopupElement,
+    'authHandler': logInUser
+})
+
+logInPopup.setEventListeners()
+
+function logInPopupHandler() {
+    logInPopup.open()
+}
+
+function logInUser(email, password) {
+    auth.signInWithEmailAndPassword(email, password)
+        .then(credentials => logInPopup.close())
+        .catch(err => printErrorMessage(logInFormValidator,"#first-field-log-in",err))
+}
+
+function printErrorMessage(formValidator, selector, err) {
+    const inputElement = document.querySelector(selector)
+    const errorMessage = err.message
+    formValidator.showInputError(inputElement, errorMessage)
+}
+
+
+function renderLogOutUser() {
+    logInButton.classList.remove('navigation__item_hide')
+    logInButton.innerHTML='login'
+    signUpButton.classList.remove('navigation__item_hide')
+    signUpButton.innerHTML='signup'
+    logOutButton.classList.add('navigation__item_hide')
+    userNameButton.classList.add('navigation__item_hide')
+}
+
+function renderLogInUser(email) {
+    logInButton.classList.add('navigation__item_hide')
+    signUpButton.classList.add('navigation__item_hide')
+    logOutButton.classList.remove('navigation__item_hide')
+    logOutButton.innerHTML='logout'
+    userNameButton.classList.remove('navigation__item_hide')
+    userNameButton.innerHTML = email
+}
+
+// LISTENER
+auth.onAuthStateChanged(user => (user===null) ? renderLogOutUser() : renderLogInUser(user.email))
+
+//VALIDATION
 const signUpFormValidator = new FormValidator(
     defaultFormConfig,
     signUpPopupElement
 );
 signUpFormValidator.enableValidation();
 
+const logInFormValidator = new FormValidator(
+    defaultFormConfig,
+    logInPopupElement
+);
+logInFormValidator.enableValidation();
 
 //START
 startMath()
@@ -225,3 +265,5 @@ startMathButton.addEventListener('click', startMath)
 submitAnswer.addEventListener('click', submitHandler)
 nextQuestion.addEventListener('click', getNextQuestion)
 signUpButton.addEventListener('click', signUpPopupHandler)
+logOutButton.addEventListener('click', logOutHandler)
+logInButton.addEventListener('click', logInPopupHandler)
