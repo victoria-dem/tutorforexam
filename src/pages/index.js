@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -23,13 +23,14 @@ import {
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
-import {Popup} from "../components/Popup.js";
+// import {Popup} from "../components/Popup.js";
 import {PopupAccount} from "../components/PopupAccount.js";
 import {PopupAuth} from "../components/PopupAuth.js";
 import {FormValidator} from "../components/FormValidator.js";
 
 
 let correctAnswer;
+let userEmail;
 let quizSolution;
 let userId = '';
 let currentQuestionType;
@@ -172,9 +173,9 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 //SIGNUP
-const signUpPopup = new Popup({
-    'popupContainer': signUpPopupElement,
-    'authHandler': signUpNewUser
+const signUpPopup = new PopupAuth({
+    popupSelector: signUpPopupElement,
+    authHandler: signUpNewUser
 })
 
 signUpPopup.setEventListeners()
@@ -198,9 +199,9 @@ function logOutHandler(evt) {
 }
 
 //LOG IN
-const logInPopup = new Popup({
-    'popupContainer': logInPopupElement,
-    'authHandler': logInUser
+const logInPopup = new PopupAuth({
+    popupSelector: logInPopupElement,
+    authHandler: logInUser
 })
 
 logInPopup.setEventListeners()
@@ -235,6 +236,7 @@ function renderLogInUser(user) {
     loggedOutElements.forEach(element => element.classList.add('navigation__item_hide'))
     logOutButton.innerHTML = 'logout'
     userNameButton.innerHTML = user.email
+    userEmail = user.email
     isUserNew(user)
 }
 
@@ -323,31 +325,41 @@ function createScoreDocument(userId) {
 // LISTENER
 auth.onAuthStateChanged(user => (user === null) ? renderLogOutUser() : renderLogInUser(user))
 
-//USER INFO
-// const accountPopup = new PopupAccount({
-//     popupContainer: accountPopupElement,
-//     resetScore: resetScore
-// })
-//
-//
-// accountPopup.setEventListeners()
-//
-// function accountPopupHandler() {
-//     accountPopup.open()
-// }
-//
-// function resetScore() {
-//
-// }
+// USER INFO
+const accountPopup = new PopupAccount({
+    popupSelector: accountPopupElement,
+    resetScore: resetScore,
+    getUserScore: getUserScore
+})
 
 
-function userInfo() {
+accountPopup.setEventListeners()
+
+function accountPopupHandler() {
+    accountPopup.open()
+}
+
+function resetScore() {
+    console.log('reset');
+    updateMathScore(0, 0, 0, 0)
+    updateAnalogiesScore(0, 0, 0, 0)
+}
+
+
+function getUserScore() {
     db.collection("score").doc(userId)
         .get()
         .then((doc) => {
             if (doc.exists) {
-                console.log('mathTotal', doc.data().math.total);
-                console.log('mathOK', doc.data().math.correct);
+                const allSubjectsTotal = doc.data().all_subjects.total
+                const allSubjectsCorrect = doc.data().all_subjects.correct
+                const analogiesTotal = doc.data().analogies.total
+                const analogiesCorrect = doc.data().analogies.correct
+                const mathTotal = doc.data().math.total
+                const mathCorrect = doc.data().math.correct
+                console.log( {allSubjectsTotal,allSubjectsCorrect, analogiesTotal, analogiesCorrect, mathTotal, mathCorrect})
+                const score= {allSubjectsTotal,allSubjectsCorrect, analogiesTotal, analogiesCorrect, mathTotal, mathCorrect}
+                accountPopup.renderScoreInfo(score, userEmail)
             } else {
                 console.log("No such document!");
             }
@@ -378,4 +390,4 @@ nextQuestion.addEventListener('click', getNextQuestion)
 signUpButton.addEventListener('click', signUpPopupHandler)
 logOutButton.addEventListener('click', logOutHandler)
 logInButton.addEventListener('click', logInPopupHandler)
-// userNameButton.addEventListener('click', accountPopupHandler)
+userNameButton.addEventListener('click', accountPopupHandler)

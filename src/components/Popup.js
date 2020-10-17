@@ -1,11 +1,8 @@
 export class Popup {
     constructor(popupSelector) {
-        this._popupContainer = popupSelector['popupContainer'];
-        this._authHandler = popupSelector['authHandler'];
+        this._popupContainer = popupSelector;
         this._handleClickClose = this._handleClickClose.bind(this);
         this._handleEscClose = this._handleEscClose.bind(this);
-        this._authSubmitHandler = this._authSubmitHandler.bind(this)
-        // this._openEvt = "";
     }
     
     open() {
@@ -32,23 +29,12 @@ export class Popup {
             this.close();
         }
     }
-    
-    _authSubmitHandler(evt) {
-        evt.preventDefault();
-        console.log(evt.target)
-        const email = this._popupContainer.querySelector(".form__input-first-field").value
-        const password = this._popupContainer.querySelector(".form__input-second-field").value
-        this._authHandler(email, password)
-    }
-    
+
     setEventListeners() {
         console.log(this._popupContainer)
         this._popupContainer.addEventListener("mousedown", this._handleClickClose);
         this._popupContainer
             .querySelector(".popup__close")
             .addEventListener("mousedown", this._handleClickClose);
-        this._popupContainer
-            .querySelector(".form")
-            .addEventListener("submit", this._authSubmitHandler);
     }
 }
