@@ -16,16 +16,23 @@ import {
     signUpPopupElement,
     defaultFormConfig,
     logInPopupElement,
-    firebaseConfig
+    firebaseConfig,
+    loggedInElements,
+    loggedOutElements,
+    accountPopupElement
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
 import {Popup} from "../components/Popup.js";
+import {PopupAccount} from "../components/PopupAccount.js";
+import {PopupAuth} from "../components/PopupAuth.js";
 import {FormValidator} from "../components/FormValidator.js";
 
 
 let correctAnswer;
 let quizSolution;
+let userId = '';
+let currentQuestionType;
 
 function clearPreviousAnswers() {
     form.querySelectorAll('.quiz__answer-item').forEach(answer => answer.remove())
@@ -120,9 +127,12 @@ function submitHandler(evt) {
     if (form.elements['answer'][correctAnswer].checked) {
         quizResultCheckmarkElement.classList.add('quiz__img_answer_right');
         quizResultElement.innerHTML = resultMessages['passed'][Math.floor(Math.random() * resultMessages['passed'].length)]
+        if (userId !== '') calculateScore(currentQuestionType, 1, 1)
+        
     } else {
         quizResultCheckmarkElement.classList.add('quiz__img_answer_wrong');
         quizResultElement.innerHTML = resultMessages['failed'][Math.floor(Math.random() * resultMessages['failed'].length)]
+        if (userId !== '') calculateScore(currentQuestionType, 1, 0)
     }
     form.elements['answer'].forEach(answerElement => {
         answerElement.disabled = true
@@ -132,9 +142,10 @@ function submitHandler(evt) {
     enableNextQuestionBtn()
 }
 
+
 function getNextQuestion() {
-    const currentQuestionType = document.querySelector('.quizzes__start_active').innerHTML
-    if (currentQuestionType === 'Math') {
+    currentQuestionType = document.querySelector('.quizzes__start_active').innerHTML.toLowerCase()
+    if (currentQuestionType === 'math') {
         const questionNum = Math.floor(Math.random() * math.length)
         renderQuiz(math[questionNum])
     } else {
@@ -155,12 +166,10 @@ function startAnalogies() {
     getNextQuestion()
 }
 
-
 //FIREBASE SETUP
 firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth();
 const db = firebase.firestore();
-db.settings({})
 
 //SIGNUP
 const signUpPopup = new Popup({
@@ -176,7 +185,7 @@ function signUpPopupHandler() {
 
 function signUpNewUser(email, password) {
     auth.createUserWithEmailAndPassword(email, password)
-        .then(cred => signUpPopup.close())
+        .then(credentials => signUpPopup.close())
         .catch(err => printErrorMessage(signUpFormValidator, "#first-field-place", err))
 }
 
@@ -214,25 +223,137 @@ function printErrorMessage(formValidator, selector, err) {
 
 
 function renderLogOutUser() {
-    logInButton.classList.remove('navigation__item_hide')
+    loggedInElements.forEach(element => element.classList.add('navigation__item_hide'))
+    loggedOutElements.forEach(element => element.classList.remove('navigation__item_hide'))
     logInButton.innerHTML = 'login'
-    signUpButton.classList.remove('navigation__item_hide')
     signUpButton.innerHTML = 'signup'
-    logOutButton.classList.add('navigation__item_hide')
-    userNameButton.classList.add('navigation__item_hide')
+    userId = ''
 }
 
-function renderLogInUser(email) {
-    logInButton.classList.add('navigation__item_hide')
-    signUpButton.classList.add('navigation__item_hide')
-    logOutButton.classList.remove('navigation__item_hide')
+function renderLogInUser(user) {
+    loggedInElements.forEach(element => element.classList.remove('navigation__item_hide'))
+    loggedOutElements.forEach(element => element.classList.add('navigation__item_hide'))
     logOutButton.innerHTML = 'logout'
-    userNameButton.classList.remove('navigation__item_hide')
-    userNameButton.innerHTML = email
+    userNameButton.innerHTML = user.email
+    isUserNew(user)
+}
+
+
+function calculateScore(currentQuestionType, incrementTotalAnswer, incrementCorrectAnswer) {
+    db.collection("score").doc(userId)
+        .get()
+        .then((doc) => {
+            if (doc.exists) {
+                const allSubjectsTotal = doc.data().all_subjects.total + incrementTotalAnswer
+                const allSubjectsCorrect = doc.data().all_subjects.correct + incrementCorrectAnswer
+                if (currentQuestionType === 'math') {
+                    const mathTotal = doc.data().math.total + incrementTotalAnswer
+                    const mathCorrect = doc.data().math.correct + incrementCorrectAnswer
+                    updateMathScore(mathTotal, mathCorrect, allSubjectsTotal, allSubjectsCorrect)
+                } else {
+                    const analogiesTotal = doc.data().analogies.total + incrementTotalAnswer
+                    const analogiesCorrect = doc.data().analogies.correct + incrementCorrectAnswer
+                    updateAnalogiesScore(analogiesTotal, analogiesCorrect, allSubjectsTotal, allSubjectsCorrect)
+                }
+            } else {
+                console.log("No such document!");
+            }
+        }).catch(error => console.log("Error getting document:", error));
+}
+
+function updateMathScore(mathTotal, mathCorrect, allSubjectsTotal, allSubjectsCorrect) {
+    db.collection("score").doc(userId).update({
+            math: {
+                total: mathTotal,
+                correct: mathCorrect
+            },
+            all_subjects: {
+                total: allSubjectsTotal,
+                correct: allSubjectsCorrect
+            }
+        })
+        .then(() => console.log("Document successfully updated with math score"))
+        .catch(error => console.error("Error updating document: ", error));
+}
+
+function updateAnalogiesScore(analogiesTotal, analogiesCorrect, allSubjectsTotal, allSubjectsCorrect) {
+    db.collection("score").doc(userId).update({
+            analogies: {
+                total: analogiesTotal,
+                correct: analogiesCorrect
+            },
+            all_subjects: {
+                total: allSubjectsTotal,
+                correct: allSubjectsCorrect
+            }
+        })
+        .then(() => console.log("Document successfully updated with analogies score"))
+        .catch(error => console.error("Error updating document: ", error));
+}
+
+function isUserNew(user) {
+    userId = user.uid
+    db.collection("score").doc(userId)
+        .get()
+        .then((doc) => {
+            if (!doc.exists) createScoreDocument(userId)
+        })
+        .catch(error => console.log("Error getting document:", error));
+}
+
+function createScoreDocument(userId) {
+    db.collection("score").doc(userId).set({
+            math: {
+                total: 0,
+                correct: 0
+            },
+            analogies: {
+                total: 0,
+                correct: 0
+            },
+            all_subjects: {
+                total: 0,
+                correct: 0
+            }
+        })
+        .then(() => console.log(`Document successfully written`))
+        .catch((error) => console.error("Error writing document: ", error));
 }
 
 // LISTENER
-auth.onAuthStateChanged(user => (user === null) ? renderLogOutUser() : renderLogInUser(user.email))
+auth.onAuthStateChanged(user => (user === null) ? renderLogOutUser() : renderLogInUser(user))
+
+//USER INFO
+// const accountPopup = new PopupAccount({
+//     popupContainer: accountPopupElement,
+//     resetScore: resetScore
+// })
+//
+//
+// accountPopup.setEventListeners()
+//
+// function accountPopupHandler() {
+//     accountPopup.open()
+// }
+//
+// function resetScore() {
+//
+// }
+
+
+function userInfo() {
+    db.collection("score").doc(userId)
+        .get()
+        .then((doc) => {
+            if (doc.exists) {
+                console.log('mathTotal', doc.data().math.total);
+                console.log('mathOK', doc.data().math.correct);
+            } else {
+                console.log("No such document!");
+            }
+        }).catch(error => console.log("Error getting document:", error));
+}
+
 
 //VALIDATION
 const signUpFormValidator = new FormValidator(
@@ -257,3 +378,4 @@ nextQuestion.addEventListener('click', getNextQuestion)
 signUpButton.addEventListener('click', signUpPopupHandler)
 logOutButton.addEventListener('click', logOutHandler)
 logInButton.addEventListener('click', logInPopupHandler)
+// userNameButton.addEventListener('click', accountPopupHandler)

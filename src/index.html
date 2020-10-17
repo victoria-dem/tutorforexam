@@ -6,7 +6,7 @@
   <meta name="description"
         content="Everything you need to practice SSAT and ISEE effectively. Based on Greenberg School materials.">
   <meta name="keywords" content="SSAT, ISEE, test, preparation, prep, math, analogy">
-<!--  <link rel="stylesheet" type="text/css" href="pages/index.css">-->
+  <!--  <link rel="stylesheet" type="text/css" href="pages/index.css">-->
   <title>SSAT and ISEE Test Preparation | tutor4exam</title>
 </head>
 <body>
@@ -21,10 +21,10 @@
       test scores and to build up confidence and motivation.
     </p>
     <nav class="navigation">
-      <button type="button" class="navigation__item navigation__item-user-name"></button>
-      <button type="button" class="navigation__item navigation__item-sign-up"></button>
-      <button type="button" class="navigation__item navigation__item-log-in"></button>
-      <button type="button" class="navigation__item navigation__item-log-out"></button>
+      <button type="button" class="navigation__item navigation__item-user-name navigation__item-logged-in"></button>
+      <button type="button" class="navigation__item navigation__item-sign-up navigation__item-logged-out"></button>
+      <button type="button" class="navigation__item navigation__item-log-in navigation__item-logged-out"></button>
+      <button type="button" class="navigation__item navigation__item-log-out navigation__item-logged-in"></button>
     </nav>
   </header>
   <main class="content">
@@ -385,6 +385,23 @@
     </fieldset>
   </form>
 </div>
+
+<div class="popup-form-account popup">
+  <form class="form form-account" name="form-account" novalidate>
+    <h2 class="form__heading">User Info</h2>
+    <fieldset class="form__fields">
+      <p class="form__text-email"></p>
+      <p class="form__text-all_subjects"></p>
+      <p class="form__text-math"></p>
+      <p class="form__text-analogies"></p>
+<!--      <button type="submit" class="form__submit-button">Reset Score</button>-->
+<!--      <button type="button" class="form__close-button">Close</button>-->
+      <button type="button" class="popup__close"></button>
+    </fieldset>
+  </form>
+</div>
+
+
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>

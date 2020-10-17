@@ -35,12 +35,14 @@ export class Popup {
     
     _authSubmitHandler(evt) {
         evt.preventDefault();
+        console.log(evt.target)
         const email = this._popupContainer.querySelector(".form__input-first-field").value
         const password = this._popupContainer.querySelector(".form__input-second-field").value
         this._authHandler(email, password)
     }
     
     setEventListeners() {
+        console.log(this._popupContainer)
         this._popupContainer.addEventListener("mousedown", this._handleClickClose);
         this._popupContainer
             .querySelector(".popup__close")

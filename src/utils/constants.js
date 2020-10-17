@@ -13,7 +13,12 @@ export const logInButton = document.querySelector('.navigation__item-log-in')
 export const logOutButton = document.querySelector('.navigation__item-log-out')
 export const userNameButton = document.querySelector('.navigation__item-user-name')
 export const signUpPopupElement = document.querySelector('.popup-form-sign-up')
+export const accountPopupElement = document.querySelector('.popup-form-account')
+
 export const logInPopupElement = document.querySelector('.popup-form-log-in')
+export const loggedInElements = document.querySelectorAll('.navigation__item-logged-in')
+export const loggedOutElements = document.querySelectorAll('.navigation__item-logged-out')
+
 
 export const defaultFormConfig = {
     inputSelector: ".form__input",
