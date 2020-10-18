@@ -12,7 +12,7 @@ import {
     signUpButton,
     logInButton,
     logOutButton,
-    userNameButton,
+    accountButton,
     signUpPopupElement,
     defaultFormConfig,
     logInPopupElement,
@@ -224,19 +224,19 @@ function printErrorMessage(formValidator, selector, err) {
 
 
 function renderLogOutUser() {
-    loggedInElements.forEach(element => element.classList.add('navigation__item_hide'))
-    loggedOutElements.forEach(element => element.classList.remove('navigation__item_hide'))
+    loggedInElements.forEach(element => element.classList.add('auth__item_hide'))
+    loggedOutElements.forEach(element => element.classList.remove('auth__item_hide'))
     logInButton.innerHTML = 'login'
     signUpButton.innerHTML = 'signup'
     userId = ''
 }
 
 function renderLogInUser(user) {
-    loggedInElements.forEach(element => element.classList.remove('navigation__item_hide'))
-    loggedOutElements.forEach(element => element.classList.add('navigation__item_hide'))
+    loggedInElements.forEach(element => element.classList.remove('auth__item_hide'))
+    loggedOutElements.forEach(element => element.classList.add('auth__item_hide'))
     logOutButton.innerHTML = 'logout'
-    userNameButton.innerHTML = 'account'
-    // userNameButton.innerHTML = user.email
+    accountButton.innerHTML = 'account'
+    // accountButton.innerHTML = user.email
     userEmail = user.email
     isUserNew(user)
 }
@@ -391,4 +391,4 @@ nextQuestion.addEventListener('click', getNextQuestion)
 signUpButton.addEventListener('click', signUpPopupHandler)
 logOutButton.addEventListener('click', logOutHandler)
 logInButton.addEventListener('click', logInPopupHandler)
-userNameButton.addEventListener('click', accountPopupHandler)
+accountButton.addEventListener('click', accountPopupHandler)

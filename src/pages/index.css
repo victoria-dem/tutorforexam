@@ -16,7 +16,7 @@
 @import url(../blocks/header/__square-pic/header__square-pic.css);
 @import url(../blocks/header/__subtitle/header__subtitle.css);
 @import url(../blocks/header/__title/header__title.css);
-/*@import url(../blocks/navigation.css);*/
+/*@import url(../blocks/auth.css);*/
 @import url(../blocks/motivation/motivation.css);
 @import url(../blocks/motivation/__triangle/motivation__triangle.css);
 @import url(../blocks/logo/logo.css);
@@ -107,5 +107,5 @@
 @import url("../blocks/form/__submit-button/form__submit-button.css");
 @import url("../blocks/form/__submit-button/_disabled/form__submit-button_disabled.css");
 @import url(../blocks/hover/hover.css);
-@import url(../blocks/navigation.css);
+@import url(../blocks/auth.css);
 @import url(../blocks/root.css);

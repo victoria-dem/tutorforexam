@@ -1,4 +1,4 @@
-.navigation {
+.auth {
   position: absolute;
   top: 40px;
   right: 64px;
@@ -7,7 +7,7 @@
   z-index: 5;
 }
 
-.navigation__item {
+.auth__item {
   margin: 0 20px 0 0;
   padding: 0;
   cursor: pointer;
@@ -16,14 +16,14 @@
   outline: none;
 }
 
-.navigation__item:last-child {
+.auth__item:last-child {
   margin-right: 0;
 }
 
-.navigation__item_hide {
+.auth__item_hide {
   display: none;
 }
-.navigation__item:hover {
+.auth__item:hover {
   text-decoration-line: underline;
   text-decoration-style: solid;
   opacity: .5;
