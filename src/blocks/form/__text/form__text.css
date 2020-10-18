@@ -1,0 +1,15 @@
+.form__text {
+  margin: 0 0 16px 0;
+  padding: 0;
+  line-height: var(--line-height-paragraph-768);
+  font-size: var(--size-paragraph-768);
+  font-weight: normal;
+}
+
+
+@media screen and (max-width: 580px) {
+  .form__text {
+    line-height: var(--line-height-paragraph-425);
+    font-size: var(--size-paragraph-425);
+  }
+}

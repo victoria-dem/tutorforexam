@@ -235,7 +235,8 @@ function renderLogInUser(user) {
     loggedInElements.forEach(element => element.classList.remove('navigation__item_hide'))
     loggedOutElements.forEach(element => element.classList.add('navigation__item_hide'))
     logOutButton.innerHTML = 'logout'
-    userNameButton.innerHTML = user.email
+    userNameButton.innerHTML = 'account'
+    // userNameButton.innerHTML = user.email
     userEmail = user.email
     isUserNew(user)
 }
