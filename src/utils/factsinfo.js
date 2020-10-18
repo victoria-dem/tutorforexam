@@ -1,4 +1,4 @@
-export const facts = [
+export const factsinfo = [
     {
         title: '4 levels',
         content:'There are Primary, Lower, Middle and Upper Levels in the ISEE test'

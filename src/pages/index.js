@@ -8,20 +8,29 @@ import {
     nextQuestion,
     quizResultElement,
     quizResultCheckmarkElement,
-    quizSolutionElement
+    quizSolutionElement,
+    tableFacts,
+    tableMotivations,
+    glanceCardsElement
 } from '../utils/constants.js';
 import {math} from "../utils/math.js";
 import {resultMessages, analogies} from "../utils/analogies.js";
-import {facts} from "../utils/facts.js";
-import {motivations} from "../utils/motivations.js";
-import {TableCell} from "../components/table_cell.js";
-import {TableCellDark} from "../components/table_cell.js";
+import {factsinfo} from "../utils/factsinfo.js";
+import {motivationsinfo} from "../utils/motivationsinfo.js";
+import {TableCell} from "../components/TableCell.js";
+import {TableCellDark} from "../components/TableCellDark.js";
+import {Card} from "../components/Card.js";
+import {descriptionMainText} from "../utils/descriptionmaintext.js";
+import {financeMainText} from "../utils/financemaintext.js";
+import {TwoColumnsMainTextParagraph} from "../components/TwoColumnsMainTextParagraph.js";
+import {TwoColumnsMainTextParagraphWithSpan} from "../components/TwoColumnsMainTextParagraphWithSpan.js";
+import {TwoColumnsMainTextList} from "../components/TwoColumnsMainTextList.js";
+import {glanceCards} from "../utils/glancecards.js";
 
 
 let correctAnswer;
 let quizSolution;
-const tableFacts = document.querySelector(".facts");
-const tableMotivations = document.querySelector(".motivations");
+
 
 function clearPreviousAnswers() {
     form.querySelectorAll('.quiz__answer-item').forEach(answer => answer.remove())
@@ -163,8 +172,40 @@ const renderMotivations = (item) => {
     tableMotivations.append(tableCellDark.getTableElementDark());
 };
 
-facts.forEach(renderFacts);
-motivations.forEach(renderMotivations);
+const renderMainText = (item, sectionClass) => {
+    let blockElement = '';
+    const itemKey = Object.keys(item);
+    switch (itemKey[0]) {
+        case 'paragraph':
+            blockElement = new TwoColumnsMainTextParagraph(item);
+            break;
+        case 'list' :
+            blockElement = new TwoColumnsMainTextList(item);
+            break;
+        case 'paragraphWithSpan':
+            blockElement = new TwoColumnsMainTextParagraphWithSpan(item);
+            break;
+    }
+    document.querySelector(sectionClass).append(blockElement.getTwoColumnsMainText());
+};
+
+const renderCard = (item,templateSelector,elementSelector)  => {
+    const newCard = new Card(item,templateSelector,elementSelector);
+    glanceCardsElement.append(newCard.getCardElement());
+}
+
+
+factsinfo.forEach(renderFacts);
+motivationsinfo.forEach(renderMotivations);
+descriptionMainText.forEach(function (item) {
+    renderMainText(item, '#description')
+});
+financeMainText.forEach(function (item) {
+    renderMainText(item, '#finance')
+});
+glanceCards.forEach(function (item) {
+    renderCard(item, '#cards__item', '.cards__item');
+});
 
 startAnalogiesButton.addEventListener('click', startAnalogies)
 startMathButton.addEventListener('click', startMath)

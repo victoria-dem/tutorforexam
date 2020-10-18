@@ -7,3 +7,6 @@ export const nextQuestion = document.querySelector('.quiz__next-question');
 export const quizResultElement = fullQuiz.querySelector('.quiz__result');
 export const quizResultCheckmarkElement = fullQuiz.querySelector('.quiz__img');
 export const quizSolutionElement = fullQuiz.querySelector('.quiz__solution');
+export const tableFacts = document.querySelector(".facts");
+export const tableMotivations = document.querySelector(".motivations");
+export const glanceCardsElement = document.querySelector("#glance").querySelector(".cards");

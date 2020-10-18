@@ -1,4 +1,4 @@
-export const motivations = [
+export const motivationsinfo = [
     {
         title: '1',
         content: 'Think outside your box. Don’t imagine the future from the box of what you have now. Just because your mind is in a box of previous experiences doesn’t mean that those are the limits of the world.'
