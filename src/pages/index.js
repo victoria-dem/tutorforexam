@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -32,6 +32,7 @@ import {resultMessages, analogies} from "../utils/analogies.js"
 import {PopupAccount} from "../components/PopupAccount.js";
 import {PopupAuth} from "../components/PopupAuth.js";
 import {FormValidator} from "../components/FormValidator.js";
+import {SignUpFormValidator} from "../components/SignUpFormValidator.js";
 import {TableCell} from "../components/TableCell.js";
 import {TableCellDark} from "../components/TableCellDark.js";
 import {Card} from "../components/Card.js";
@@ -470,7 +471,7 @@ function getUserScore() {
 }
 
 //VALIDATION
-const signUpFormValidator = new FormValidator(
+const signUpFormValidator = new SignUpFormValidator(
     defaultFormConfig,
     signUpPopupElement
 );
