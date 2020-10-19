@@ -42,7 +42,7 @@ import {TwoColumnsMainTextList} from "../components/TwoColumnsMainTextList.js";
 import {motivationsinfo} from "../utils/motivationsinfo.js";
 import {descriptionMainText} from "../utils/descriptionmaintext.js";
 import {financeMainText} from "../utils/financemaintext.js";
-import {glanceCards} from "../utils/glancecards.js";
+import {glanceCards} from "../utils/glancecards_.js";
 
 let correctAnswer;
 let userEmail;
@@ -486,6 +486,7 @@ logInFormValidator.enableValidation();
 //START
 startMath()
 
+//RENDERING STATIC CONTENT
 const renderFacts = (item) => {
     const tableCell = new TableCell(item);
     tableFacts.append(tableCell.getTableElement());
@@ -517,7 +518,6 @@ const renderCard = (item, templateSelector, elementSelector) => {
     const newCard = new Card(item, templateSelector, elementSelector);
     glanceCardsElement.append(newCard.getCardElement());
 }
-
 
 factsinfo.forEach(renderFacts);
 motivationsinfo.forEach(renderMotivations);
