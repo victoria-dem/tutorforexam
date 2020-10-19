@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -22,12 +22,22 @@ import {
     accountPopupElement,
     hamburgerMenuElement,
     mutationConfig,
+    tableFacts,
+    tableMotivations,
+    glanceCardsElement
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
 import {PopupAccount} from "../components/PopupAccount.js";
 import {PopupAuth} from "../components/PopupAuth.js";
 import {FormValidator} from "../components/FormValidator.js";
+import {TableCell} from "../components/TableCell.js";
+import {TableCellDark} from "../components/TableCellDark.js";
+import {Card} from "../components/Card.js";
+import {TwoColumnsMainTextParagraph} from "../components/TwoColumnsMainTextParagraph.js";
+import {TwoColumnsMainTextParagraphWithSpan} from "../components/TwoColumnsMainTextParagraphWithSpan.js";
+import {TwoColumnsMainTextList} from "../components/TwoColumnsMainTextList.js";
+
 
 let correctAnswer;
 let userEmail;
@@ -35,7 +45,6 @@ let quizSolution;
 let userId = '';
 let currentQuestionType;
 
-//Start quiz section
 function clearPreviousAnswers() {
     form.querySelectorAll('.quiz__answer-item').forEach(answer => answer.remove())
     document.querySelectorAll('.quiz__hint').forEach(hintContent => hintContent.remove())
@@ -168,7 +177,8 @@ function startAnalogies() {
 }
 
 //FIREBASE SETUP
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp
+(firebaseConfig)
 const auth = firebase.auth();
 const db = firebase.firestore();
 
@@ -470,6 +480,51 @@ logInFormValidator.enableValidation();
 
 //START
 startMath()
+
+const renderFacts = (item) => {
+    const tableCell = new TableCell(item);
+    tableFacts.append(tableCell.getTableElement());
+};
+
+const renderMotivations = (item) => {
+    const tableCellDark = new TableCellDark(item);
+    tableMotivations.append(tableCellDark.getTableElementDark());
+};
+
+const renderMainText = (item, sectionClass) => {
+    let blockElement = '';
+    const itemKey = Object.keys(item);
+    switch (itemKey[0]) {
+        case 'paragraph':
+            blockElement = new TwoColumnsMainTextParagraph(item);
+            break;
+        case 'list' :
+            blockElement = new TwoColumnsMainTextList(item);
+            break;
+        case 'paragraphWithSpan':
+            blockElement = new TwoColumnsMainTextParagraphWithSpan(item);
+            break;
+    }
+    document.querySelector(sectionClass).append(blockElement.getTwoColumnsMainText());
+};
+
+const renderCard = (item, templateSelector, elementSelector) => {
+    const newCard = new Card(item, templateSelector, elementSelector);
+    glanceCardsElement.append(newCard.getCardElement());
+}
+
+
+factsinfo.forEach(renderFacts);
+motivationsinfo.forEach(renderMotivations);
+descriptionMainText.forEach(function (item) {
+    renderMainText(item, '#description')
+});
+financeMainText.forEach(function (item) {
+    renderMainText(item, '#finance')
+});
+glanceCards.forEach(function (item) {
+    renderCard(item, '#cards__item', '.cards__item');
+});
 
 //LISTENERS
 startAnalogiesButton.addEventListener('click', startAnalogies)

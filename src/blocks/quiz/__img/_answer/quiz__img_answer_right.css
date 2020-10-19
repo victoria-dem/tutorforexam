@@ -1,5 +1,5 @@
 .quiz__img_answer_right {
-    background: url("../../../../images/checkmark.png") bottom center no-repeat;
+    background: url("../../../../images/checkmark.webp") bottom center no-repeat;
 }
 
 @media screen and (max-width: 600px) {

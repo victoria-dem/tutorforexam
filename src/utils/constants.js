@@ -25,9 +25,6 @@ export const mutationConfig = {
     attributes: true,
 }
 
-
-
-
 export const defaultFormConfig = {
     inputSelector: ".form__input",
     submitButtonSelector: ".form__submit-button",
@@ -47,3 +44,7 @@ export const firebaseConfig = {
     messagingSenderId: "239029785663",
     appId: "1:239029785663:web:9d52ab164ae1465a31948a"
 };
+
+export const tableFacts = document.querySelector(".facts");
+export const tableMotivations = document.querySelector(".motivations");
+export const glanceCardsElement = document.querySelector("#glance").querySelector(".cards");
