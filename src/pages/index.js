@@ -26,6 +26,7 @@ import {
     tableMotivations,
     glanceCardsElement
 } from '../utils/constants.js';
+import {factsinfo} from "../utils/factsinfo.js";
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
 import {PopupAccount} from "../components/PopupAccount.js";
@@ -37,7 +38,10 @@ import {Card} from "../components/Card.js";
 import {TwoColumnsMainTextParagraph} from "../components/TwoColumnsMainTextParagraph.js";
 import {TwoColumnsMainTextParagraphWithSpan} from "../components/TwoColumnsMainTextParagraphWithSpan.js";
 import {TwoColumnsMainTextList} from "../components/TwoColumnsMainTextList.js";
-
+import {motivationsinfo} from "../utils/motivationsinfo.js";
+import {descriptionMainText} from "../utils/descriptionmaintext.js";
+import {financeMainText} from "../utils/financemaintext.js";
+import {glanceCards} from "../utils/glancecards.js";
 
 let correctAnswer;
 let userEmail;
