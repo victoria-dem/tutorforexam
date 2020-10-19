@@ -7,10 +7,6 @@
   border-radius: 2px;
   margin: 48px 0 37px 0;
   padding: 0;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
   text-align: center;
   cursor: pointer;
   z-index: 5;
@@ -25,7 +21,5 @@
   .form__submit-button {
     width: 200px;
     height: 40px;
-    font-size: 14px;
-    line-height: 17px;
   }
 }

@@ -1,0 +1,41 @@
+.font-template__small-text {
+  line-height: var(--line-height-small-text-1600);
+  font-size: var(--size-small-text-1600);
+  font-weight: normal;
+}
+
+@media screen and (max-width: 1440px) {
+  .font-template__small-text {
+    line-height: var(--line-height-small-text-1440);
+    font-size: var(--size-small-text-1440);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .font-template__small-text {
+    line-height: var(--line-height-small-text-1280);
+    font-size: var(--size-small-text-1280);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .font-template__small-text {
+    line-height: var(--line-height-small-text-1024);
+    font-size: var(--size-small-text-1024);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .font-template__small-text {
+    line-height: var(--line-height-small-text-768);
+    font-size: var(--size-small-text-768);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .font-template__small-text {
+    line-height: var(--line-height-small-text-425);
+    font-size: var(--size-small-text-425);
+  }
+}
+
