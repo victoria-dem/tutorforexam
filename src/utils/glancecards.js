@@ -1,6 +1,6 @@
 export const glanceCards = [
     {
-        link: "images/choose1.webp",
+        link: "images/choose_one.webp",
         alt: "Square anthropomorphic characters playing a math game",
         title: "Math and Analogies",
         text: "More than 500 SSAT & ISEE test questions and problems with tutorials based on 10 levels of difficulty"
