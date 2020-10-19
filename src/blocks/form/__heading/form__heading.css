@@ -1,0 +1,16 @@
+.form__heading {
+  width: 358px;
+  height: 23px;
+  color: #6a6a6a;
+  margin: 34px 0 0 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 580px) {
+  .form__heading {
+    width: 200px;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+  }
+}

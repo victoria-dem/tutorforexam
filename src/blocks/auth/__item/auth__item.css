@@ -1,0 +1,25 @@
+.auth__item {
+  margin: 0 20px 0 0;
+  padding: 0;
+  cursor: pointer;
+  border: unset;
+  background: unset;
+  outline: none;
+}
+
+.auth__item:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 580px) {
+  .auth__item {
+    margin: 5px 0 0 0;
+  }
+}
+
+.auth__item:hover {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  opacity: .5;
+  transition: opacity 1s ease .2s;
+}

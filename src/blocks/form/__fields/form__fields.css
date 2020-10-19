@@ -1,0 +1,14 @@
+.form__fields {
+  border: 0;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  width: 358px;
+  z-index: 5;
+}
+
+@media screen and (max-width: 580px) {
+  .form__fields {
+    width: 200px;
+  }
+}

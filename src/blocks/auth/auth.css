@@ -1,0 +1,22 @@
+.auth {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  z-index: 5;
+}
+
+@media screen and (max-width: 768px) {
+  .auth {
+    margin-bottom: 12px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .auth {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin:0 0 0 0;
+    padding: 0 0 0 0;
+  }
+}
