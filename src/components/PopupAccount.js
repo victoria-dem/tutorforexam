@@ -16,7 +16,6 @@ export class PopupAccount extends Popup {
     }
     
     renderScoreInfo(score, email) {
-        console.log(score, email)
         this._popupContainer.querySelector(".form__text-email").innerText = `Username: ${email}`;
         this._popupContainer.querySelector(".form__text-all_subjects").innerText =
             `Total answers: ${score.allSubjectsCorrect} correct out of ${score.allSubjectsTotal}`;
@@ -28,10 +27,10 @@ export class PopupAccount extends Popup {
     
     _resetScoreHandler(evt) {
         evt.preventDefault();
+        this._getUserScore()
         this._resetScore()
         this._getUserScore()
     }
-    
     
     setEventListeners() {
         super.setEventListeners();

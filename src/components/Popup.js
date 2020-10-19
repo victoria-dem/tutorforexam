@@ -31,7 +31,6 @@ export class Popup {
     }
 
     setEventListeners() {
-        console.log(this._popupContainer)
         this._popupContainer.addEventListener("mousedown", this._handleClickClose);
         this._popupContainer
             .querySelector(".popup__close")

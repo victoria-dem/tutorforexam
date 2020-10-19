@@ -1,4 +1,4 @@
-// import "./index.css";
+import "./index.css";
 
 import {
     startAnalogiesButton,
@@ -19,15 +19,15 @@ import {
     firebaseConfig,
     loggedInElements,
     loggedOutElements,
-    accountPopupElement
+    accountPopupElement,
+    hamburgerMenuElement,
+    mutationConfig,
 } from '../utils/constants.js';
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
-// import {Popup} from "../components/Popup.js";
 import {PopupAccount} from "../components/PopupAccount.js";
 import {PopupAuth} from "../components/PopupAuth.js";
 import {FormValidator} from "../components/FormValidator.js";
-
 
 let correctAnswer;
 let userEmail;
@@ -35,6 +35,7 @@ let quizSolution;
 let userId = '';
 let currentQuestionType;
 
+//Start quiz section
 function clearPreviousAnswers() {
     form.querySelectorAll('.quiz__answer-item').forEach(answer => answer.remove())
     document.querySelectorAll('.quiz__hint').forEach(hintContent => hintContent.remove())
@@ -143,7 +144,6 @@ function submitHandler(evt) {
     enableNextQuestionBtn()
 }
 
-
 function getNextQuestion() {
     currentQuestionType = document.querySelector('.quizzes__start_active').innerHTML.toLowerCase()
     if (currentQuestionType === 'math') {
@@ -222,7 +222,6 @@ function printErrorMessage(formValidator, selector, err) {
     formValidator.showInputError(inputElement, errorMessage)
 }
 
-
 function renderLogOutUser() {
     loggedInElements.forEach(element => element.classList.add('auth__item_hide'))
     loggedOutElements.forEach(element => element.classList.remove('auth__item_hide'))
@@ -236,7 +235,6 @@ function renderLogInUser(user) {
     loggedOutElements.forEach(element => element.classList.add('auth__item_hide'))
     logOutButton.innerHTML = 'logout'
     accountButton.innerHTML = 'account'
-    // accountButton.innerHTML = user.email
     userEmail = user.email
     isUserNew(user)
 }
@@ -323,8 +321,95 @@ function createScoreDocument(userId) {
         .catch((error) => console.error("Error writing document: ", error));
 }
 
-// LISTENER
-auth.onAuthStateChanged(user => (user === null) ? renderLogOutUser() : renderLogInUser(user))
+auth.onAuthStateChanged(user => {
+    checkMenuElement()
+})
+
+// Hamburger menu
+function checkMenuElement() {
+    const firstPromise = new Promise((resolve, reject) => {
+        auth.onAuthStateChanged(user => {
+            resolve(user)
+            reject('error')
+        })
+    }).catch((reason => console.error(reason)))
+    
+    const secondPromise = new Promise((resolve, reject) => {
+        const hamburgerDisplayStyle = window.getComputedStyle(hamburgerMenuElement).display
+        if (hamburgerDisplayStyle !== 'none') {
+            resolve(true)
+        } else if (hamburgerDisplayStyle === 'none') {
+            resolve(false)
+        } else {
+            reject('error with hamburgerDisplayStyle')
+        }
+    }).catch((reason => console.error(reason)))
+    
+    const promises = [firstPromise, secondPromise]
+    Promise.all(promises)
+        .then((results) => {
+            const user = results[0];
+            const isHamburgerMenuVisible = results[1]
+            renderMenu(user, isHamburgerMenuVisible)
+        });
+}
+
+function renderMenu(user, isHamburgerMenuVisible) {
+    // TODO promise
+    // strictly - first
+    if (isHamburgerMenuVisible === true) {
+        hamburgerMenuElement.classList.remove('auth__hamburger_state_opened')
+        renderClosedHamburgerMenu(userId)
+    } else {
+        loggedOutElements.forEach(element => element.classList.remove('auth__hamburger-closed'))
+        loggedOutElements.forEach(element => element.classList.remove('auth__hamburger-opened'))
+        loggedInElements.forEach(element => element.classList.remove('auth__hamburger-closed'))
+        loggedInElements.forEach(element => element.classList.remove('auth__hamburger-opened'))
+    }
+    // strictly - second
+    if (user === null) {
+        renderLogOutUser()
+    } else {
+        renderLogInUser(user)
+    }
+}
+
+function renderClosedHamburgerMenu(userId) {
+    if (userId === '') {
+        loggedOutElements.forEach(element => element.classList.add('auth__hamburger-closed'))
+        loggedOutElements.forEach(element => element.classList.remove('auth__hamburger-opened'))
+    } else {
+        loggedInElements.forEach(element => element.classList.add('auth__hamburger-closed'))
+        loggedInElements.forEach(element => element.classList.remove('auth__hamburger-opened'))
+    }
+}
+
+function renderOpenedHamburgerMenu(userId) {
+    if (userId === '') {
+        loggedOutElements.forEach(element => element.classList.remove('auth__hamburger-closed'))
+        loggedOutElements.forEach(element => element.classList.add('auth__hamburger-opened'))
+    } else {
+        loggedInElements.forEach(element => element.classList.remove('auth__hamburger-closed'))
+        loggedInElements.forEach(element => element.classList.add('auth__hamburger-opened'))
+    }
+}
+
+function toggleHamburgerMenu() {
+    if (hamburgerMenuElement.classList.contains("auth__hamburger_state_opened")) {
+        renderOpenedHamburgerMenu(userId)
+    } else {
+        renderClosedHamburgerMenu(userId)
+    }
+}
+
+const mutationObserver = new MutationObserver(toggleHamburgerMenu)
+mutationObserver.observe(hamburgerMenuElement, mutationConfig)
+
+window.onresize = function () {
+    checkMenuElement()
+};
+
+checkMenuElement()
 
 // USER INFO
 const accountPopup = new PopupAccount({
@@ -333,7 +418,6 @@ const accountPopup = new PopupAccount({
     getUserScore: getUserScore
 })
 
-
 accountPopup.setEventListeners()
 
 function accountPopupHandler() {
@@ -341,11 +425,9 @@ function accountPopupHandler() {
 }
 
 function resetScore() {
-    console.log('reset');
     updateMathScore(0, 0, 0, 0)
     updateAnalogiesScore(0, 0, 0, 0)
 }
-
 
 function getUserScore() {
     db.collection("score").doc(userId)
@@ -358,15 +440,20 @@ function getUserScore() {
                 const analogiesCorrect = doc.data().analogies.correct
                 const mathTotal = doc.data().math.total
                 const mathCorrect = doc.data().math.correct
-                console.log( {allSubjectsTotal,allSubjectsCorrect, analogiesTotal, analogiesCorrect, mathTotal, mathCorrect})
-                const score= {allSubjectsTotal,allSubjectsCorrect, analogiesTotal, analogiesCorrect, mathTotal, mathCorrect}
+                const score = {
+                    allSubjectsTotal,
+                    allSubjectsCorrect,
+                    analogiesTotal,
+                    analogiesCorrect,
+                    mathTotal,
+                    mathCorrect
+                }
                 accountPopup.renderScoreInfo(score, userEmail)
             } else {
                 console.log("No such document!");
             }
         }).catch(error => console.log("Error getting document:", error));
 }
-
 
 //VALIDATION
 const signUpFormValidator = new FormValidator(
@@ -384,6 +471,7 @@ logInFormValidator.enableValidation();
 //START
 startMath()
 
+//LISTENERS
 startAnalogiesButton.addEventListener('click', startAnalogies)
 startMathButton.addEventListener('click', startMath)
 submitAnswer.addEventListener('click', submitHandler)

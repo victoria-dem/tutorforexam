@@ -1,11 +1,71 @@
-.auth {
+.header__top-menu {
   position: absolute;
-  top: 40px;
-  right: 64px;
+  top: 30px;
+  width: calc(100% - 128px);
+  margin: 0;
+  padding: 0 64px;
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+
+}
+
+
+@media screen and (max-width: 580px) {
+  .header__top-menu {
+    align-items: flex-start;
+    width: calc(100% - 60px);
+    margin:0 auto;
+    padding: 0 30px;
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+    .header__top-menu {
+        margin: 30px auto;
+        position: unset;
+    }
+}
+
+
+
+
+.auth {
+  /*position: absolute;*/
+  /*top: 40px;*/
+  /*right: 64px;*/
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
   z-index: 5;
 }
+
+
+
+@media screen and (max-width: 768px) {
+  .auth {
+    margin-bottom: 12px;
+  }
+}
+
+
+@media screen and (max-width: 580px) {
+  .auth {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin:0 0 0 0;
+    padding: 0 0 0 0;
+  }
+}
+
+
+
+
+
+
 
 .auth__item {
   margin: 0 20px 0 0;
@@ -19,6 +79,16 @@
 .auth__item:last-child {
   margin-right: 0;
 }
+
+
+@media screen and (max-width: 580px) {
+  .auth__item {
+    margin: 5px 0 0 0;
+  }
+}
+
+
+
 
 .auth__item_hide {
   display: none;
@@ -39,4 +109,81 @@
 
 .form__heading_position {
   margin-bottom: 20px;
+}
+
+.auth__hamburger {
+  display: none;
+}
+
+
+
+@media screen and (max-width: 580px) {
+
+  .auth__hamburger {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+  }
+
+  .auth__hamburger_path_line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .auth__hamburger_path_line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+
+  .auth__hamburger_path_line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+
+  .auth__hamburger_path_line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+
+  .auth__hamburger_state_opened .auth__hamburger_path_line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+
+  .auth__hamburger_state_opened .auth__hamburger_path_line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+
+  .auth__hamburger_state_opened .auth__hamburger_path_line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+}
+
+
+.auth__hamburger_state_display {
+  display: flex;
+}
+
+.auth__hamburger_state_hide {
+  display: none;
+}
+
+
+.auth__hamburger-opened {
+  display: block;
+}
+
+.auth__hamburger-closed {
+  display: none;
 }
