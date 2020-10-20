@@ -1,7 +1,6 @@
 export class TwoColumnsMainTextList {
     constructor(data) {
         this.list = data.list;
-        // this.newElement = '';
     }
 
 

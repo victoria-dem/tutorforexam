@@ -4,20 +4,20 @@ export class Score {
         this._showScoreAndEmail=showScoreAndEmail
     }
     
-    calculateScore(userId, currentQuestionType, incrementTotalAnswer, incrementCorrectAnswer) {
+    calculateScore(userId, currentQuestionType, incrementTotalAnswers, incrementCorrectAnswers) {
         this._db.collection("score").doc(userId)
             .get()
             .then((doc) => {
                 if (doc.exists) {
-                    const allSubjectsTotal = doc.data().all_subjects.total + incrementTotalAnswer
-                    const allSubjectsCorrect = doc.data().all_subjects.correct + incrementCorrectAnswer
+                    const allSubjectsTotal = doc.data().all_subjects.total + incrementTotalAnswers
+                    const allSubjectsCorrect = doc.data().all_subjects.correct + incrementCorrectAnswers
                     if (currentQuestionType === 'math') {
-                        const mathTotal = doc.data().math.total + incrementTotalAnswer
-                        const mathCorrect = doc.data().math.correct + incrementCorrectAnswer
+                        const mathTotal = doc.data().math.total + incrementTotalAnswers
+                        const mathCorrect = doc.data().math.correct + incrementCorrectAnswers
                         this.updateMathScore(userId, mathTotal, mathCorrect, allSubjectsTotal, allSubjectsCorrect)
                     } else {
-                        const analogiesTotal = doc.data().analogies.total + incrementTotalAnswer
-                        const analogiesCorrect = doc.data().analogies.correct + incrementCorrectAnswer
+                        const analogiesTotal = doc.data().analogies.total + incrementTotalAnswers
+                        const analogiesCorrect = doc.data().analogies.correct + incrementCorrectAnswers
                         this.updateAnalogiesScore(userId, analogiesTotal, analogiesCorrect, allSubjectsTotal, allSubjectsCorrect)
                     }
                 } else {
