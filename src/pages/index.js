@@ -26,9 +26,13 @@ import {
     tableMotivations,
     glanceCardsElement
 } from '../utils/constants.js';
+import {glanceCards} from "../utils/glancecards_.js";
 import {factsinfo} from "../utils/factsinfo.js";
 import {math} from "../utils/math.js"
 import {resultMessages, analogies} from "../utils/analogies.js"
+import {motivationsinfo} from "../utils/motivationsinfo.js";
+import {descriptionMainText} from "../utils/descriptionmaintext.js";
+import {financeMainText} from "../utils/financemaintext.js";
 import {PopupAccount} from "../components/PopupAccount.js";
 import {PopupAuth} from "../components/PopupAuth.js";
 import {FormValidator} from "../components/FormValidator.js";
@@ -39,16 +43,15 @@ import {Card} from "../components/Card.js";
 import {TwoColumnsMainTextParagraph} from "../components/TwoColumnsMainTextParagraph.js";
 import {TwoColumnsMainTextParagraphWithSpan} from "../components/TwoColumnsMainTextParagraphWithSpan.js";
 import {TwoColumnsMainTextList} from "../components/TwoColumnsMainTextList.js";
-import {motivationsinfo} from "../utils/motivationsinfo.js";
-import {descriptionMainText} from "../utils/descriptionmaintext.js";
-import {financeMainText} from "../utils/financemaintext.js";
-import {glanceCards} from "../utils/glancecards_.js";
+import {Menu} from "../components/Menu.js";
+import {Score} from "../components/Score.js";
 
-let correctAnswer;
-let userEmail;
 let quizSolution;
-let userId = '';
+let correctAnswer;
 let currentQuestionType;
+let userEmail='';
+let userId = '';
+
 
 function clearPreviousAnswers() {
     form.querySelectorAll('.quiz__answer-item').forEach(answer => answer.remove())
@@ -237,22 +240,8 @@ function printErrorMessage(formValidator, selector, err) {
     formValidator.showInputError(inputElement, errorMessage)
 }
 
-function renderLogOutUser() {
-    loggedInElements.forEach(element => element.classList.add('auth__item_hide'))
-    loggedOutElements.forEach(element => element.classList.remove('auth__item_hide'))
-    logInButton.innerHTML = 'login'
-    signUpButton.innerHTML = 'signup'
-    userId = ''
-}
 
-function renderLogInUser(user) {
-    loggedInElements.forEach(element => element.classList.remove('auth__item_hide'))
-    loggedOutElements.forEach(element => element.classList.add('auth__item_hide'))
-    logOutButton.innerHTML = 'logout'
-    accountButton.innerHTML = 'account'
-    userEmail = user.email
-    isUserNew(user)
-}
+//SCORE
 
 
 function calculateScore(currentQuestionType, incrementTotalAnswer, incrementCorrectAnswer) {
@@ -336,95 +325,28 @@ function createScoreDocument(userId) {
         .catch((error) => console.error("Error writing document: ", error));
 }
 
+
+// MENU
+const menu = new Menu(auth, isUserNew);
+
 auth.onAuthStateChanged(user => {
-    checkMenuElement()
+    if (user === null) {
+        userId = ''
+    } else {
+        userId = user.uid
+        userEmail = user.email
+    }
+    menu.checkMenuElement()
 })
 
-// Hamburger menu
-function checkMenuElement() {
-    const firstPromise = new Promise((resolve, reject) => {
-        auth.onAuthStateChanged(user => {
-            resolve(user)
-            reject('error')
-        })
-    }).catch((reason => console.error(reason)))
-    
-    const secondPromise = new Promise((resolve, reject) => {
-        const hamburgerDisplayStyle = window.getComputedStyle(hamburgerMenuElement).display
-        if (hamburgerDisplayStyle !== 'none') {
-            resolve(true)
-        } else if (hamburgerDisplayStyle === 'none') {
-            resolve(false)
-        } else {
-            reject('error with hamburgerDisplayStyle')
-        }
-    }).catch((reason => console.error(reason)))
-    
-    const promises = [firstPromise, secondPromise]
-    Promise.all(promises)
-        .then((results) => {
-            const user = results[0];
-            const isHamburgerMenuVisible = results[1]
-            renderMenu(user, isHamburgerMenuVisible)
-        });
-}
-
-function renderMenu(user, isHamburgerMenuVisible) {
-    // TODO promise
-    // strictly - first
-    if (isHamburgerMenuVisible === true) {
-        hamburgerMenuElement.classList.remove('auth__hamburger_state_opened')
-        renderClosedHamburgerMenu(userId)
-    } else {
-        loggedOutElements.forEach(element => element.classList.remove('auth__hamburger-closed'))
-        loggedOutElements.forEach(element => element.classList.remove('auth__hamburger-opened'))
-        loggedInElements.forEach(element => element.classList.remove('auth__hamburger-closed'))
-        loggedInElements.forEach(element => element.classList.remove('auth__hamburger-opened'))
-    }
-    // strictly - second
-    if (user === null) {
-        renderLogOutUser()
-    } else {
-        renderLogInUser(user)
-    }
-}
-
-function renderClosedHamburgerMenu(userId) {
-    if (userId === '') {
-        loggedOutElements.forEach(element => element.classList.add('auth__hamburger-closed'))
-        loggedOutElements.forEach(element => element.classList.remove('auth__hamburger-opened'))
-    } else {
-        loggedInElements.forEach(element => element.classList.add('auth__hamburger-closed'))
-        loggedInElements.forEach(element => element.classList.remove('auth__hamburger-opened'))
-    }
-}
-
-function renderOpenedHamburgerMenu(userId) {
-    if (userId === '') {
-        loggedOutElements.forEach(element => element.classList.remove('auth__hamburger-closed'))
-        loggedOutElements.forEach(element => element.classList.add('auth__hamburger-opened'))
-    } else {
-        loggedInElements.forEach(element => element.classList.remove('auth__hamburger-closed'))
-        loggedInElements.forEach(element => element.classList.add('auth__hamburger-opened'))
-    }
-}
-
-function toggleHamburgerMenu() {
-    if (hamburgerMenuElement.classList.contains("auth__hamburger_state_opened")) {
-        renderOpenedHamburgerMenu(userId)
-    } else {
-        renderClosedHamburgerMenu(userId)
-    }
-}
-
-const mutationObserver = new MutationObserver(toggleHamburgerMenu)
+const mutationObserver = new MutationObserver(menu.toggleHamburgerMenuState)
 mutationObserver.observe(hamburgerMenuElement, mutationConfig)
 
 window.onresize = function () {
-    checkMenuElement()
+    menu.checkMenuElement()
 };
 
-checkMenuElement()
+menu.checkMenuElement()
 
 // USER INFO
 const accountPopup = new PopupAccount({
@@ -463,7 +385,7 @@ function getUserScore() {
                     mathTotal,
                     mathCorrect
                 }
-                accountPopup.renderScoreInfo(score, userEmail)
+                    accountPopup.renderScoreInfo(score, userEmail)
             } else {
                 console.log("No such document!");
             }
