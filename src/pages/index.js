@@ -45,12 +45,29 @@ import {TwoColumnsMainTextParagraphWithSpan} from "../components/TwoColumnsMainT
 import {TwoColumnsMainTextList} from "../components/TwoColumnsMainTextList.js";
 import {Menu} from "../components/Menu.js";
 import {Score} from "../components/Score.js";
+import {Quiz} from "../components/Quiz.js";
 
 let quizSolution;
 let correctAnswer;
 let currentQuestionType;
 let userEmail='';
 let userId = '';
+
+//FIREBASE SETUP
+firebase.initializeApp
+(firebaseConfig)
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+//SCORE
+const score = new Score(db, showScoreAndEmail)
+
+
+
+//Quiz
+const quiz = new Quiz()
+
+
 
 
 function clearPreviousAnswers() {
@@ -146,12 +163,12 @@ function submitHandler(evt) {
     if (form.elements['answer'][correctAnswer].checked) {
         quizResultCheckmarkElement.classList.add('quiz__img_answer_right');
         quizResultElement.innerHTML = resultMessages['passed'][Math.floor(Math.random() * resultMessages['passed'].length)]
-        if (userId !== '') calculateScore(currentQuestionType, 1, 1)
+        if (userId !== '') score.calculateScore(userId, currentQuestionType, 1, 1)
         
     } else {
         quizResultCheckmarkElement.classList.add('quiz__img_answer_wrong');
         quizResultElement.innerHTML = resultMessages['failed'][Math.floor(Math.random() * resultMessages['failed'].length)]
-        if (userId !== '') calculateScore(currentQuestionType, 1, 0)
+        if (userId !== '') score.calculateScore(userId, currentQuestionType, 1, 0)
     }
     form.elements['answer'].forEach(answerElement => {
         answerElement.disabled = true
@@ -183,12 +200,6 @@ function startAnalogies() {
     startAnalogiesButton.classList.add('quizzes__start_active')
     getNextQuestion()
 }
-
-//FIREBASE SETUP
-firebase.initializeApp
-(firebaseConfig)
-const auth = firebase.auth();
-const db = firebase.firestore();
 
 //SIGNUP
 const signUpPopup = new PopupAuth({
@@ -240,91 +251,15 @@ function printErrorMessage(formValidator, selector, err) {
     formValidator.showInputError(inputElement, errorMessage)
 }
 
-
-//SCORE
-
-
-function calculateScore(currentQuestionType, incrementTotalAnswer, incrementCorrectAnswer) {
-    db.collection("score").doc(userId)
-        .get()
-        .then((doc) => {
-            if (doc.exists) {
-                const allSubjectsTotal = doc.data().all_subjects.total + incrementTotalAnswer
-                const allSubjectsCorrect = doc.data().all_subjects.correct + incrementCorrectAnswer
-                if (currentQuestionType === 'math') {
-                    const mathTotal = doc.data().math.total + incrementTotalAnswer
-                    const mathCorrect = doc.data().math.correct + incrementCorrectAnswer
-                    updateMathScore(mathTotal, mathCorrect, allSubjectsTotal, allSubjectsCorrect)
-                } else {
-                    const analogiesTotal = doc.data().analogies.total + incrementTotalAnswer
-                    const analogiesCorrect = doc.data().analogies.correct + incrementCorrectAnswer
-                    updateAnalogiesScore(analogiesTotal, analogiesCorrect, allSubjectsTotal, allSubjectsCorrect)
-                }
-            } else {
-                console.log("No such document!");
-            }
-        }).catch(error => console.log("Error getting document:", error));
-}
-
-function updateMathScore(mathTotal, mathCorrect, allSubjectsTotal, allSubjectsCorrect) {
-    db.collection("score").doc(userId).update({
-            math: {
-                total: mathTotal,
-                correct: mathCorrect
-            },
-            all_subjects: {
-                total: allSubjectsTotal,
-                correct: allSubjectsCorrect
-            }
-        })
-        .then(() => console.log("Document successfully updated with math score"))
-        .catch(error => console.error("Error updating document: ", error));
-}
-
-function updateAnalogiesScore(analogiesTotal, analogiesCorrect, allSubjectsTotal, allSubjectsCorrect) {
-    db.collection("score").doc(userId).update({
-            analogies: {
-                total: analogiesTotal,
-                correct: analogiesCorrect
-            },
-            all_subjects: {
-                total: allSubjectsTotal,
-                correct: allSubjectsCorrect
-            }
-        })
-        .then(() => console.log("Document successfully updated with analogies score"))
-        .catch(error => console.error("Error updating document: ", error));
-}
-
 function isUserNew(user) {
     userId = user.uid
     db.collection("score").doc(userId)
         .get()
         .then((doc) => {
-            if (!doc.exists) createScoreDocument(userId)
+            if (!doc.exists) score.createScoreDocument(userId)
         })
         .catch(error => console.log("Error getting document:", error));
 }
-
-function createScoreDocument(userId) {
-    db.collection("score").doc(userId).set({
-            math: {
-                total: 0,
-                correct: 0
-            },
-            analogies: {
-                total: 0,
-                correct: 0
-            },
-            all_subjects: {
-                total: 0,
-                correct: 0
-            }
-        })
-        .then(() => console.log(`Document successfully written`))
-        .catch((error) => console.error("Error writing document: ", error));
-}
-
 
 // MENU
 const menu = new Menu(auth, isUserNew);
@@ -352,7 +287,7 @@ menu.checkMenuElement()
 const accountPopup = new PopupAccount({
     popupSelector: accountPopupElement,
     resetScore: resetScore,
-    getUserScore: getUserScore
+    getUserInfo: getUserInfo
 })
 
 accountPopup.setEventListeners()
@@ -362,34 +297,16 @@ function accountPopupHandler() {
 }
 
 function resetScore() {
-    updateMathScore(0, 0, 0, 0)
-    updateAnalogiesScore(0, 0, 0, 0)
+    score.updateMathScore(userId,0, 0, 0, 0)
+    score.updateAnalogiesScore(userId,0, 0, 0, 0)
 }
 
-function getUserScore() {
-    db.collection("score").doc(userId)
-        .get()
-        .then((doc) => {
-            if (doc.exists) {
-                const allSubjectsTotal = doc.data().all_subjects.total
-                const allSubjectsCorrect = doc.data().all_subjects.correct
-                const analogiesTotal = doc.data().analogies.total
-                const analogiesCorrect = doc.data().analogies.correct
-                const mathTotal = doc.data().math.total
-                const mathCorrect = doc.data().math.correct
-                const score = {
-                    allSubjectsTotal,
-                    allSubjectsCorrect,
-                    analogiesTotal,
-                    analogiesCorrect,
-                    mathTotal,
-                    mathCorrect
-                }
-                    accountPopup.renderScoreInfo(score, userEmail)
-            } else {
-                console.log("No such document!");
-            }
-        }).catch(error => console.log("Error getting document:", error));
+function getUserInfo() {
+    score.getUserInfoAndEmail(userId)
+}
+
+function showScoreAndEmail(score) {
+    accountPopup.renderScoreInfo(score, userEmail)
 }
 
 //VALIDATION

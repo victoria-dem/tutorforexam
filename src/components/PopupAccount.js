@@ -1,18 +1,18 @@
 import { Popup } from "./Popup.js";
 
 export class PopupAccount extends Popup {
-    constructor({popupSelector, resetScore, getUserScore}) {
+    constructor({popupSelector, resetScore, getUserInfo}) {
         super(popupSelector);
         this._resetScore = resetScore;
         this._resetScore = this._resetScore.bind(this)
-        this._getUserScore = getUserScore;
-        this._getUserScore = this._getUserScore.bind(this)
+        this._getUserInfo = getUserInfo;
+        this._getUserInfo = this._getUserInfo.bind(this)
         this._resetScoreHandler = this._resetScoreHandler.bind(this)
     }
     
     open() {
         super.open();
-        this._getUserScore()
+        this._getUserInfo()
     }
     
     renderScoreInfo(score, email) {
@@ -27,9 +27,9 @@ export class PopupAccount extends Popup {
     
     _resetScoreHandler(evt) {
         evt.preventDefault();
-        this._getUserScore()
+        this._getUserInfo()
         this._resetScore()
-        this._getUserScore()
+        this._getUserInfo()
     }
     
     setEventListeners() {

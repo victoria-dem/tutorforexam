@@ -92,7 +92,6 @@ export class Menu {
     
     checkMenuElement() {
         const authStateChangedPromise = new Promise((resolve, reject) => {
-            console.log(this._auth)
             this._auth.onAuthStateChanged(user => {
                 resolve(user)
                 reject('error')
