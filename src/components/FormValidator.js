@@ -34,6 +34,7 @@ export class FormValidator {
         const isValid = inputList.some((inputElement, i) => {
             return !inputElement.validity.valid;
         });
+        return isValid
     }
     
     _toggleButtonState(inputList) {
