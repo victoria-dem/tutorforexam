@@ -56,7 +56,6 @@ export class Score {
             .catch(error => console.error("Error updating document: ", error));
     }
     
-    
     resetScore(userId) {
         this._db.collection("score").doc(userId).update({
                 math: {
