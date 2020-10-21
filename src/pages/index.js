@@ -156,11 +156,11 @@ function resetScore() {
 }
 
 function getUserInfo() {
-    score.getUserInfoAndEmail(userId)
+    score.calcUserScore(userId)
 }
 
 function showScoreAndEmail(score) {
-    accountPopup.renderScoreInfo(score, userEmail)
+    accountPopup.renderUserInfo(score, userEmail)
 }
 
 //VALIDATION

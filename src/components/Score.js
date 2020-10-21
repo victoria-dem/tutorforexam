@@ -37,7 +37,10 @@ export class Score {
                     correct: allSubjectsCorrect
                 }
             })
-            .then(() => console.log("Document successfully updated with math score"))
+            .then(() => {
+                console.log("Document successfully updated with math score")
+                this.calcUserScore(userId)
+            })
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -52,7 +55,10 @@ export class Score {
                     correct: allSubjectsCorrect
                 }
             })
-            .then(() => console.log("Document successfully updated with analogies score"))
+            .then(() => {
+                console.log("Document successfully updated with analogies score")
+                this.calcUserScore(userId)
+            })
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -75,7 +81,7 @@ export class Score {
             .catch((error) => console.error("Error writing document: ", error));
     }
     
-    getUserInfoAndEmail(userId) {
+    calcUserScore(userId) {
         this._db.collection("score").doc(userId)
             .get()
             .then((doc) => {
