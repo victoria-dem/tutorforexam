@@ -31,10 +31,9 @@ export class FormValidator {
     }
     
     _hasInvalidInput(inputList) {
-        const isValid = inputList.some((inputElement, i) => {
+        return inputList.some((inputElement, i) => {
             return !inputElement.validity.valid;
-        });
-        return isValid
+        })
     }
     
     _toggleButtonState(inputList) {
