@@ -25,6 +25,13 @@ export class PopupAccount extends Popup {
         `Math: ${score.mathCorrect} correct out of ${score.mathTotal}`
     }
     
+    eraseUserInfo() {
+        this._popupContainer.querySelector(".form__text-email").innerText = '';
+        this._popupContainer.querySelector(".form__text-all_subjects").innerText = ''
+        this._popupContainer.querySelector(".form__text-analogies").innerText = ''
+        this._popupContainer.querySelector(".form__text-math").innerText = ''
+    }
+    
     _resetScoreHandler(evt) {
         evt.preventDefault();
         this._resetScore()

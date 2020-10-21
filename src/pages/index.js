@@ -48,8 +48,8 @@ const db = firebase.firestore();
 const quiz = new Quiz(calculateScore)
 quiz.setEventListeners()
 
-function calculateScore(currentQuestionType, incrementTotalAnswers, incrementCorrectAnswers) {
-    if (userId !== '') score.calculateScore(userId, currentQuestionType, incrementTotalAnswers, incrementCorrectAnswers)
+function calculateScore(currentQuestionType, incrementCorrectAnswers) {
+    if (userId !== '') score.calculateScore(userId, currentQuestionType, incrementCorrectAnswers)
 }
 
 //SCORE
@@ -77,7 +77,7 @@ function signUpNewUser(email, password) {
 function logOutHandler(evt) {
     evt.preventDefault()
     auth.signOut()
-        .then(() => console.log('user log out'))
+        .then(() => accountPopup.eraseUserInfo())
         .catch(err => console.log(err));
 }
 
@@ -151,8 +151,7 @@ function accountPopupHandler() {
 }
 
 function resetScore() {
-    score.updateMathScore(userId,0, 0, 0, 0)
-    score.updateAnalogiesScore(userId,0, 0, 0, 0)
+    score.createScoreDocument(userId)
 }
 
 function getUserInfo() {

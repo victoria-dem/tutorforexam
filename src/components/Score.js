@@ -4,19 +4,19 @@ export class Score {
         this._showScoreAndEmail=showScoreAndEmail
     }
     
-    calculateScore(userId, currentQuestionType, incrementTotalAnswers, incrementCorrectAnswers) {
+    calculateScore(userId, currentQuestionType, incrementCorrectAnswers) {
         this._db.collection("score").doc(userId)
             .get()
             .then((doc) => {
                 if (doc.exists) {
-                    const allSubjectsTotal = doc.data().all_subjects.total + incrementTotalAnswers
+                    const allSubjectsTotal = doc.data().all_subjects.total + 1
                     const allSubjectsCorrect = doc.data().all_subjects.correct + incrementCorrectAnswers
                     if (currentQuestionType === 'math') {
-                        const mathTotal = doc.data().math.total + incrementTotalAnswers
+                        const mathTotal = doc.data().math.total + 1
                         const mathCorrect = doc.data().math.correct + incrementCorrectAnswers
                         this.updateMathScore(userId, mathTotal, mathCorrect, allSubjectsTotal, allSubjectsCorrect)
                     } else {
-                        const analogiesTotal = doc.data().analogies.total + incrementTotalAnswers
+                        const analogiesTotal = doc.data().analogies.total + 1
                         const analogiesCorrect = doc.data().analogies.correct + incrementCorrectAnswers
                         this.updateAnalogiesScore(userId, analogiesTotal, analogiesCorrect, allSubjectsTotal, allSubjectsCorrect)
                     }
@@ -37,10 +37,7 @@ export class Score {
                     correct: allSubjectsCorrect
                 }
             })
-            .then(() => {
-                console.log("Document successfully updated with math score")
-                this.calcUserScore(userId)
-            })
+            .then(() => this.calcUserScore(userId))
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -55,10 +52,7 @@ export class Score {
                     correct: allSubjectsCorrect
                 }
             })
-            .then(() => {
-                console.log("Document successfully updated with analogies score")
-                this.calcUserScore(userId)
-            })
+            .then(() => this.calcUserScore(userId))
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -77,7 +71,7 @@ export class Score {
                     correct: 0
                 }
             })
-            .then(() => console.log(`Document successfully written`))
+            .then(() => this.calcUserScore(userId))
             .catch((error) => console.error("Error writing document: ", error));
     }
     
