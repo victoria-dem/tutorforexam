@@ -9,8 +9,8 @@ import {math} from "../utils/math.js";
 import {analogies, resultMessages} from "../utils/analogies.js";
 
 export class Quiz {
-    constructor(calculateScore) {
-        this._calculateScore=calculateScore
+    constructor(reCalculateScore) {
+        this._reCalculateScore=reCalculateScore
         this._submitAnswerHandler=this._submitAnswerHandler.bind(this)
         this._getNextQuestion=this._getNextQuestion.bind(this)
         this.startAnalogies=this.startAnalogies.bind(this)
@@ -124,11 +124,11 @@ export class Quiz {
         if (form.elements['answer'][this._correctAnswer].checked) {
             quizResultCheckmarkElement.classList.add('quiz__img_answer_right');
             quizResultElement.innerHTML = resultMessages['passed'][Math.floor(Math.random() * resultMessages['passed'].length)]
-            this._calculateScore(this._currentQuestionType, 1)
+            this._reCalculateScore(this._currentQuestionType, 1)
         } else {
             quizResultCheckmarkElement.classList.add('quiz__img_answer_wrong');
             quizResultElement.innerHTML = resultMessages['failed'][Math.floor(Math.random() * resultMessages['failed'].length)]
-            this._calculateScore(this._currentQuestionType, 0)
+            this._reCalculateScore(this._currentQuestionType, 0)
         }
         form.elements['answer'].forEach(answerElement => {
             answerElement.disabled = true

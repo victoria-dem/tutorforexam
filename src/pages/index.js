@@ -45,11 +45,11 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 //Quiz
-const quiz = new Quiz(calculateScore)
+const quiz = new Quiz(reCalculateScore)
 quiz.setEventListeners()
 
-function calculateScore(currentQuestionType, incrementCorrectAnswers) {
-    if (userId !== '') score.calculateScore(userId, currentQuestionType, incrementCorrectAnswers)
+function reCalculateScore(currentQuestionType, incrementCorrectAnswers) {
+    if (userId !== '') score.reCalculateScore(userId, currentQuestionType, incrementCorrectAnswers)
 }
 
 //SCORE
@@ -155,7 +155,7 @@ function resetScore() {
 }
 
 function getUserInfo() {
-    score.calcUserScore(userId)
+    score.prepScoreToDisplay(userId)
 }
 
 function showScoreAndEmail(score) {

@@ -4,7 +4,7 @@ export class Score {
         this._showScoreAndEmail=showScoreAndEmail
     }
     
-    calculateScore(userId, currentQuestionType, incrementCorrectAnswers) {
+    reCalculateScore(userId, currentQuestionType, incrementCorrectAnswers) {
         this._db.collection("score").doc(userId)
             .get()
             .then((doc) => {
@@ -37,7 +37,7 @@ export class Score {
                     correct: allSubjectsCorrect
                 }
             })
-            .then(() => this.calcUserScore(userId))
+            .then(() => this.prepScoreToDisplay(userId))
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -52,7 +52,27 @@ export class Score {
                     correct: allSubjectsCorrect
                 }
             })
-            .then(() => this.calcUserScore(userId))
+            .then(() => this.prepScoreToDisplay(userId))
+            .catch(error => console.error("Error updating document: ", error));
+    }
+    
+    
+    resetScore(userId) {
+        this._db.collection("score").doc(userId).update({
+                math: {
+                    total: 0,
+                    correct: 0
+                },
+                analogies: {
+                    total: 0,
+                    correct: 0
+                },
+                all_subjects: {
+                    total: 0,
+                    correct: 0
+                }
+            })
+            .then(() => this.prepScoreToDisplay(userId))
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -71,11 +91,11 @@ export class Score {
                     correct: 0
                 }
             })
-            .then(() => this.calcUserScore(userId))
+            .then(() => this.prepScoreToDisplay(userId))
             .catch((error) => console.error("Error writing document: ", error));
     }
     
-    calcUserScore(userId) {
+    prepScoreToDisplay(userId) {
         this._db.collection("score").doc(userId)
             .get()
             .then((doc) => {
