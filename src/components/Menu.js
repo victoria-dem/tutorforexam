@@ -5,7 +5,8 @@ import {
     logOutButton,
     logInButton,
     accountButton,
-    signUpButton
+    signUpButton,
+    authMenuElement
 } from "../utils/constants.js";
 
 export class Menu {
@@ -72,9 +73,30 @@ export class Menu {
     
     _toggleHamburgerMenu(isUserActive) {
         if (hamburgerMenuElement.classList.contains("auth__hamburger_state_opened")) {
-            this._renderOpenedHamburgerMenu(isUserActive)
+            if (document.documentElement.clientWidth < 426) {
+                authMenuElement.classList.remove('auth_animation_close')
+                authMenuElement.classList.add('auth_animation_open')
+                setTimeout(() => {
+                    this._renderOpenedHamburgerMenu(isUserActive)
+                    loggedInElements.forEach(element => element.classList.add('auth__item_animation_open'))
+                    loggedOutElements.forEach(element => element.classList.add('auth__item_animation_open'))
+                    loggedInElements.forEach(element => element.classList.remove('auth__item_animation_close'))
+                    loggedOutElements.forEach(element => element.classList.remove('auth__item_animation_close'))
+                }, 500)
+            } else {
+                this._renderOpenedHamburgerMenu(isUserActive)
+            }
         } else {
-            this._renderClosedHamburgerMenu(isUserActive)
+            loggedInElements.forEach(element => element.classList.add('auth__item_animation_close'))
+            loggedOutElements.forEach(element => element.classList.add('auth__item_animation_close'))
+            loggedInElements.forEach(element => element.classList.remove('auth__item_animation_open'))
+            loggedOutElements.forEach(element => element.classList.remove('auth__item_animation_open'))
+            setTimeout(() => {
+                this._renderClosedHamburgerMenu(isUserActive)
+                authMenuElement.classList.remove('auth_animation_open')
+                authMenuElement.classList.add('auth_animation_close')
+            }, 500)
+
         }
     }
     
@@ -117,4 +139,6 @@ export class Menu {
                 this._renderMenu(user, isHamburgerMenuVisible)
             });
     }
+    
+    
 }
