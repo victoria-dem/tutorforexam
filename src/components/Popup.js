@@ -17,7 +17,6 @@ export class Popup {
         window.removeEventListener("keyup", this._handleEscClose);
         this._popupContainer.querySelector(".form").reset();
         this._popupContainer.querySelectorAll('.form__field').forEach(inputElement =>{
-            console.log('nice try');
             inputElement.textContent = '';
         })
     }
