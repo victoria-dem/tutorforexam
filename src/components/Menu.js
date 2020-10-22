@@ -74,30 +74,46 @@ export class Menu {
     _toggleHamburgerMenu(isUserActive) {
         if (hamburgerMenuElement.classList.contains("auth__hamburger_state_opened")) {
             if (document.documentElement.clientWidth < 426) {
-                authMenuElement.classList.remove('auth_animation_close')
-                authMenuElement.classList.add('auth_animation_open')
+                this._openHamburgerAuthMenuAnimation()
                 setTimeout(() => {
                     this._renderOpenedHamburgerMenu(isUserActive)
-                    loggedInElements.forEach(element => element.classList.add('auth__item_animation_open'))
-                    loggedOutElements.forEach(element => element.classList.add('auth__item_animation_open'))
-                    loggedInElements.forEach(element => element.classList.remove('auth__item_animation_close'))
-                    loggedOutElements.forEach(element => element.classList.remove('auth__item_animation_close'))
-                }, 500)
+                    this._openHamburgerAuthElementsAnimation()
+                }, 700)
             } else {
                 this._renderOpenedHamburgerMenu(isUserActive)
             }
         } else {
-            loggedInElements.forEach(element => element.classList.add('auth__item_animation_close'))
-            loggedOutElements.forEach(element => element.classList.add('auth__item_animation_close'))
-            loggedInElements.forEach(element => element.classList.remove('auth__item_animation_open'))
-            loggedOutElements.forEach(element => element.classList.remove('auth__item_animation_open'))
+            this._closeHamburgerAuthElementsAnimation()
             setTimeout(() => {
                 this._renderClosedHamburgerMenu(isUserActive)
-                authMenuElement.classList.remove('auth_animation_open')
-                authMenuElement.classList.add('auth_animation_close')
-            }, 500)
-
+                this._closeHamburgerAuthMenuAnimation()
+            }, 700)
+            
         }
+    }
+    
+    _closeHamburgerAuthMenuAnimation() {
+        authMenuElement.classList.remove('auth_animation_open')
+        authMenuElement.classList.add('auth_animation_close')
+    }
+    
+    _openHamburgerAuthMenuAnimation() {
+        authMenuElement.classList.remove('auth_animation_close')
+        authMenuElement.classList.add('auth_animation_open')
+    }
+    
+    _closeHamburgerAuthElementsAnimation() {
+        loggedInElements.forEach(element => element.classList.add('auth__item_animation_close'))
+        loggedOutElements.forEach(element => element.classList.add('auth__item_animation_close'))
+        loggedInElements.forEach(element => element.classList.remove('auth__item_animation_open'))
+        loggedOutElements.forEach(element => element.classList.remove('auth__item_animation_open'))
+    }
+    
+    _openHamburgerAuthElementsAnimation() {
+        loggedInElements.forEach(element => element.classList.add('auth__item_animation_open'))
+        loggedOutElements.forEach(element => element.classList.add('auth__item_animation_open'))
+        loggedInElements.forEach(element => element.classList.remove('auth__item_animation_close'))
+        loggedOutElements.forEach(element => element.classList.remove('auth__item_animation_close'))
     }
     
     toggleHamburgerMenuState() {
