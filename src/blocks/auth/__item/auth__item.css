@@ -31,7 +31,7 @@
   }
 
   .auth__item_animation_open {
-    animation: opacity-growing 10000s;
+    animation: opacity-growing 5000s;
   }
 
 
@@ -43,7 +43,7 @@
 
 
   .auth__item_animation_close {
-    animation: opacity-shrinking 10000s;
+    animation: opacity-shrinking 5000s;
   }
 
   @keyframes opacity-shrinking {

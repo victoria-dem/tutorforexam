@@ -22,7 +22,7 @@
 }
 
 .auth_animation_open {
-  animation: height-growing 10000s;
+  animation: height-growing 5000s;
 }
 
 @keyframes height-growing {
@@ -33,7 +33,7 @@
 
 
 .auth_animation_close {
-  animation: height-shrinking 10000s;
+  animation: height-shrinking 5000s;
 }
 
 @keyframes height-shrinking {
