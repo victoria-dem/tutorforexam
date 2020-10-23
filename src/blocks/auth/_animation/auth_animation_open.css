@@ -1,0 +1,9 @@
+.auth_animation_open {
+  animation: height-growing calc(var(--animation-open-time)*10s);
+}
+
+@keyframes height-growing {
+  0%   {min-height: 26px;}
+  0.01%  {min-height: 70px;}
+  100% {min-height: 70px;}
+}

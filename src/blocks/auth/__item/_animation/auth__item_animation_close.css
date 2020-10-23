@@ -1,0 +1,11 @@
+@media screen and (max-width: 580px) {
+  .auth__item_animation_close {
+    animation: opacity-shrinking calc(var(--animation-close-time)*10s);
+  }
+
+  @keyframes opacity-shrinking {
+    0%   {opacity: 1;}
+    0.01%  {opacity: 0;}
+    100% {opacity: 0;}
+  }
+}

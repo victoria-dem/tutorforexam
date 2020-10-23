@@ -110,10 +110,13 @@
 @import url("../blocks/form/__submit-button/_position/form__submit-button_position.css");
 @import url(../blocks/hover/hover.css);
 @import url(../blocks/auth/auth.css);
+@import url(../blocks/auth/_animation/auth_animation_close.css);
+@import url(../blocks/auth/_animation/auth_animation_open.css);
 @import url(../blocks/auth/__item/auth__item.css);
 @import url(../blocks/auth/__item/_hide/auth__item_hide.css);
+@import url(../blocks/auth/__item/_animation/auth__item_animation_close.css);
+@import url(../blocks/auth/__item/_animation/auth__item_animation_open.css);
 @import url(../blocks/auth/__hamburger/auth__hamburger.css);
 @import url(../blocks/font-template/font-template__small-text.css);
 @import url(../blocks/font-template/font-template__paragraph-bold.css);
-
 @import url(../blocks/root.css);

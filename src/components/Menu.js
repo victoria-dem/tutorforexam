@@ -74,22 +74,45 @@ export class Menu {
     _toggleHamburgerMenu(isUserActive) {
         if (hamburgerMenuElement.classList.contains("auth__hamburger_state_opened")) {
             if (document.documentElement.clientWidth < 426) {
-                this._openHamburgerAuthMenuAnimation()
-                setTimeout(() => {
-                    this._renderOpenedHamburgerMenu(isUserActive)
-                    this._openHamburgerAuthElementsAnimation()
-                }, animationOpenTime)
+                this._openHamburgerMenuOnSmartphone(isUserActive)
             } else {
-                this._renderOpenedHamburgerMenu(isUserActive)
+                this._openHamburgerMenuOnTablet(isUserActive)
             }
         } else {
-            this._closeHamburgerAuthElementsAnimation()
-            setTimeout(() => {
-                this._renderClosedHamburgerMenu(isUserActive)
-                this._closeHamburgerAuthMenuAnimation()
-            }, animationCloseTime)
-            
+            if (document.documentElement.clientWidth < 426) {
+                this._closeHamburgerMenuOnSmartphone(isUserActive)
+            } else {
+                this._closeHamburgerMenuOnTablet(isUserActive)
+            }
         }
+    }
+    
+    _closeHamburgerMenuOnTablet(isUserActive) {
+            this._closeHamburgerAuthElementsAnimation()
+        setTimeout(() => {
+            this._renderClosedHamburgerMenu(isUserActive)
+        }, animationCloseTime)
+    }
+    
+    _openHamburgerMenuOnTablet(isUserActive) {
+            this._renderOpenedHamburgerMenu(isUserActive)
+            this._openHamburgerAuthElementsAnimation()
+    }
+    
+    _closeHamburgerMenuOnSmartphone(isUserActive) {
+        this._closeHamburgerAuthElementsAnimation()
+        setTimeout(() => {
+            this._renderClosedHamburgerMenu(isUserActive)
+            this._closeHamburgerAuthMenuAnimation()
+        }, animationCloseTime)
+    }
+    
+    _openHamburgerMenuOnSmartphone(isUserActive) {
+        this._openHamburgerAuthMenuAnimation()
+        setTimeout(() => {
+            this._renderOpenedHamburgerMenu(isUserActive)
+            this._openHamburgerAuthElementsAnimation()
+        }, animationOpenTime)
     }
     
     _closeHamburgerAuthMenuAnimation() {
@@ -155,6 +178,4 @@ export class Menu {
                 this._renderMenu(user, isHamburgerMenuVisible)
             });
     }
-    
-    
 }
