@@ -1,0 +1,44 @@
+.typo__large-title {
+  line-height: var(--line-height-large-title-1600);
+  font-size: var(--size-large-title-1600);
+}
+
+@media screen and (max-width: 1440px) {
+  .typo__large-title {
+    line-height: var(--line-height-large-title-1440);
+    font-size: var(--size-large-title-1440);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .typo__large-title {
+    line-height: var(--line-height-large-title-1280);
+    font-size: var(--size-large-title-1280);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .typo__large-title {
+    line-height: var(--line-height-large-title-1024);
+    font-size: var(--size-large-title-1024);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .typo__large-title {
+    line-height: var(--line-height-large-title-768);
+    font-size: var(--size-large-title-768);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .typo__large-title {
+    line-height: var(--line-height-large-title-425);
+    font-size: var(--size-large-title-425);
+  }
+}
+
+
+
+
+

@@ -33,7 +33,7 @@ export class Quiz {
     }
     
     _getNextQuestion() {
-        this._currentQuestionType = document.querySelector('.quizzes__start_active').innerHTML.toLowerCase()
+        this._currentQuestionType = document.querySelector('.quizzes__start_active').innerHTML.toLowerCase().trim()
         if (this._currentQuestionType === 'math') {
             const questionNum = Math.floor(Math.random() * math.length)
             this._renderQuiz(math[questionNum])

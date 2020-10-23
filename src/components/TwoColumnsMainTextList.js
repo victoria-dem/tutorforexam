@@ -11,6 +11,9 @@ export class TwoColumnsMainTextList {
             const newElementItem = document.createElement("li");
             newElementItem.textContent = item;
             newElementItem.classList.add("two-columns__list-item")
+            newElementItem.classList.add("typo")
+            newElementItem.classList.add("typo__paragraph")
+            
             this.newElement.append(newElementItem);
         });
         return this.newElement;
