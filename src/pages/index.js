@@ -14,7 +14,7 @@ import {
     mutationConfig,
     tableFacts,
     tableMotivations,
-    glanceCardsElement
+    glanceCardsElement, root, animationOpenTime, animationCloseTime
 } from '../utils/constants.js';
 import {glanceCards} from "../utils/glancecards.js";
 import {factsinfo} from "../utils/factsinfo.js";
@@ -37,6 +37,9 @@ import {Quiz} from "../components/Quiz.js";
 
 let userEmail='';
 let userId = '';
+
+document.documentElement.style.setProperty (`--animation-open-time`, `${animationOpenTime}`);
+document.documentElement.style.setProperty (`--animation-close-time`, `${animationCloseTime}`);
 
 //FIREBASE INIT
 firebase.initializeApp

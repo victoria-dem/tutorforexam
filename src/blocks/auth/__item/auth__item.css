@@ -31,24 +31,24 @@
   }
 
   .auth__item_animation_open {
-    animation: opacity-growing 7000s;
+    animation: opacity-growing calc(var(--animation-open-time)*10s);
   }
 
 
   @keyframes opacity-growing {
-    0%   {opacity: 0.1;}
+    0%   {opacity: 0;}
     0.01%  {opacity: 1;}
     100% {opacity: 1;}
   }
 
 
   .auth__item_animation_close {
-    animation: opacity-shrinking 7000s;
+    animation: opacity-shrinking calc(var(--animation-close-time)*10s);
   }
 
   @keyframes opacity-shrinking {
     0%   {opacity: 1;}
-    0.01%  {opacity: 0.1;}
-    100% {opacity: 0.1;}
+    0.01%  {opacity: 0;}
+    100% {opacity: 0;}
   }
 }

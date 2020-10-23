@@ -6,7 +6,7 @@ import {
     logInButton,
     accountButton,
     signUpButton,
-    authMenuElement
+    authMenuElement, animationOpenTime, animationCloseTime
 } from "../utils/constants.js";
 
 export class Menu {
@@ -78,7 +78,7 @@ export class Menu {
                 setTimeout(() => {
                     this._renderOpenedHamburgerMenu(isUserActive)
                     this._openHamburgerAuthElementsAnimation()
-                }, 700)
+                }, animationOpenTime)
             } else {
                 this._renderOpenedHamburgerMenu(isUserActive)
             }
@@ -87,7 +87,7 @@ export class Menu {
             setTimeout(() => {
                 this._renderClosedHamburgerMenu(isUserActive)
                 this._closeHamburgerAuthMenuAnimation()
-            }, 700)
+            }, animationCloseTime)
             
         }
     }

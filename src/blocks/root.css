@@ -81,4 +81,7 @@
   --decor-theme-dark: #afb5ef;
   --correct-answer: green;
   --wrong-answer: red;
+  /*timers*/
+  --animation-open-time: 0;
+  --animation-close-time: 0;
 }

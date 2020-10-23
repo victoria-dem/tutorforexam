@@ -20,7 +20,8 @@ export const loggedInElements = document.querySelectorAll('.auth__item-logged-in
 export const loggedOutElements = document.querySelectorAll('.auth__item-logged-out')
 export const hamburgerMenuElement = document.querySelector('.auth__hamburger')
 export const authMenuElement = document.querySelector('.auth')
-// export const currentSize = document.body.clientWidth
+export const animationOpenTime = 750
+export const animationCloseTime = 500
 
 export const mutationConfig = {
     attributes: true,
