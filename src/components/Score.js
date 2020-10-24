@@ -1,7 +1,7 @@
 export class Score {
-    constructor(db, showScoreAndEmail) {
+    constructor(db, getUserInfo) {
         this._db=db
-        this._showScoreAndEmail=showScoreAndEmail
+        this._getUserInfo = getUserInfo
     }
     
     reCalculateScore(userId, currentQuestionType, incrementCorrectAnswers) {
@@ -37,7 +37,7 @@ export class Score {
                     correct: allSubjectsCorrect
                 }
             })
-            .then(() => this.prepScoreToDisplay(userId))
+            .then(() => {})
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -52,7 +52,7 @@ export class Score {
                     correct: allSubjectsCorrect
                 }
             })
-            .then(() => this.prepScoreToDisplay(userId))
+            .then(() => {})
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -71,7 +71,7 @@ export class Score {
                     correct: 0
                 }
             })
-            .then(() => this.prepScoreToDisplay(userId))
+            .then(() => this._getUserInfo())
             .catch(error => console.error("Error updating document: ", error));
     }
     
@@ -90,33 +90,25 @@ export class Score {
                     correct: 0
                 }
             })
-            .then(() => this.prepScoreToDisplay(userId))
+            .then(() => {})
             .catch((error) => console.error("Error writing document: ", error));
     }
     
-    prepScoreToDisplay(userId) {
-        this._db.collection("score").doc(userId)
-            .get()
-            .then((doc) => {
-                if (doc.exists) {
-                    const allSubjectsTotal = doc.data().all_subjects.total
-                    const allSubjectsCorrect = doc.data().all_subjects.correct
-                    const analogiesTotal = doc.data().analogies.total
-                    const analogiesCorrect = doc.data().analogies.correct
-                    const mathTotal = doc.data().math.total
-                    const mathCorrect = doc.data().math.correct
-                    const score = {
-                        allSubjectsTotal,
-                        allSubjectsCorrect,
-                        analogiesTotal,
-                        analogiesCorrect,
-                        mathTotal,
-                        mathCorrect
-                    }
-                    this._showScoreAndEmail(score)
-                } else {
-                    console.log("No such document!");
-                }
-            }).catch(error => console.log("Error getting document:", error));
+    prepScoreToDisplay(doc) {
+        const allSubjectsTotal = doc.data().all_subjects.total
+        const allSubjectsCorrect = doc.data().all_subjects.correct
+        const analogiesTotal = doc.data().analogies.total
+        const analogiesCorrect = doc.data().analogies.correct
+        const mathTotal = doc.data().math.total
+        const mathCorrect = doc.data().math.correct
+        return {
+            allSubjectsTotal,
+            allSubjectsCorrect,
+            analogiesTotal,
+            analogiesCorrect,
+            mathTotal,
+            mathCorrect
+        }
     }
+    
 }

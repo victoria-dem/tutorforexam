@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 
 import {
     signUpButton,
@@ -14,9 +14,9 @@ import {
     mutationConfig,
     tableFacts,
     tableMotivations,
-    glanceCardsElement, root, animationOpenTime, animationCloseTime
+    glanceCardsElement, animationOpenTime, animationCloseTime
 } from '../utils/constants.js';
-import {glanceCards} from "../utils/glancecards.js";
+import {glanceCards} from "../utils/glancecards_.js";
 import {factsinfo} from "../utils/factsinfo.js";
 import {motivationsinfo} from "../utils/motivationsinfo.js";
 import {descriptionMainText} from "../utils/descriptionmaintext.js";
@@ -35,11 +35,11 @@ import {Menu} from "../components/Menu.js";
 import {Score} from "../components/Score.js";
 import {Quiz} from "../components/Quiz.js";
 
-let userEmail='';
+let userEmail = '';
 let userId = '';
 
-document.documentElement.style.setProperty (`--animation-open-time`, `${animationOpenTime}`);
-document.documentElement.style.setProperty (`--animation-close-time`, `${animationCloseTime}`);
+document.documentElement.style.setProperty(`--animation-open-time`, `${animationOpenTime}`);
+document.documentElement.style.setProperty(`--animation-close-time`, `${animationCloseTime}`);
 
 //FIREBASE INIT
 firebase.initializeApp
@@ -56,7 +56,7 @@ function reCalculateScore(currentQuestionType, incrementCorrectAnswers) {
 }
 
 //SCORE
-const score = new Score(db, showScoreAndEmail)
+const score = new Score(db, getUserInfo )
 
 //SIGNUP
 const signUpPopup = new PopupAuth({
@@ -72,8 +72,18 @@ function signUpPopupHandler() {
 
 function signUpNewUser(email, password) {
     auth.createUserWithEmailAndPassword(email, password)
-        .then(credentials => signUpPopup.close())
+        .then(credentials => sendVerificationEmail())
         .catch(err => printErrorMessage(signUpFormValidator, "#first-field-place", err))
+}
+
+
+function sendVerificationEmail() {
+    const user = auth.currentUser;
+    user.sendEmailVerification().then(() => {
+        signUpPopup.close()
+    }).catch(function (error) {
+        console.log(error);
+    });
 }
 
 //LOGOUT
@@ -154,80 +164,101 @@ function accountPopupHandler() {
 }
 
 function resetScore() {
-    score.createScoreDocument(userId)
+    score.resetScore(userId)
 }
 
 function getUserInfo() {
-    score.prepScoreToDisplay(userId)
-}
-
-function showScoreAndEmail(score) {
-    accountPopup.renderUserInfo(score, userEmail)
+    function scoreInfo() {
+        return db.collection("score").doc(userId).get().then((doc) => {
+            if (doc.exists) {
+                return doc
+            } else {
+                console.log("Document is not found")
+            }
+        })
+    }
+    
+    function emailVerificationInfo() {
+        return new Promise(resolve => {
+            if (auth.currentUser.emailVerified) {
+                resolve(true)
+            } else {
+                resolve(false)
+            }
+        })
+    }
+    
+    Promise.all([scoreInfo(), emailVerificationInfo()])
+        .then(([doc, isEmailVerified]) => {
+            return [score.prepScoreToDisplay(doc), isEmailVerified]
+        }).then(([score, isEmailVerified]) => {
+        accountPopup.renderUserInfo(score, userEmail, isEmailVerified)
+    })
 }
 
 //VALIDATION
-const signUpFormValidator = new SignUpFormValidator(
-    defaultFormConfig,
-    signUpPopupElement
-);
-signUpFormValidator.enableValidation();
-
-const logInFormValidator = new FormValidator(
-    defaultFormConfig,
-    logInPopupElement
-);
-logInFormValidator.enableValidation();
+    const signUpFormValidator = new SignUpFormValidator(
+        defaultFormConfig,
+        signUpPopupElement
+    );
+    signUpFormValidator.enableValidation();
+    
+    const logInFormValidator = new FormValidator(
+        defaultFormConfig,
+        logInPopupElement
+    );
+    logInFormValidator.enableValidation();
 
 //START
-quiz.startMath()
+    quiz.startMath()
 
 //RENDERING STATIC CONTENT
-const renderFacts = (item) => {
-    const tableCell = new TableCell(item);
-    tableFacts.append(tableCell.getTableElement());
-};
-
-const renderMotivations = (item) => {
-    const tableCellDark = new TableCellDark(item);
-    tableMotivations.append(tableCellDark.getTableElementDark());
-};
-
-const renderMainText = (item, sectionClass) => {
-    let blockElement = '';
-    const itemKey = Object.keys(item);
-    switch (itemKey[0]) {
-        case 'paragraph':
-            blockElement = new TwoColumnsMainTextParagraph(item);
-            break;
-        case 'list' :
-            blockElement = new TwoColumnsMainTextList(item);
-            break;
-        case 'paragraphWithSpan':
-            blockElement = new TwoColumnsMainTextParagraphWithSpan(item);
-            break;
+    const renderFacts = (item) => {
+        const tableCell = new TableCell(item);
+        tableFacts.append(tableCell.getTableElement());
+    };
+    
+    const renderMotivations = (item) => {
+        const tableCellDark = new TableCellDark(item);
+        tableMotivations.append(tableCellDark.getTableElementDark());
+    };
+    
+    const renderMainText = (item, sectionClass) => {
+        let blockElement = '';
+        const itemKey = Object.keys(item);
+        switch (itemKey[0]) {
+            case 'paragraph':
+                blockElement = new TwoColumnsMainTextParagraph(item);
+                break;
+            case 'list' :
+                blockElement = new TwoColumnsMainTextList(item);
+                break;
+            case 'paragraphWithSpan':
+                blockElement = new TwoColumnsMainTextParagraphWithSpan(item);
+                break;
+        }
+        document.querySelector(sectionClass).append(blockElement.getTwoColumnsMainText());
+    };
+    
+    const renderCard = (item, templateSelector, elementSelector) => {
+        const newCard = new Card(item, templateSelector, elementSelector);
+        glanceCardsElement.append(newCard.getCardElement());
     }
-    document.querySelector(sectionClass).append(blockElement.getTwoColumnsMainText());
-};
-
-const renderCard = (item, templateSelector, elementSelector) => {
-    const newCard = new Card(item, templateSelector, elementSelector);
-    glanceCardsElement.append(newCard.getCardElement());
-}
-
-factsinfo.forEach(renderFacts);
-motivationsinfo.forEach(renderMotivations);
-descriptionMainText.forEach(function (item) {
-    renderMainText(item, '#description')
-});
-financeMainText.forEach(function (item) {
-    renderMainText(item, '#finance')
-});
-glanceCards.forEach(function (item) {
-    renderCard(item, '#cards__item', '.cards__item');
-});
+    
+    factsinfo.forEach(renderFacts);
+    motivationsinfo.forEach(renderMotivations);
+    descriptionMainText.forEach(function (item) {
+        renderMainText(item, '#description')
+    });
+    financeMainText.forEach(function (item) {
+        renderMainText(item, '#finance')
+    });
+    glanceCards.forEach(function (item) {
+        renderCard(item, '#cards__item', '.cards__item');
+    });
 
 //LISTENERS
-signUpButton.addEventListener('click', signUpPopupHandler)
-logOutButton.addEventListener('click', logOutHandler)
-logInButton.addEventListener('click', logInPopupHandler)
-accountButton.addEventListener('click', accountPopupHandler)
+    signUpButton.addEventListener('click', signUpPopupHandler)
+    logOutButton.addEventListener('click', logOutHandler)
+    logInButton.addEventListener('click', logInPopupHandler)
+    accountButton.addEventListener('click', accountPopupHandler)
