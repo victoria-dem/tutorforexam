@@ -1,4 +1,5 @@
-// import "./index.css";
+import "./index.css";
+// import "../emailverification.html"
 
 import {
     signUpButton,
@@ -16,7 +17,7 @@ import {
     tableMotivations,
     glanceCardsElement, animationOpenTime, animationCloseTime
 } from '../utils/constants.js';
-import {glanceCards} from "../utils/glancecards_.js";
+import {glanceCards} from "../utils/glancecards.js";
 import {factsinfo} from "../utils/factsinfo.js";
 import {motivationsinfo} from "../utils/motivationsinfo.js";
 import {descriptionMainText} from "../utils/descriptionmaintext.js";
