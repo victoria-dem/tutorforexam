@@ -4,10 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {main: './src/pages/index.js', emailverification: './src/pages/emailverification.js'},
-    // output: {
-    //     path: path.resolve(__dirname, 'dist'),
-    //     filename: 'main.js'
-    // },
     output: {
         filename: '[name].js',
         path: __dirname + '/dist'
@@ -62,17 +58,3 @@ module.exports = {
         new MiniCssExtractPlugin()
     ]
 };
-
-
-// {
-//     test: /\.html$/,
-//     use:[{
-//         loader: 'html-loader',
-//         options: {
-//             name: '[name].[ext]'
-//         }
-//     }], exclude: path.resolve(__dirname, '/src/index.html'),
-// },
-
-
-// inject: false,
