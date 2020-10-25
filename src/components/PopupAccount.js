@@ -16,13 +16,22 @@ export class PopupAccount extends Popup {
     }
     
     renderUserInfo(score, userEmail, isEmailVerified) {
-        this._popupContainer.querySelector(".form__text-email").innerText = `Username: ${userEmail} (${isEmailVerified})`;
+        
+        this._popupContainer.querySelector(".form__text-email").innerText = `e-mail${this._emailVerificationMsg(isEmailVerified)}: ${userEmail}`;
         this._popupContainer.querySelector(".form__text-all_subjects").innerText =
             `Total answers: ${score.allSubjectsCorrect} correct out of ${score.allSubjectsTotal}`;
         this._popupContainer.querySelector(".form__text-analogies").innerText =
             `Analogies: ${score.analogiesCorrect} correct out of ${score.analogiesTotal}`
         this._popupContainer.querySelector(".form__text-math").innerText =
             `Math: ${score.mathCorrect} correct out of ${score.mathTotal}`
+    }
+    
+    _emailVerificationMsg(isEmailVerified) {
+        if (isEmailVerified) {
+            return ' (verified)'
+        } else {
+            return ' (unverified)'
+        }
     }
     
     eraseUserInfo() {

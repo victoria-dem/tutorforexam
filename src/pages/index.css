@@ -105,6 +105,7 @@
 @import url("../blocks/form/__input/_position/form__input_position.css");
 @import url("../blocks/form/__handler/form__handler.css");
 @import url("../blocks/form/__text/form__text.css");
+@import url("../blocks/form/__text-email/form__text-email.css");
 @import url("../blocks/form/__submit-button/form__submit-button.css");
 @import url("../blocks/form/__submit-button/_disabled/form__submit-button_disabled.css");
 @import url("../blocks/form/__submit-button/_position/form__submit-button_position.css");

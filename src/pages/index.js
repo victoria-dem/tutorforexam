@@ -79,11 +79,8 @@ function signUpNewUser(email, password) {
 
 function sendVerificationEmail() {
     const user = auth.currentUser;
-    user.sendEmailVerification().then(() => {
-        signUpPopup.close()
-    }).catch(function (error) {
-        console.log(error);
-    });
+    user.sendEmailVerification().then(() => signUpPopup.close())
+        .catch((error) => console.log(error));
 }
 
 //LOGOUT
@@ -193,7 +190,7 @@ function getUserInfo() {
             return [score.prepScoreToDisplay(doc), isEmailVerified]
         }).then(([score, isEmailVerified]) => {
         accountPopup.renderUserInfo(score, userEmail, isEmailVerified)
-    })
+    }).catch(error => console.log(error))
 }
 
 //VALIDATION
