@@ -19,12 +19,11 @@ const startPosition = urlParam.indexOf('Code=')
 const endPosition = urlParam.indexOf('&', startPosition)
 const actionCode = urlParam.slice(startPosition+5, endPosition)
 
-document.querySelector('.header__title').textContent = 'Your email has been successfully verified'
-
-
 function handleVerifyEmail(auth, actionCode) {
     auth.applyActionCode(actionCode)
-        .then(resp => document.querySelector('.header__title').textContent = 'Your email has been successfully verified')
+        .then(resp => {
+            document.querySelector('.header__title').textContent = 'Your email has been successfully verified'
+        })
         .catch(error => document.querySelector('.header__title').textContent = error.message)
 }
 
