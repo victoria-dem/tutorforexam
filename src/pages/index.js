@@ -17,7 +17,7 @@ import {
     tableMotivations,
     glanceCardsElement, animationOpenTime, animationCloseTime
 } from '../utils/constants.js';
-import {glanceCards} from "../utils/glancecards.js";
+import {glanceCards} from "../utils/glancecards_.js";
 import {factsinfo} from "../utils/factsinfo.js";
 import {motivationsinfo} from "../utils/motivationsinfo.js";
 import {descriptionMainText} from "../utils/descriptionmaintext.js";
@@ -126,6 +126,27 @@ function isUserNew(user) {
         .catch(error => console.log("Error getting document:", error));
 }
 
+// hanlde verification url
+function verifyUrl () {
+
+    const urlParam = window.location.href;
+    console.log(urlParam);
+    if (urlParam.includes('mode=verifyEmail')) {
+        const startPosition = urlParam.indexOf('Code=');
+        const endPosition = urlParam.indexOf('&', startPosition);
+        const actionCode = urlParam.slice(startPosition+5, endPosition);
+        console.log(urlParam);
+        auth.applyActionCode(actionCode)
+            .then(resp => {
+                console.log('firebase')
+                document.querySelector('.header__title').textContent = 'Your email has been successfully verified'
+            })
+            .catch(error => document.querySelector('.header__title').textContent = error.message)
+    }
+}
+verifyUrl();
+
+
 // MENU
 const menu = new Menu(auth, isUserNew);
 
@@ -175,7 +196,7 @@ function getUserInfo() {
             }
         })
     }
-    
+
     function emailVerificationInfo() {
         return new Promise(resolve => {
             if (auth.currentUser.emailVerified) {
@@ -185,7 +206,7 @@ function getUserInfo() {
             }
         })
     }
-    
+
     Promise.all([scoreInfo(), emailVerificationInfo()])
         .then(([doc, isEmailVerified]) => {
             return [score.prepScoreToDisplay(doc), isEmailVerified]
@@ -200,7 +221,7 @@ function getUserInfo() {
         signUpPopupElement
     );
     signUpFormValidator.enableValidation();
-    
+
     const logInFormValidator = new FormValidator(
         defaultFormConfig,
         logInPopupElement
@@ -214,13 +235,14 @@ function getUserInfo() {
     const renderFacts = (item) => {
         const tableCell = new TableCell(item);
         tableFacts.append(tableCell.getTableElement());
+
     };
-    
+
     const renderMotivations = (item) => {
         const tableCellDark = new TableCellDark(item);
         tableMotivations.append(tableCellDark.getTableElementDark());
     };
-    
+
     const renderMainText = (item, sectionClass) => {
         let blockElement = '';
         const itemKey = Object.keys(item);
@@ -237,12 +259,12 @@ function getUserInfo() {
         }
         document.querySelector(sectionClass).append(blockElement.getTwoColumnsMainText());
     };
-    
+
     const renderCard = (item, templateSelector, elementSelector) => {
         const newCard = new Card(item, templateSelector, elementSelector);
         glanceCardsElement.append(newCard.getCardElement());
     }
-    
+
     factsinfo.forEach(renderFacts);
     motivationsinfo.forEach(renderMotivations);
     descriptionMainText.forEach(function (item) {

@@ -50,8 +50,10 @@
                 class="auth__item auth__item-log-out auth__item-logged-in typo typo__small-title"></button>
       </div>
     </div>
-    <img class="header__main-illustration" src="images/stick_children.webp"
-         alt="Happy children. Learn math is fun">
+    <picture  class="header__main-illustration-container">
+      <source class="header__main-illustration" srcset="images/stick_children.webp" type="image/webp">
+      <img  class="header__main-illustration" src="images/stick_children.png" alt="Happy children. Learn math is fun">
+    </picture>
     <div class="header__square-pic rotation"></div>
     <h1 class="header__title typo typo__large-title typo__large-title_style_bold">Free SSAT & ISEE Test Prep</h1>
     <p class="header__subtitle typo typo__small-title ">This program has been designed to help students boost their
@@ -289,7 +291,10 @@
 </template>
 <template id="cards__item">
   <div class="cards__item">
-    <img class="cards__image" src="#" alt="">
+    <picture  class="cards__image-container">
+      <source class="cards__image-source" srcset="#" type="image/webp">
+      <img  class="cards__image cards__image-img" src="#" alt="">
+    </picture>
     <p class="cards__title typo typo__title typo__title_style_bold"></p>
     <p class="cards__description typo typo__small-title"></p>
   </div>

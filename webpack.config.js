@@ -32,8 +32,8 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'html-loader',
             },
-            
-            
+
+
             {
                 test: /.(png|svg|jpg|gif|webp)$/,
                 loader: "file-loader?name=./images/[name].[ext]",
@@ -48,6 +48,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.html',
+            favicon: './src/images/favicon.ico',
             chunks: ['main']
         }),
         new HtmlWebpackPlugin({

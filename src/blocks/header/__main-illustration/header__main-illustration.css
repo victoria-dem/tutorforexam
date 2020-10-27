@@ -27,12 +27,13 @@
 
 @media screen and (max-width: 768px) {
     .header__main-illustration {
-        position: unset;
+        position: relative;
         --width-pic: 54vw;
         width: var(--width-pic);
         height: calc(var(--width-pic) / 1.33);
-        margin: 100px auto 0;
-        opacity: 1;
+        bottom: 0;
+        top: 0;
+        right: 0;
     }
 }
 
