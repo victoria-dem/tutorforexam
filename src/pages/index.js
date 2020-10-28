@@ -130,13 +130,13 @@ function isUserNew(user) {
         .catch(error => console.log("Error getting document:", error));
 }
 
-// hanlde verification url
+// handle verification url
 function verifyUrl() {
     const urlParam = window.location.href;
     if (urlParam.includes('mode=verifyEmail')) {
         const re = /(?<=oobCode=)(.*?)&/
         const actionCode = urlParam.match(re)[1];
-        const verificationMessage = document.querySelector('#verification-message').content.querySelector('.verification-message');
+        let verificationMessage = document.querySelector('#verification-message').content.querySelector('.verification-message');
         const verificationMessageContent = verificationMessage.querySelector('.verification-message__content')
         const verificationMessageButton = verificationMessage.querySelector('.verification-message__button')
 
@@ -151,7 +151,8 @@ function verifyUrl() {
         headerElement.prepend(verificationMessage);
         verificationMessageButton.addEventListener('click', () => {
             verificationMessage.classList.remove('verification-message_opened');
-            verificationMessageButton.removeEventListener('click',this)
+            verificationMessage.remove();
+            verificationMessage=''
         });
     }
 }
