@@ -48,3 +48,4 @@ export const firebaseConfig = {
 export const tableFacts = document.querySelector(".facts");
 export const tableMotivations = document.querySelector(".motivations");
 export const glanceCardsElement = document.querySelector("#glance").querySelector(".cards");
+export const headerElement = document.querySelector(".header");

@@ -15,9 +15,13 @@ import {
     mutationConfig,
     tableFacts,
     tableMotivations,
-    glanceCardsElement, animationOpenTime, animationCloseTime
+    glanceCardsElement,
+    animationOpenTime,
+    animationCloseTime,
+    headerElement,
+
 } from '../utils/constants.js';
-import {glanceCards} from "../utils/glancecards_.js";
+import {glanceCards} from "../utils/glancecards.js";
 import {factsinfo} from "../utils/factsinfo.js";
 import {motivationsinfo} from "../utils/motivationsinfo.js";
 import {descriptionMainText} from "../utils/descriptionmaintext.js";
@@ -57,7 +61,7 @@ function reCalculateScore(currentQuestionType, incrementCorrectAnswers) {
 }
 
 //SCORE
-const score = new Score(db, getUserInfo )
+const score = new Score(db, getUserInfo)
 
 //SIGNUP
 const signUpPopup = new PopupAuth({
@@ -127,23 +131,31 @@ function isUserNew(user) {
 }
 
 // hanlde verification url
-function verifyUrl () {
-
+function verifyUrl() {
     const urlParam = window.location.href;
-    console.log(urlParam);
     if (urlParam.includes('mode=verifyEmail')) {
-        const startPosition = urlParam.indexOf('Code=');
-        const endPosition = urlParam.indexOf('&', startPosition);
-        const actionCode = urlParam.slice(startPosition+5, endPosition);
-        console.log(urlParam);
+        const re = /(?<=oobCode=)(.*?)&/
+        const actionCode = urlParam.match(re)[1];
+        const verificationMessage = document.querySelector('#verification-message').content.querySelector('.verification-message');
+        const verificationMessageContent = verificationMessage.querySelector('.verification-message__content')
+        const verificationMessageButton = verificationMessage.querySelector('.verification-message__button')
+
         auth.applyActionCode(actionCode)
             .then(resp => {
-                console.log('firebase')
-                document.querySelector('.header__title').textContent = 'Your email has been successfully verified'
+                verificationMessageContent.textContent = 'Your email has been successfully verified'
             })
-            .catch(error => document.querySelector('.header__title').textContent = error.message)
+            .catch(error => {
+                verificationMessageContent.textContent = error.message;
+            })
+        verificationMessage.classList.add('verification-message_opened');
+        headerElement.prepend(verificationMessage);
+        verificationMessageButton.addEventListener('click', () => {
+            verificationMessage.classList.remove('verification-message_opened');
+            verificationMessageButton.removeEventListener('click',this)
+        });
     }
 }
+
 verifyUrl();
 
 
@@ -216,69 +228,69 @@ function getUserInfo() {
 }
 
 //VALIDATION
-    const signUpFormValidator = new SignUpFormValidator(
-        defaultFormConfig,
-        signUpPopupElement
-    );
-    signUpFormValidator.enableValidation();
+const signUpFormValidator = new SignUpFormValidator(
+    defaultFormConfig,
+    signUpPopupElement
+);
+signUpFormValidator.enableValidation();
 
-    const logInFormValidator = new FormValidator(
-        defaultFormConfig,
-        logInPopupElement
-    );
-    logInFormValidator.enableValidation();
+const logInFormValidator = new FormValidator(
+    defaultFormConfig,
+    logInPopupElement
+);
+logInFormValidator.enableValidation();
 
 //START
-    quiz.startMath()
+quiz.startMath()
 
 //RENDERING STATIC CONTENT
-    const renderFacts = (item) => {
-        const tableCell = new TableCell(item);
-        tableFacts.append(tableCell.getTableElement());
+const renderFacts = (item) => {
+    const tableCell = new TableCell(item);
+    tableFacts.append(tableCell.getTableElement());
 
-    };
+};
 
-    const renderMotivations = (item) => {
-        const tableCellDark = new TableCellDark(item);
-        tableMotivations.append(tableCellDark.getTableElementDark());
-    };
+const renderMotivations = (item) => {
+    const tableCellDark = new TableCellDark(item);
+    tableMotivations.append(tableCellDark.getTableElementDark());
+};
 
-    const renderMainText = (item, sectionClass) => {
-        let blockElement = '';
-        const itemKey = Object.keys(item);
-        switch (itemKey[0]) {
-            case 'paragraph':
-                blockElement = new TwoColumnsMainTextParagraph(item);
-                break;
-            case 'list' :
-                blockElement = new TwoColumnsMainTextList(item);
-                break;
-            case 'paragraphWithSpan':
-                blockElement = new TwoColumnsMainTextParagraphWithSpan(item);
-                break;
-        }
-        document.querySelector(sectionClass).append(blockElement.getTwoColumnsMainText());
-    };
-
-    const renderCard = (item, templateSelector, elementSelector) => {
-        const newCard = new Card(item, templateSelector, elementSelector);
-        glanceCardsElement.append(newCard.getCardElement());
+const renderMainText = (item, sectionClass) => {
+    let blockElement = '';
+    const itemKey = Object.keys(item);
+    switch (itemKey[0]) {
+        case 'paragraph':
+            blockElement = new TwoColumnsMainTextParagraph(item);
+            break;
+        case 'list' :
+            blockElement = new TwoColumnsMainTextList(item);
+            break;
+        case 'paragraphWithSpan':
+            blockElement = new TwoColumnsMainTextParagraphWithSpan(item);
+            break;
     }
+    document.querySelector(sectionClass).append(blockElement.getTwoColumnsMainText());
+};
 
-    factsinfo.forEach(renderFacts);
-    motivationsinfo.forEach(renderMotivations);
-    descriptionMainText.forEach(function (item) {
-        renderMainText(item, '#description')
-    });
-    financeMainText.forEach(function (item) {
-        renderMainText(item, '#finance')
-    });
-    glanceCards.forEach(function (item) {
-        renderCard(item, '#cards__item', '.cards__item');
-    });
+const renderCard = (item, templateSelector, elementSelector) => {
+    const newCard = new Card(item, templateSelector, elementSelector);
+    glanceCardsElement.append(newCard.getCardElement());
+}
+
+factsinfo.forEach(renderFacts);
+motivationsinfo.forEach(renderMotivations);
+descriptionMainText.forEach(function (item) {
+    renderMainText(item, '#description')
+});
+financeMainText.forEach(function (item) {
+    renderMainText(item, '#finance')
+});
+glanceCards.forEach(function (item) {
+    renderCard(item, '#cards__item', '.cards__item');
+});
 
 //LISTENERS
-    signUpButton.addEventListener('click', signUpPopupHandler)
-    logOutButton.addEventListener('click', logOutHandler)
-    logInButton.addEventListener('click', logInPopupHandler)
-    accountButton.addEventListener('click', accountPopupHandler)
+signUpButton.addEventListener('click', signUpPopupHandler)
+logOutButton.addEventListener('click', logOutHandler)
+logInButton.addEventListener('click', logInPopupHandler)
+accountButton.addEventListener('click', accountPopupHandler)

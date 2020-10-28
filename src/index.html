@@ -24,7 +24,12 @@
 </head>
 <body>
 <div class="page">
+
   <header class="header">
+<!--    <div class="verification-message">-->
+<!--      <p class="verification-message__content typo typo__paragraph">Your email has been successfully verified</p>-->
+<!--      <button class="verification-message__button" aria-label="Close"></button>-->
+<!--    </div>-->
     <div class="header__top-menu">
       <div class="logo logo_place_header"></div>
       <div class="auth">
@@ -298,6 +303,12 @@
     <p class="cards__title typo typo__title typo__title_style_bold"></p>
     <p class="cards__description typo typo__small-title"></p>
   </div>
+</template>
+<template id="verification-message">
+    <div class="verification-message">
+      <p class="verification-message__content typo typo__paragraph"></p>
+      <button class="verification-message__button" aria-label="Close"></button>
+    </div>
 </template>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>

@@ -1,0 +1,10 @@
+.verification-message__content {
+    padding: 20px 10px;
+    margin: auto;
+}
+
+@media screen and (max-width: 425px) {
+    .verification-message__content {
+        max-width: calc(100vw - 60px);
+    }
+}

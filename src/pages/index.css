@@ -119,6 +119,10 @@
 @import url(../blocks/auth/__item/_animation/auth__item_animation_close.css);
 @import url(../blocks/auth/__item/_animation/auth__item_animation_open.css);
 @import url(../blocks/auth/__hamburger/auth__hamburger.css);
+@import url(../blocks/verification-message/verification-message.css);
+@import url(../blocks/verification-message/_opened/verification-message_opened.css);
+@import url(../blocks/verification-message/__content/verification-message__content.css);
+@import url(../blocks/verification-message/__button/verification-message__button.css);
 
 @import url(../blocks/typo/typo.css);
 @import url(../blocks/typo/__paragraph/typo__paragraph.css);

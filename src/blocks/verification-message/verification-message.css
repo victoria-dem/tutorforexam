@@ -1,0 +1,22 @@
+.verification-message {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    color: var(--text-theme-dark);
+    background-color: var(--background-section);
+    box-sizing: border-box;
+    z-index: 5;
+
+}
+
+@media screen and (max-width: 425px) {
+    .verification-message {
+        position: static;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
