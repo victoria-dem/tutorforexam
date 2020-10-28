@@ -1,6 +1,7 @@
 export class Card {
     constructor(data,templateSelector,elementSelector) {
-        this.link = data.link;
+        this.linkPng = data.linkPng;
+        this.linkWebp = data.linkWebp;
         this.alt = data.alt;
         this.title = data.title;
         this.text = data.text;
@@ -20,8 +21,10 @@ export class Card {
         this._element = this._getTemplate();
         this._element.querySelector(".cards__title").textContent = this.title;
         this._element.querySelector(".cards__description").textContent = this.text;
-        const cardImg = this._element.querySelector(".cards__image");
-        cardImg.src = this.link;
+        const cardImg = this._element.querySelector(".cards__image-img");
+        const cardSource = this._element.querySelector(".cards__image-source");
+        cardSource.srcset = this.linkWebp;
+        cardImg.src = this.linkPng;
         cardImg.alt = this.alt;
         return this._element;
     }

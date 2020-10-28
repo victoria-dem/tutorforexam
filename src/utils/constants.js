@@ -7,19 +7,19 @@ export const nextQuestion = document.querySelector('.quiz__next-question');
 export const quizResultElement = fullQuiz.querySelector('.quiz__result');
 export const quizResultCheckmarkElement = fullQuiz.querySelector('.quiz__img');
 export const quizSolutionElement = fullQuiz.querySelector('.quiz__solution');
-
-export const signUpButton = document.querySelector('.auth__item-sign-up')
-export const logInButton = document.querySelector('.auth__item-log-in')
-export const logOutButton = document.querySelector('.auth__item-log-out')
-export const accountButton = document.querySelector('.auth__item-account')
-export const signUpPopupElement = document.querySelector('.popup-form-sign-up')
-export const accountPopupElement = document.querySelector('.popup-form-account')
-
-export const logInPopupElement = document.querySelector('.popup-form-log-in')
-export const loggedInElements = document.querySelectorAll('.auth__item-logged-in')
-export const loggedOutElements = document.querySelectorAll('.auth__item-logged-out')
-export const hamburgerMenuElement = document.querySelector('.auth__hamburger')
-// export const currentSize = document.body.clientWidth
+export const signUpButton = document.querySelector('.auth__item-sign-up');
+export const logInButton = document.querySelector('.auth__item-log-in');
+export const logOutButton = document.querySelector('.auth__item-log-out');
+export const accountButton = document.querySelector('.auth__item-account');
+export const signUpPopupElement = document.querySelector('.popup-form-sign-up');
+export const accountPopupElement = document.querySelector('.popup-form-account');
+export const logInPopupElement = document.querySelector('.popup-form-log-in');
+export const loggedInElements = document.querySelectorAll('.auth__item-logged-in');
+export const loggedOutElements = document.querySelectorAll('.auth__item-logged-out');
+export const hamburgerMenuElement = document.querySelector('.auth__hamburger');
+export const authMenuElement = document.querySelector('.auth');
+export const animationOpenTime = 750;
+export const animationCloseTime = 750;
 
 export const mutationConfig = {
     attributes: true,
@@ -48,3 +48,4 @@ export const firebaseConfig = {
 export const tableFacts = document.querySelector(".facts");
 export const tableMotivations = document.querySelector(".motivations");
 export const glanceCardsElement = document.querySelector("#glance").querySelector(".cards");
+export const headerElement = document.querySelector(".header");

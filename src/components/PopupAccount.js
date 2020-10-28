@@ -1,35 +1,49 @@
-import { Popup } from "./Popup.js";
+import {Popup} from "./Popup.js";
 
 export class PopupAccount extends Popup {
-    constructor({popupSelector, resetScore, getUserScore}) {
+    constructor({popupSelector, resetScore, getUserInfo}) {
         super(popupSelector);
         this._resetScore = resetScore;
         this._resetScore = this._resetScore.bind(this)
-        this._getUserScore = getUserScore;
-        this._getUserScore = this._getUserScore.bind(this)
+        this._getUserInfo = getUserInfo;
+        this._getUserInfo = this._getUserInfo.bind(this)
         this._resetScoreHandler = this._resetScoreHandler.bind(this)
     }
     
     open() {
         super.open();
-        this._getUserScore()
+        this._getUserInfo()
     }
     
-    renderScoreInfo(score, email) {
-        this._popupContainer.querySelector(".form__text-email").innerText = `Username: ${email}`;
+    renderUserInfo(score, userEmail, isEmailVerified) {
+        
+        this._popupContainer.querySelector(".form__text-email").innerText = `e-mail${this._emailVerificationMsg(isEmailVerified)}: ${userEmail}`;
         this._popupContainer.querySelector(".form__text-all_subjects").innerText =
             `Total answers: ${score.allSubjectsCorrect} correct out of ${score.allSubjectsTotal}`;
         this._popupContainer.querySelector(".form__text-analogies").innerText =
             `Analogies: ${score.analogiesCorrect} correct out of ${score.analogiesTotal}`
         this._popupContainer.querySelector(".form__text-math").innerText =
-        `Math: ${score.mathCorrect} correct out of ${score.mathTotal}`
+            `Math: ${score.mathCorrect} correct out of ${score.mathTotal}`
+    }
+    
+    _emailVerificationMsg(isEmailVerified) {
+        if (isEmailVerified) {
+            return ' (verified)'
+        } else {
+            return ' (unverified)'
+        }
+    }
+    
+    eraseUserInfo() {
+        this._popupContainer.querySelector(".form__text-email").innerText = '';
+        this._popupContainer.querySelector(".form__text-all_subjects").innerText = ''
+        this._popupContainer.querySelector(".form__text-analogies").innerText = ''
+        this._popupContainer.querySelector(".form__text-math").innerText = ''
     }
     
     _resetScoreHandler(evt) {
         evt.preventDefault();
-        this._getUserScore()
         this._resetScore()
-        this._getUserScore()
     }
     
     setEventListeners() {

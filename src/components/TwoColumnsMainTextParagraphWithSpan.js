@@ -10,6 +10,9 @@ export class  TwoColumnsMainTextParagraphWithSpan extends TwoColumnsMainTextPara
         super ._generateElementWithContent();
         const spanElement = document.createElement("span");
         spanElement.classList.add("two-columns__span-accent")
+        spanElement.classList.add("typo")
+        spanElement.classList.add("typo__paragraph")
+        spanElement.classList.add("typo__paragraph_style_bold")
         spanElement.textContent = this.spanText;
         this.newElement.prepend(spanElement);
         return this.newElement;

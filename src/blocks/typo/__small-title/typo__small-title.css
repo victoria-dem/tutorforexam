@@ -1,0 +1,39 @@
+.typo__small-title {
+  line-height: var(--line-height-small-title-1600);
+  font-size: var(--size-small-title-1600);
+}
+
+@media screen and (max-width: 1440px) {
+  .typo__small-title {
+    line-height: var(--line-height-small-title-1440);
+    font-size: var(--size-small-title-1440);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .typo__small-title {
+    line-height: var(--line-height-small-title-1280);
+    font-size: var(--size-small-title-1280);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .typo__small-title {
+    line-height: var(--line-height-small-title-1024);
+    font-size: var(--size-small-title-1024);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .typo__small-title {
+    line-height: var(--line-height-small-title-768);
+    font-size: var(--size-small-title-768);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .typo__small-title {
+    line-height: var(--line-height-small-title-425);
+    font-size: var(--size-small-title-425);
+  }
+}

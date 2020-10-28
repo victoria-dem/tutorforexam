@@ -1,0 +1,44 @@
+.verification-message__button {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    opacity: 1;
+    padding: 0;
+    border: none;
+}
+.verification-message__button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+.verification-message__button:before, .verification-message__button:after {
+    position: absolute;
+    right: 12px;
+    top: -2px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: var(--text-theme-dark);
+}
+.verification-message__button:before {
+    transform: rotate(45deg);
+}
+.verification-message__button:after {
+    transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 425px) {
+    .verification-message__button {
+        position: static;
+        align-self: center;
+    }
+
+    .verification-message__button:before, .verification-message__button:after {
+        right: 15px;
+        top: 12px;
+        content: ' ';
+        height: 33px;
+    }
+}

@@ -16,6 +16,9 @@ export class Popup {
         this._popupContainer.classList.add("popup_fade_out");
         window.removeEventListener("keyup", this._handleEscClose);
         this._popupContainer.querySelector(".form").reset();
+        this._popupContainer.querySelectorAll('.form__field').forEach(inputElement =>{
+            inputElement.textContent = '';
+        })
     }
     
     _handleClickClose(evt) {

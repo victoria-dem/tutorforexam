@@ -2,9 +2,6 @@
     margin: 0 0 0 64px;
     padding: 0;
     width: 650px;
-    line-height: var(--line-height-large-title-1600);
-    font-size: var(--size-large-title-1600);
-    font-weight: bold;
     z-index: 3;
 }
 
@@ -12,9 +9,6 @@
     .header__title {
         width: 45vw;
         margin: 0 0 0 64px;
-        line-height: var(--line-height-large-title-1440);
-        font-size: var(--size-large-title-1440);
-        font-weight: bold;
     }
 }
 
@@ -22,9 +16,6 @@
     .header__title {
         width: 45vw;
         margin: 0 0 0 64px;
-        line-height: var(--line-height-large-title-1280);
-        font-size: var(--size-large-title-1280);
-        font-weight: bold;
     }
 }
 
@@ -32,9 +23,6 @@
     .header__title {
         width: 45vw;
         margin: 0 0 0 64px;
-        line-height: var(--line-height-large-title-1024);
-        font-size: var(--size-large-title-1024);
-        font-weight: bold;
     }
 }
 
@@ -42,9 +30,6 @@
     .header__title {
         width: 80vw;
         margin: 32px auto 0;
-        line-height: var(--line-height-large-title-768);
-        font-size: var(--size-large-title-768);
-        font-weight: bold;
         text-align: center;
     }
 }
@@ -52,12 +37,5 @@
 @media screen and (max-width: 425px) {
     .header__title {
         margin: 22px auto 0;
-        line-height: var(--line-height-large-title-425);
-        font-size: var(--size-large-title-425);
     }
 }
-
-
-
-
-

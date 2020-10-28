@@ -31,21 +31,9 @@ export class FormValidator {
     }
     
     _hasInvalidInput(inputList) {
-        const isValid = inputList.some((inputElement, i) => {
+        return inputList.some((inputElement, i) => {
             return !inputElement.validity.valid;
-        });
-        if (inputList[2]===undefined) return isValid
-        if (isValid) {
-            return true
-        } else if (!isValid && ((inputList[1].value === inputList[2].value))) {
-            
-            return false
-        } else {
-            const inputElement = document.querySelector("#third-field-place")
-            const errorMessage = 'Passwords are not the same'
-            this.showInputError(inputElement, errorMessage)
-            return true
-        }
+        })
     }
     
     _toggleButtonState(inputList) {

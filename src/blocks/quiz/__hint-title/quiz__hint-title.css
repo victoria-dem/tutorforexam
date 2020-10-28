@@ -1,52 +1,17 @@
 .quiz__hint-title {
     background-color: transparent;
     color: var(--text-btn-color);
-    font-size: var(--size-paragraph-1600);
-    line-height: var(--line-height-paragraph-1600);
-    font-style: italic;
     border: none;
     padding: 0;
     margin: 0 0 10px 20px;
 }
 
-
 .quiz__hint-title:focus {
     outline-style: none;
 }
 
-@media screen and (max-width: 1440px) {
-    .quiz__hint-title {
-        font-size: var(--size-paragraph-1440);
-        line-height: var(--line-height-paragraph-1440);
-    }
-}
-
-@media screen and (max-width: 1280px) {
-    .quiz__hint-title {
-        font-size: var(--size-paragraph-1280);
-        line-height: var(--line-height-paragraph-1280);
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .quiz__hint-title {
-        font-size: var(--size-paragraph-1024);
-        line-height: var(--line-height-paragraph-1024);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .quiz__hint-title {
-        font-size: var(--size-paragraph-768);
-        line-height: var(--line-height-paragraph-768);
-    }
-}
-
 @media screen and (max-width: 425px) {
     .quiz__hint-title {
-        font-size: var(--size-paragraph-425);
-        line-height: var(--line-height-paragraph-425);
         margin: 0 0 10px 0;
     }
 }
-

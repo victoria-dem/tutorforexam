@@ -13,6 +13,7 @@
 @import url(../blocks/footer/__column/footer__column.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__main-illustration/header__main-illustration.css);
+@import url(../blocks/header/__main-illustration-container/header__main-illustration-container.css);
 @import url(../blocks/header/__square-pic/header__square-pic.css);
 @import url(../blocks/header/__subtitle/header__subtitle.css);
 @import url(../blocks/header/__title/header__title.css);
@@ -105,15 +106,36 @@
 @import url("../blocks/form/__input/_position/form__input_position.css");
 @import url("../blocks/form/__handler/form__handler.css");
 @import url("../blocks/form/__text/form__text.css");
+@import url("../blocks/form/__text-email/form__text-email.css");
 @import url("../blocks/form/__submit-button/form__submit-button.css");
 @import url("../blocks/form/__submit-button/_disabled/form__submit-button_disabled.css");
 @import url("../blocks/form/__submit-button/_position/form__submit-button_position.css");
 @import url(../blocks/hover/hover.css);
 @import url(../blocks/auth/auth.css);
+@import url(../blocks/auth/_animation/auth_animation_close.css);
+@import url(../blocks/auth/_animation/auth_animation_open.css);
 @import url(../blocks/auth/__item/auth__item.css);
 @import url(../blocks/auth/__item/_hide/auth__item_hide.css);
+@import url(../blocks/auth/__item/_animation/auth__item_animation_close.css);
+@import url(../blocks/auth/__item/_animation/auth__item_animation_open.css);
 @import url(../blocks/auth/__hamburger/auth__hamburger.css);
-@import url(../blocks/font-template/font-template__small-text.css);
-@import url(../blocks/font-template/font-template__paragraph-bold.css);
+@import url(../blocks/verification-message/verification-message.css);
+@import url(../blocks/verification-message/_opened/verification-message_opened.css);
+@import url(../blocks/verification-message/__content/verification-message__content.css);
+@import url(../blocks/verification-message/__button/verification-message__button.css);
+
+@import url(../blocks/typo/typo.css);
+@import url(../blocks/typo/__paragraph/typo__paragraph.css);
+@import url(../blocks/typo/__paragraph/_style/typo__paragraph_style_italic.css);
+@import url(../blocks/typo/__paragraph/_style/typo__paragraph_style_bold.css);
+
+
+@import url(../blocks/typo/__small-text/typo__small-text.css);
+@import url(../blocks/typo/__small-title/typo__small-title.css);
+@import url(../blocks/typo/__title/typo_title.css);
+@import url(../blocks/typo/__title/_style/typo__title_style_bold.css);
+@import url(../blocks/typo/__large-title/typo__large-title.css);
+@import url(../blocks/typo/__large-title/_style/typo__large-title_style_bold.css);
+
 
 @import url(../blocks/root.css);

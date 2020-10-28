@@ -6,6 +6,8 @@ export class TwoColumnsMainTextParagraph {
     _generateElementWithContent() {
         this.newElement = document.createElement("p");
         this.newElement.classList.add("two-columns__paragraph")
+        this.newElement.classList.add("typo")
+        this.newElement.classList.add("typo__paragraph")
         this.newElement.textContent = this.paragraph;
         return this.newElement;
     }
