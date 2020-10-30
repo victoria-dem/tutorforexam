@@ -134,7 +134,7 @@ function isUserNew(user) {
 function verifyUrl() {
     const urlParam = window.location.href;
     if (urlParam.includes('mode=verifyEmail')) {
-        const re = /(?<=oobCode=)(.*?)&/
+        const re = /(?<=oobCode=)(.*?)&/;
         const actionCode = urlParam.match(re)[1];
         let verificationMessage = document.querySelector('#verification-message').content.querySelector('.verification-message');
         const verificationMessageContent = verificationMessage.querySelector('.verification-message__content')
@@ -152,13 +152,13 @@ function verifyUrl() {
         verificationMessageButton.addEventListener('click', () => {
             verificationMessage.classList.remove('verification-message_opened');
             verificationMessage.remove();
-            verificationMessage=''
+            verificationMessage.innerHTML='';
+            window.location.replace(urlParam.match(/[^\?]+/));
         });
     }
 }
 
 verifyUrl();
-
 
 // MENU
 const menu = new Menu(auth, isUserNew);
